@@ -37,7 +37,7 @@ class GameViewController: UIViewController {
         return imageView
     }()
 
-    private let runButton: UIButton = {
+    private lazy var runButton: UIButton = {
         let button = CustomButton(text: "Запустить")
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(runButtonPressed), for: .touchUpInside)
