@@ -3,6 +3,8 @@ import AVFoundation
 
 class SettingsViewController: UIViewController {
     
+    // MARK: - Needed Data
+    
     private let bgMusicArray : [String] = ["Шоу Бэнни Хила", "X-Files"]
     private let bombTikSoundsArray : [String] = ["Тиканье часов", "Маятник","Маятник с Эхо", "Электронный"]
     private let bombExplosionSoundArray : [String] = ["Взрыв 1", "Взрыв 2","Взырв 3", "Взрыв 4"]
@@ -10,6 +12,7 @@ class SettingsViewController: UIViewController {
     private var pickersSelectedRow = Int()
     private var player: AVAudioPlayer?
     private let defaults = UserDefaults.standard
+    
     
     // MARK: -  UI Elements
     
@@ -152,25 +155,29 @@ class SettingsViewController: UIViewController {
         setupConstraints()
         addButtonsTargets()
         addSwitchTargets()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        updateSoundsButtonsLabel()
         updateGameWithTaskSwitchValue()
         updateMusicSwitchValue()
-        updateSoundsButtonsLabel()
+        
+        print(defaults.bool(forKey: K.UserDefaultsKeys.backgroundMusicBool))
+        print(defaults.bool(forKey: K.UserDefaultsKeys.gameWithTasksBool))
+        print(defaults.integer(forKey: K.UserDefaultsKeys.roundTimeDurationInSeconds))
+        print(defaults.string(forKey: K.UserDefaultsKeys.bgMusicSavedValue))
+        print(defaults.string(forKey: K.UserDefaultsKeys.bombExplosionSaveValue))
+        print(defaults.string(forKey: K.UserDefaultsKeys.bombTikSavedValue))
     }
     
     
     // MARK: - Switch Methods
     
     @objc private func musicSwitchTaped(_ sender: UISwitch) {
-
+        defaults.set(!defaults.bool(forKey: K.UserDefaultsKeys.backgroundMusicBool), forKey: K.UserDefaultsKeys.backgroundMusicBool)
+        backgroundMusicSwitch.isOn = defaults.bool(forKey: K.UserDefaultsKeys.backgroundMusicBool)
     }
     
     @objc private func taskSwitchTaped(_ sender: UISwitch) {
-        defaults.set(sender.isOn, forKey: K.UserDefaultsKeys.gameWithTasksBool)
-    
+        defaults.set(!defaults.bool(forKey: K.UserDefaultsKeys.gameWithTasksBool), forKey: K.UserDefaultsKeys.gameWithTasksBool)
+        gameWithTasksSwitch.isOn = defaults.bool(forKey: K.UserDefaultsKeys.gameWithTasksBool)
     }
     
     // MARK: - Buttons Methods
@@ -181,17 +188,14 @@ class SettingsViewController: UIViewController {
             defaults.set(20, forKey: K.UserDefaultsKeys.roundTimeDurationInSeconds)
             changeButtonUI(btn: sender, bgColor: .specialViolet, textColor: .specialYellow)
             restoreStandartButtonUI([shortButton, longButton, randomButton])
-            
         case 2:
             defaults.set(45, forKey: K.UserDefaultsKeys.roundTimeDurationInSeconds)
             changeButtonUI(btn: sender, bgColor: .specialViolet, textColor: .specialYellow)
             restoreStandartButtonUI([shortButton, middleButton, randomButton])
-            
         case 3:
             defaults.set(Int.random(in: 10...45), forKey: K.UserDefaultsKeys.roundTimeDurationInSeconds)
             changeButtonUI(btn: sender, bgColor: .specialViolet, textColor: .specialYellow)
             restoreStandartButtonUI([shortButton, middleButton, longButton])
-            
         default:
             defaults.set(10, forKey: K.UserDefaultsKeys.roundTimeDurationInSeconds)
             changeButtonUI(btn: sender, bgColor: .specialViolet, textColor: .specialYellow)
@@ -213,7 +217,6 @@ class SettingsViewController: UIViewController {
         toolBar = UIToolbar.init(frame: CGRect.init(x: 0.0, y: UIScreen.main.bounds.size.height - 300, width: UIScreen.main.bounds.size.width, height: 50))
         toolBar.barStyle = .black
         toolBar.items = [UIBarButtonItem.init(title: "Выбрать", style: .done, target: self, action: #selector(choosebgMusicPickerTaped)), UIBarButtonItem.init(title: "Отмена", style: .plain, target: self, action: #selector(cancelMusicPickerTaped))]
-        
         toolBar.barTintColor = .specialViolet
         toolBar.tintColor = .white
         self.view.addSubview(toolBar)
@@ -233,7 +236,6 @@ class SettingsViewController: UIViewController {
         toolBar = UIToolbar.init(frame: CGRect.init(x: 0.0, y: UIScreen.main.bounds.size.height - 300, width: UIScreen.main.bounds.size.width, height: 50))
         toolBar.barStyle = .black
         toolBar.items = [UIBarButtonItem.init(title: "Выбрать", style: .done, target: self, action: #selector(chooseBombTikPickerTaped)), UIBarButtonItem.init(title: "Отмена", style: .plain, target: self, action: #selector(cancelBombTikPickerTaped))]
-        
         toolBar.barTintColor = .specialViolet
         toolBar.tintColor = .white
         self.view.addSubview(toolBar)
@@ -253,7 +255,6 @@ class SettingsViewController: UIViewController {
         toolBar = UIToolbar.init(frame: CGRect.init(x: 0.0, y: UIScreen.main.bounds.size.height - 300, width: UIScreen.main.bounds.size.width, height: 50))
         toolBar.barStyle = .black
         toolBar.items = [UIBarButtonItem.init(title: "Выбрать", style: .done, target: self, action: #selector(chooseExplosionPickerTaped)), UIBarButtonItem.init(title: "Отмена", style: .plain, target: self, action: #selector(cancelExplosionPickerTaped))]
-        
         toolBar.barTintColor = .specialViolet
         toolBar.tintColor = .white
         self.view.addSubview(toolBar)
@@ -370,6 +371,7 @@ class SettingsViewController: UIViewController {
             button.tag = tag
             tag += 1
         }
+        
         chooseBGMelodyButton.addTarget(self, action: #selector(chooseBGMelodyTaped(_:)), for: .touchUpInside)
         chooseBombTikButton.addTarget(self, action: #selector(chooseBombTikTaped), for: .touchUpInside)
         chooseBombExplButton.addTarget(self, action: #selector(chooseExplosionTaped), for: .touchUpInside)
@@ -393,41 +395,45 @@ class SettingsViewController: UIViewController {
     }
     
     private func updateMusicSwitchValue() {
-
+        if isKeyPresentInUserDefaults(key: K.UserDefaultsKeys.backgroundMusicBool) {
+            self.backgroundMusicSwitch.isOn = defaults.bool(forKey: K.UserDefaultsKeys.backgroundMusicBool)
+        } else {
+            self.backgroundMusicSwitch.isOn = true
+            defaults.set(true, forKey: K.UserDefaultsKeys.backgroundMusicBool)
+        }
     }
     
     private func updateGameWithTaskSwitchValue() {
-        
-        gameWithTasksSwitch.setOn(defaults.bool(forKey: K.UserDefaultsKeys.gameWithTasksBool), animated: true)
+        if isKeyPresentInUserDefaults(key: K.UserDefaultsKeys.gameWithTasksBool) {
+            self.gameWithTasksSwitch.isOn = defaults.bool(forKey: K.UserDefaultsKeys.gameWithTasksBool)
+        } else {
+            self.gameWithTasksSwitch.isOn = true
+            defaults.set(true, forKey: K.UserDefaultsKeys.gameWithTasksBool)
+        }
     }
     
     private func updateSoundsButtonsLabel() {
-        
-        let currentBgMelody = defaults.string(forKey: K.UserDefaultsKeys.bgMusicSavedValue)
-        if  currentBgMelody == nil {
+        if isKeyPresentInUserDefaults(key: K.UserDefaultsKeys.bgMusicSavedValue) {
+            chooseBGMelodyButton.setTitle(defaults.string(forKey: K.UserDefaultsKeys.bgMusicSavedValue), for: .normal)
+        } else {
             defaults.set(SoundsDataModel.backGroundMisuc["Шоу Бэнни Хила"], forKey: K.UserDefaultsKeys.bgMusicSavedValue)
             chooseBGMelodyButton.setTitle("Шоу Бэнни Хила", for: .normal)
-        } else {
-            chooseBGMelodyButton.setTitle(defaults.string(forKey: K.UserDefaultsKeys.bgMusicSavedValue), for: .normal)
         }
         
-        let currentTikSound = defaults.string(forKey: K.UserDefaultsKeys.bombTikSavedValue)
-        if currentTikSound == nil {
+        if isKeyPresentInUserDefaults(key: K.UserDefaultsKeys.bombTikSavedValue) {
+            chooseBombTikButton.setTitle(defaults.string(forKey: K.UserDefaultsKeys.bombTikSavedValue), for: .normal)
+        } else {
             defaults.set(SoundsDataModel.bombTikSound["Тиканье часов"], forKey: K.UserDefaultsKeys.bombTikSavedValue)
             chooseBombTikButton.setTitle("Тиканье часов", for: .normal)
-        } else {
-            chooseBombTikButton.setTitle(defaults.string(forKey: K.UserDefaultsKeys.bombTikSavedValue), for: .normal)
         }
-
-        let currentexplosionSound = defaults.string(forKey: K.UserDefaultsKeys.bombExplosionSaveValue)
-        if currentexplosionSound == nil {
+        
+        if isKeyPresentInUserDefaults(key: K.UserDefaultsKeys.bombExplosionSaveValue) {
+            chooseBombExplButton.setTitle(defaults.string(forKey: K.UserDefaultsKeys.bombExplosionSaveValue), for: .normal)
+        } else {
             defaults.set(SoundsDataModel.bombExplosionSound["Взрыв 1"], forKey: K.UserDefaultsKeys.bombExplosionSaveValue)
             chooseBombExplButton.setTitle("Взрыв 1", for: .normal)
-        } else {
-            chooseBombExplButton.setTitle(defaults.string(forKey: K.UserDefaultsKeys.bombExplosionSaveValue), for: .normal)
         }
     }
-    
     
     // MARK: - Player Section
     
@@ -461,7 +467,6 @@ extension SettingsViewController : UIPickerViewDataSource, UIPickerViewDelegate 
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         (pickerView == bgMusicPicker) ? bgMusicArray[row] : ((pickerView == bombTikPicker) ? bombTikSoundsArray[row] : bombExplosionSoundArray[row])
-        
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
