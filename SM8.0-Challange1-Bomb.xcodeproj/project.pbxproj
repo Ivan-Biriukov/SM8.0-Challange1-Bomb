@@ -14,6 +14,8 @@
 		166677642A83E27D0005965C /* RulesViewController + UITableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166677632A83E27D0005965C /* RulesViewController + UITableViewDataSource.swift */; };
 		166677662A83E2C20005965C /* RulesViewController + UITableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166677652A83E2C20005965C /* RulesViewController + UITableViewDelegate.swift */; };
 		5759832F2A83D696001B38A3 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5759832E2A83D696001B38A3 /* SettingsViewController.swift */; };
+		575983362A83E7FC001B38A3 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575983342A83E7FC001B38A3 /* GameViewController.swift */; };
+		575983372A83E7FC001B38A3 /* GameEndViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575983352A83E7FC001B38A3 /* GameEndViewController.swift */; };
 		57A8D3912A83CBBC00D411E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A8D3902A83CBBC00D411E5 /* AppDelegate.swift */; };
 		57A8D3932A83CBBC00D411E5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A8D3922A83CBBC00D411E5 /* SceneDelegate.swift */; };
 		57A8D3952A83CBBC00D411E5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A8D3942A83CBBC00D411E5 /* MainViewController.swift */; };
@@ -48,6 +50,8 @@
 		166677632A83E27D0005965C /* RulesViewController + UITableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RulesViewController + UITableViewDataSource.swift"; sourceTree = "<group>"; };
 		166677652A83E2C20005965C /* RulesViewController + UITableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RulesViewController + UITableViewDelegate.swift"; sourceTree = "<group>"; };
 		5759832E2A83D696001B38A3 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		575983342A83E7FC001B38A3 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		575983352A83E7FC001B38A3 /* GameEndViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameEndViewController.swift; sourceTree = "<group>"; };
 		57A8D38D2A83CBBC00D411E5 /* SM8.0-Challange1-Bomb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SM8.0-Challange1-Bomb.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		57A8D3902A83CBBC00D411E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		57A8D3922A83CBBC00D411E5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -148,6 +152,8 @@
 		57A8D3A62A83CC5C00D411E5 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				575983352A83E7FC001B38A3 /* GameEndViewController.swift */,
+				575983342A83E7FC001B38A3 /* GameViewController.swift */,
 				57A8D3942A83CBBC00D411E5 /* MainViewController.swift */,
 				5759832E2A83D696001B38A3 /* SettingsViewController.swift */,
 				57A8D39B2A83CBBF00D411E5 /* LaunchScreen.storyboard */,
@@ -333,8 +339,10 @@
 				57A8D3952A83CBBC00D411E5 /* MainViewController.swift in Sources */,
 				166677612A83E20E0005965C /* RulesCustomTableViewCell.swift in Sources */,
 				57A8D3D32A83D01A00D411E5 /* SettingsButton.swift in Sources */,
+				575983372A83E7FC001B38A3 /* GameEndViewController.swift in Sources */,
 				57A8D3D12A83CFF300D411E5 /* CustomButton.swift in Sources */,
 				57A8D3D52A83D04500D411E5 /* SoundsDataModel.swift in Sources */,
+				575983362A83E7FC001B38A3 /* GameViewController.swift in Sources */,
 				57A8D3C72A83CF2400D411E5 /* UIFont+ Extension.swift in Sources */,
 				57A8D3C92A83CF4000D411E5 /* UIViewController+ Extension.swift in Sources */,
 				57A8D3CB2A83CF8500D411E5 /* Constants.swift in Sources */,

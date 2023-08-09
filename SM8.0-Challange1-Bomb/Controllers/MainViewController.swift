@@ -94,6 +94,7 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         addSubviews()
         setupConstraints()
+        addButtonsMethods()
     }
     
     private func addSubviews() {
@@ -124,6 +125,26 @@ class MainViewController: UIViewController {
             contentStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 2),
             contentStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -3)
         ])
+    }
+    
+    // Добавил функцию которая добавляет методы для кнопок (это аналог @IBACtion)
+    
+    private func addButtonsMethods() {
+        buttonOne.addTarget(self, action: #selector(startGameTaped), for: .touchUpInside)
+        buttonTwo.addTarget(self, action: #selector(continewTaped), for: .touchUpInside)
+        buttonThree.addTarget(self, action: #selector(categoryTaped), for: .touchUpInside)
+    }
+    
+    // Вот сами методы кнопок = IBAction
+    
+    @objc private func startGameTaped() {
+        self.navigationController?.pushViewController(GameViewController(), animated: true)
+    }
+    
+    @objc private func continewTaped() {}
+    
+    @objc private func categoryTaped() {
+        
     }
 }
 
