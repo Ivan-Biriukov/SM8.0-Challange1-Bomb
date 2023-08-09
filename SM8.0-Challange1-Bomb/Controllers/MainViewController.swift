@@ -37,12 +37,22 @@ class MainViewController: UIViewController {
         return stack
     } ()
     
-    let buttonsStack: UIStackView = {
+    private lazy var buttonsStack: UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
         stack.distribution = .fill
         stack.spacing = 10
         stack.alignment = .center
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        return stack
+    } ()
+    
+    private lazy var roundButtonsStack: UIStackView = {
+        let stack = UIStackView()
+        stack.axis = .horizontal
+        stack.distribution = .fill
+        stack.spacing = 225
+        stack.alignment = .fill
         stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
     } ()
@@ -88,7 +98,10 @@ class MainViewController: UIViewController {
     let buttonTwo = CustomButton(text: "Продолжить")
     let buttonThree = CustomButton(text: "Категории")
     
-    let buttonSettings = UIButton()
+    let spaceContainer : UIView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: 12))
+    let buttonSettings = RoundButton(image: K.Images.settingsLogo)
+    let buttonHelp = RoundButton(image: K.Images.question)
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -111,6 +124,12 @@ class MainViewController: UIViewController {
         buttonsStack.addArrangedSubview(buttonOne)
         buttonsStack.addArrangedSubview(buttonTwo)
         buttonsStack.addArrangedSubview(buttonThree)
+        
+        contentStack.addArrangedSubview(spaceContainer)
+        
+        contentStack.addArrangedSubview(roundButtonsStack)
+        roundButtonsStack.addArrangedSubview(buttonSettings)
+        roundButtonsStack.addArrangedSubview(buttonHelp)
         
     }
     
