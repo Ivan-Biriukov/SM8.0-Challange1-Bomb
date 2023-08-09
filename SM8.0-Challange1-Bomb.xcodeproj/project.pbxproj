@@ -32,6 +32,7 @@
 		57A8D3D32A83D01A00D411E5 /* SettingsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A8D3D22A83D01A00D411E5 /* SettingsButton.swift */; };
 		57A8D3D52A83D04500D411E5 /* SoundsDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A8D3D42A83D04500D411E5 /* SoundsDataModel.swift */; };
 		57A8D3D72A83D15E00D411E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57A8D3D62A83D15E00D411E5 /* Assets.xcassets */; };
+		E8C190672A83E3D500582224 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C190662A83E3D500582224 /* CategoriesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		57A8D3D22A83D01A00D411E5 /* SettingsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsButton.swift; sourceTree = "<group>"; };
 		57A8D3D42A83D04500D411E5 /* SoundsDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundsDataModel.swift; sourceTree = "<group>"; };
 		57A8D3D62A83D15E00D411E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E8C190662A83E3D500582224 /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 				57A8D3942A83CBBC00D411E5 /* MainViewController.swift */,
 				5759832E2A83D696001B38A3 /* SettingsViewController.swift */,
 				57A8D39B2A83CBBF00D411E5 /* LaunchScreen.storyboard */,
+				E8C190662A83E3D500582224 /* CategoriesViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -313,6 +316,7 @@
 				57A8D3932A83CBBC00D411E5 /* SceneDelegate.swift in Sources */,
 				57A8D3CF2A83CFD700D411E5 /* SettingsLabel.swift in Sources */,
 				5759832F2A83D696001B38A3 /* SettingsViewController.swift in Sources */,
+				E8C190672A83E3D500582224 /* CategoriesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
