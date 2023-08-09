@@ -77,7 +77,7 @@ class CategoriesViewController: UIViewController, UICollectionViewDelegate, UICo
                 let title: String
                 switch indexPath.item {
                     case 0:
-                    imageName = "image 1"
+                    imageName = K.Images.diference
                         title = "О Разном"
                     case 1:
                         imageName = "image 2"
