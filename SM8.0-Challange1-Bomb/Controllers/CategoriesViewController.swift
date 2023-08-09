@@ -73,41 +73,79 @@ class CategoriesViewController: UIViewController, UICollectionViewDelegate, UICo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CustomCollectionViewCell
             
-        cell.configure(imageName: "image \(indexPath.item + 1)", backgroundColor: .specialViolet)
-            
-            return cell
+        let imageName: String
+                let title: String
+                switch indexPath.item {
+                    case 0:
+                    imageName = "image 1"
+                        title = "О Разном"
+                    case 1:
+                        imageName = "image 2"
+                        title = "Спорт и Хобби"
+                    case 2:
+                        imageName = "image 3"
+                        title = "Про Жизнь"
+                    case 3:
+                        imageName = "image 4"
+                        title = "Знаменитости"
+                    case 4:
+                        imageName = "image 5"
+                        title = "Исскусство и Кино"
+                    case 5:
+                        imageName = "image 10"
+                        title = "Природа"
+                    default:
+                        imageName = "image 10"
+                        title = "По умолчанию"
+                }
+           
+        cell.configure(imageName: imageName, title: title, backgroundColor: .specialViolet)
+                
+                return cell
         }
     }
 
-    class CustomCollectionViewCell: UICollectionViewCell {
-        let button: UIButton = {
-            let button = UIButton()
-            button.translatesAutoresizingMaskIntoConstraints = false
-            button.backgroundColor = .specialViolet
-            button.layer.cornerRadius = 15
-            button.clipsToBounds = true
-            return button
-        }()
+class CustomCollectionViewCell: UICollectionViewCell {
+    let button: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.layer.cornerRadius = 15
+        button.clipsToBounds = true
+        return button
+    }()
+    
+    let titleLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textAlignment = .center
+        return label
+    }()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         
-        override init(frame: CGRect) {
-            super.init(frame: frame)
-            
-            contentView.addSubview(button)
-            
-            NSLayoutConstraint.activate([
-                button.topAnchor.constraint(equalTo: contentView.topAnchor),
-                button.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-                button.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-                button.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
-            ])
-        }
+        contentView.addSubview(button)
+        contentView.addSubview(titleLabel)
         
-        required init?(coder: NSCoder) {
-            fatalError("init(coder:) has not been implemented")
-        }
-        
-        func configure(imageName: String, backgroundColor: UIColor) {
-            button.setImage(UIImage(named: "image 1"), for: .normal)
-            button.backgroundColor = .specialViolet
-        }
+        NSLayoutConstraint.activate([
+            button.topAnchor.constraint(equalTo: contentView.topAnchor),
+            button.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            button.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            button.bottomAnchor.constraint(equalTo: titleLabel.topAnchor),
+            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            titleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+        ])
     }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func configure(imageName: String, title: String, backgroundColor: UIColor) {
+        button.setImage(UIImage(named: imageName), for: .normal)
+        button.backgroundColor = backgroundColor
+        
+        titleLabel.text = title
+    }
+}
