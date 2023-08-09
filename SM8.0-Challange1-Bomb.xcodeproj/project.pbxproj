@@ -11,6 +11,8 @@
 		1666775C2A83DFE10005965C /* RuleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1666775B2A83DFE10005965C /* RuleData.swift */; };
 		1666775E2A83E03D0005965C /* RulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1666775D2A83E03D0005965C /* RulesViewController.swift */; };
 		166677612A83E20E0005965C /* RulesCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166677602A83E20E0005965C /* RulesCustomTableViewCell.swift */; };
+		166677642A83E27D0005965C /* RulesViewController + UITableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166677632A83E27D0005965C /* RulesViewController + UITableViewDataSource.swift */; };
+		166677662A83E2C20005965C /* RulesViewController + UITableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166677652A83E2C20005965C /* RulesViewController + UITableViewDelegate.swift */; };
 		5759832F2A83D696001B38A3 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5759832E2A83D696001B38A3 /* SettingsViewController.swift */; };
 		57A8D3912A83CBBC00D411E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A8D3902A83CBBC00D411E5 /* AppDelegate.swift */; };
 		57A8D3932A83CBBC00D411E5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A8D3922A83CBBC00D411E5 /* SceneDelegate.swift */; };
@@ -43,6 +45,8 @@
 		1666775B2A83DFE10005965C /* RuleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuleData.swift; sourceTree = "<group>"; };
 		1666775D2A83E03D0005965C /* RulesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesViewController.swift; sourceTree = "<group>"; };
 		166677602A83E20E0005965C /* RulesCustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesCustomTableViewCell.swift; sourceTree = "<group>"; };
+		166677632A83E27D0005965C /* RulesViewController + UITableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RulesViewController + UITableViewDataSource.swift"; sourceTree = "<group>"; };
+		166677652A83E2C20005965C /* RulesViewController + UITableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RulesViewController + UITableViewDelegate.swift"; sourceTree = "<group>"; };
 		5759832E2A83D696001B38A3 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		57A8D38D2A83CBBC00D411E5 /* SM8.0-Challange1-Bomb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SM8.0-Challange1-Bomb.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		57A8D3902A83CBBC00D411E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -83,6 +87,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		166677622A83E2630005965C /* RulesViewController +Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				166677632A83E27D0005965C /* RulesViewController + UITableViewDataSource.swift */,
+				166677652A83E2C20005965C /* RulesViewController + UITableViewDelegate.swift */,
+			);
+			path = "RulesViewController +Extensions";
+			sourceTree = "<group>";
+		};
 		57A8D3842A83CBBC00D411E5 = {
 			isa = PBXGroup;
 			children = (
@@ -159,6 +172,7 @@
 		57A8D3A82A83CC8600D411E5 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				166677622A83E2630005965C /* RulesViewController +Extensions */,
 				57A8D3C42A83CF0600D411E5 /* UIColor+ Extension.swift */,
 				57A8D3C62A83CF2400D411E5 /* UIFont+ Extension.swift */,
 				57A8D3C82A83CF4000D411E5 /* UIViewController+ Extension.swift */,
@@ -313,6 +327,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				166677642A83E27D0005965C /* RulesViewController + UITableViewDataSource.swift in Sources */,
+				166677662A83E2C20005965C /* RulesViewController + UITableViewDelegate.swift in Sources */,
 				57A8D3C52A83CF0600D411E5 /* UIColor+ Extension.swift in Sources */,
 				57A8D3952A83CBBC00D411E5 /* MainViewController.swift in Sources */,
 				166677612A83E20E0005965C /* RulesCustomTableViewCell.swift in Sources */,
