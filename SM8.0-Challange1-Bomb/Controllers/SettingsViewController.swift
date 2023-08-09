@@ -82,7 +82,6 @@ class SettingsViewController: UIViewController {
         return stack
     }()
     private lazy var gameWithTasksLabel = SettingsLabel(labelText: "Игра с Заданиями")
-    //private let gameWithTasksSwitch = ReusableSwitch()
     private let gameWithTasksSwitch : UISwitch = {
         let sw = UISwitch()
         sw.translatesAutoresizingMaskIntoConstraints = false
@@ -102,7 +101,16 @@ class SettingsViewController: UIViewController {
         return stack
     }()
     private lazy var backgroundMusicEnabledLabel = SettingsLabel(labelText: "Фоновая Музыка")
-    //private let backgroundMusicSwitch = ReusableSwitch()
+    private let backgroundMusicSwitch : UISwitch = {
+        let sw = UISwitch()
+        sw.translatesAutoresizingMaskIntoConstraints = false
+        sw.onTintColor = .specialViolet
+        sw.layer.borderColor = UIColor.specialViolet.cgColor
+        sw.layer.borderWidth = 1
+        sw.layer.cornerRadius = 16
+        sw.isOn = UserDefaults.standard.bool(forKey: K.UserDefaultsKeys.backgroundMusicBool)
+        return sw
+    }()
     
     private lazy var thirdLine : UIStackView = {
         let stack = UIStackView()
@@ -155,22 +163,15 @@ class SettingsViewController: UIViewController {
     
     
     // MARK: - Switch Methods
-//
-//    @objc private func musicSwitchTaped(_ sender: ReusableSwitch) {
-//
-//    }
-//
-//    @objc private func taskSwitchTaped(_ sender: ReusableSwitch) {
-//        defaults.set(sender.isOn, forKey: K.UserDefaultsKeys.gameWithTasksBool)
-//
-////        if sender.isOn {
-////            defaults.set(true, forKey: K.UserDefaultsKeys.gameWithTasksBool)
-////            sender.isOn = true
-////        } else {
-////            defaults.set(false, forKey: K.UserDefaultsKeys.gameWithTasksBool)
-////            sender.isOn = false
-////        }
-//    }
+    
+    @objc private func musicSwitchTaped(_ sender: UISwitch) {
+
+    }
+    
+    @objc private func taskSwitchTaped(_ sender: UISwitch) {
+        defaults.set(sender.isOn, forKey: K.UserDefaultsKeys.gameWithTasksBool)
+    
+    }
     
     // MARK: - Buttons Methods
     
@@ -328,7 +329,7 @@ class SettingsViewController: UIViewController {
         
         contentStack.addArrangedSubview(secondLine)
         secondLine.addArrangedSubview(backgroundMusicEnabledLabel)
-       // secondLine.addArrangedSubview(backgroundMusicSwitch)
+        secondLine.addArrangedSubview(backgroundMusicSwitch)
         contentStack.addArrangedSubview(thirdLine)
         thirdLine.addArrangedSubview(backgroundMusicMelodyLabel)
         thirdLine.addArrangedSubview(chooseBGMelodyButton)
@@ -375,8 +376,8 @@ class SettingsViewController: UIViewController {
     }
     
     private func addSwitchTargets() {
-        //backgroundMusicSwitch.addTarget(self, action: #selector(musicSwitchTaped(_:)), for: .touchUpInside)
-      //  gameWithTasksSwitch.addTarget(self, action: #selector(taskSwitchTaped(_:)), for: .touchUpInside)
+        backgroundMusicSwitch.addTarget(self, action: #selector(musicSwitchTaped(_:)), for: .touchUpInside)
+        gameWithTasksSwitch.addTarget(self, action: #selector(taskSwitchTaped(_:)), for: .touchUpInside)
     }
     
     private func changeButtonUI(btn: UIButton, bgColor: UIColor, textColor: UIColor) {
@@ -396,13 +397,35 @@ class SettingsViewController: UIViewController {
     }
     
     private func updateGameWithTaskSwitchValue() {
+        
         gameWithTasksSwitch.setOn(defaults.bool(forKey: K.UserDefaultsKeys.gameWithTasksBool), animated: true)
     }
     
     private func updateSoundsButtonsLabel() {
-        chooseBGMelodyButton.setTitle(defaults.string(forKey: K.UserDefaultsKeys.bgMusicSavedValue), for: .normal)
-        chooseBombTikButton.setTitle(defaults.string(forKey: K.UserDefaultsKeys.bombTikSavedValue), for: .normal)
-        chooseBombExplButton.setTitle(defaults.string(forKey: K.UserDefaultsKeys.bombExplosionSaveValue), for: .normal)
+        
+        let currentBgMelody = defaults.string(forKey: K.UserDefaultsKeys.bgMusicSavedValue)
+        if  currentBgMelody == nil {
+            defaults.set(SoundsDataModel.backGroundMisuc["Шоу Бэнни Хила"], forKey: K.UserDefaultsKeys.bgMusicSavedValue)
+            chooseBGMelodyButton.setTitle("Шоу Бэнни Хила", for: .normal)
+        } else {
+            chooseBGMelodyButton.setTitle(defaults.string(forKey: K.UserDefaultsKeys.bgMusicSavedValue), for: .normal)
+        }
+        
+        let currentTikSound = defaults.string(forKey: K.UserDefaultsKeys.bombTikSavedValue)
+        if currentTikSound == nil {
+            defaults.set(SoundsDataModel.bombTikSound["Тиканье часов"], forKey: K.UserDefaultsKeys.bombTikSavedValue)
+            chooseBombTikButton.setTitle("Тиканье часов", for: .normal)
+        } else {
+            chooseBombTikButton.setTitle(defaults.string(forKey: K.UserDefaultsKeys.bombTikSavedValue), for: .normal)
+        }
+
+        let currentexplosionSound = defaults.string(forKey: K.UserDefaultsKeys.bombExplosionSaveValue)
+        if currentexplosionSound == nil {
+            defaults.set(SoundsDataModel.bombExplosionSound["Взрыв 1"], forKey: K.UserDefaultsKeys.bombExplosionSaveValue)
+            chooseBombExplButton.setTitle("Взрыв 1", for: .normal)
+        } else {
+            chooseBombExplButton.setTitle(defaults.string(forKey: K.UserDefaultsKeys.bombExplosionSaveValue), for: .normal)
+        }
     }
     
     
@@ -459,3 +482,4 @@ extension SettingsViewController : UIPickerViewDataSource, UIPickerViewDelegate 
         }
     }
 }
+
