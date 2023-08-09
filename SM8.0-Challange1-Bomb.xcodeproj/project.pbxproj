@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5759832F2A83D696001B38A3 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5759832E2A83D696001B38A3 /* SettingsViewController.swift */; };
 		57A8D3912A83CBBC00D411E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A8D3902A83CBBC00D411E5 /* AppDelegate.swift */; };
 		57A8D3932A83CBBC00D411E5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A8D3922A83CBBC00D411E5 /* SceneDelegate.swift */; };
 		57A8D3952A83CBBC00D411E5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A8D3942A83CBBC00D411E5 /* MainViewController.swift */; };
@@ -34,6 +35,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5759832E2A83D696001B38A3 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		57A8D38D2A83CBBC00D411E5 /* SM8.0-Challange1-Bomb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SM8.0-Challange1-Bomb.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		57A8D3902A83CBBC00D411E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		57A8D3922A83CBBC00D411E5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				57A8D3942A83CBBC00D411E5 /* MainViewController.swift */,
+				5759832E2A83D696001B38A3 /* SettingsViewController.swift */,
 				57A8D39B2A83CBBF00D411E5 /* LaunchScreen.storyboard */,
 			);
 			path = Controllers;
@@ -309,6 +312,7 @@
 				57A8D3912A83CBBC00D411E5 /* AppDelegate.swift in Sources */,
 				57A8D3932A83CBBC00D411E5 /* SceneDelegate.swift in Sources */,
 				57A8D3CF2A83CFD700D411E5 /* SettingsLabel.swift in Sources */,
+				5759832F2A83D696001B38A3 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
