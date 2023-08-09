@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1666775A2A83DFBD0005965C /* Rule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166677592A83DFBD0005965C /* Rule.swift */; };
+		1666775C2A83DFE10005965C /* RuleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1666775B2A83DFE10005965C /* RuleData.swift */; };
 		5759832F2A83D696001B38A3 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5759832E2A83D696001B38A3 /* SettingsViewController.swift */; };
 		57A8D3912A83CBBC00D411E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A8D3902A83CBBC00D411E5 /* AppDelegate.swift */; };
 		57A8D3932A83CBBC00D411E5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A8D3922A83CBBC00D411E5 /* SceneDelegate.swift */; };
@@ -35,6 +37,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		166677592A83DFBD0005965C /* Rule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rule.swift; sourceTree = "<group>"; };
+		1666775B2A83DFE10005965C /* RuleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuleData.swift; sourceTree = "<group>"; };
 		5759832E2A83D696001B38A3 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		57A8D38D2A83CBBC00D411E5 /* SM8.0-Challange1-Bomb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SM8.0-Challange1-Bomb.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		57A8D3902A83CBBC00D411E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -108,6 +112,8 @@
 			isa = PBXGroup;
 			children = (
 				57A8D3D42A83D04500D411E5 /* SoundsDataModel.swift */,
+				166677592A83DFBD0005965C /* Rule.swift */,
+				1666775B2A83DFE10005965C /* RuleData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -311,8 +317,10 @@
 				57A8D3CB2A83CF8500D411E5 /* Constants.swift in Sources */,
 				57A8D3912A83CBBC00D411E5 /* AppDelegate.swift in Sources */,
 				57A8D3932A83CBBC00D411E5 /* SceneDelegate.swift in Sources */,
+				1666775A2A83DFBD0005965C /* Rule.swift in Sources */,
 				57A8D3CF2A83CFD700D411E5 /* SettingsLabel.swift in Sources */,
 				5759832F2A83D696001B38A3 /* SettingsViewController.swift in Sources */,
+				1666775C2A83DFE10005965C /* RuleData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
