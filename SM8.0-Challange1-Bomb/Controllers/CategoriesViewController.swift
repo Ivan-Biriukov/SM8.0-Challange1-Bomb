@@ -1,15 +1,8 @@
-//
-//  CategoriesViewController.swift
-//  SM8.0-Challange1-Bomb
-//
-//  Created by Elizaveta Eremyonok on 10.08.2023.
-//
-
 import UIKit
 
-class CategoriesViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class CategoriesViewController: UIViewController {
     
-    private let cellDataArray : [CategoryesDataModel] = [
+    private var cellDataArray : [CategoryesDataModel] = [
         .init(imageName: K.Images.aboutLife, titleLabel: "О Разном", chechMarkSelected: false),
         .init(imageName: K.Images.sportAndHobby, titleLabel: "Спорт и Хобби", chechMarkSelected: false),
         .init(imageName: K.Images.aboutLife, titleLabel: "Про Жизнь", chechMarkSelected: true),
@@ -18,7 +11,7 @@ class CategoriesViewController: UIViewController, UICollectionViewDelegate, UICo
         .init(imageName: K.Images.nature, titleLabel: "Природа", chechMarkSelected: false)
     ]
     
-
+    // MARK: - UIElements
     
     let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -31,28 +24,25 @@ class CategoriesViewController: UIViewController, UICollectionViewDelegate, UICo
         return c
     }()
     
-    
-
-   let backgroundView: UIImageView = {
-       let view = UIImageView()
-       view.image = UIImage(named: "background")
-       view.contentMode = .scaleToFill
+    let backgroundView: UIImageView = {
+        let view = UIImageView()
+        view.image = UIImage(named: "background")
+        view.contentMode = .scaleToFill
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
-   }()
-
-
+    }()
+    
+    // MARK: - LifeCycle Methods
+    
     override func viewDidLoad() {
-        createCustomNavigationBar(title: "Категории")
         super.viewDidLoad()
-
+        createCustomNavigationBar(title: "Категории")
         setupViews()
         setupConstraints()
-        
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.register(CategoryesCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        configureCollection()
     }
+    
+    // MARK: - Configure UI
     
     private func setupViews() {
         view.addSubview(backgroundView)
@@ -70,13 +60,25 @@ class CategoriesViewController: UIViewController, UICollectionViewDelegate, UICo
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -10),
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 150),
-
         ])
     }
     
+    private func configureCollection() {
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.register(CategoryesCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+    }
+}
 
+// MARK: - CollectionView Delegate & DataSource
+
+extension CategoriesViewController : UICollectionViewDelegate, UICollectionViewDataSource {
     
-    // MARK: UICollectionViewDataSource
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let currentItemChecked = cellDataArray[indexPath.row].chechMarkSelected
+        self.cellDataArray[indexPath.row].chechMarkSelected = !currentItemChecked
+        self.collectionView.reloadData()
+    }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         1
@@ -96,19 +98,6 @@ class CategoriesViewController: UIViewController, UICollectionViewDelegate, UICo
         cell.addCheckMark(isOn: currentCell.chechMarkSelected)
         
         return cell
-            
-        }
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+}
 

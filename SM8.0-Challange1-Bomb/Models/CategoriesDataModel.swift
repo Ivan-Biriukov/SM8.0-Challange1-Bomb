@@ -10,5 +10,5 @@ import Foundation
 struct CategoryesDataModel {
     let imageName : String
     let titleLabel : String
-    let chechMarkSelected : Bool
+    var chechMarkSelected : Bool
 }
