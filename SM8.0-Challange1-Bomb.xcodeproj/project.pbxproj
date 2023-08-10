@@ -43,6 +43,9 @@
 		57A8D3D52A83D04500D411E5 /* SoundsDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A8D3D42A83D04500D411E5 /* SoundsDataModel.swift */; };
 		57A8D3D72A83D15E00D411E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57A8D3D62A83D15E00D411E5 /* Assets.xcassets */; };
 		E518A2F82A840A7E00DA737E /* RoundButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = E518A2F72A840A7E00DA737E /* RoundButtons.swift */; };
+		E8C1906D2A84F6E000582224 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C1906C2A84F6E000582224 /* CategoriesViewController.swift */; };
+		E8C1906F2A84F81200582224 /* CategoriesDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C1906E2A84F81200582224 /* CategoriesDataModel.swift */; };
+		E8C190712A84F84A00582224 /* CategoriesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C190702A84F84A00582224 /* CategoriesCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +87,9 @@
 		57A8D3D42A83D04500D411E5 /* SoundsDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundsDataModel.swift; sourceTree = "<group>"; };
 		57A8D3D62A83D15E00D411E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E518A2F72A840A7E00DA737E /* RoundButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButtons.swift; sourceTree = "<group>"; };
+		E8C1906C2A84F6E000582224 /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
+		E8C1906E2A84F81200582224 /* CategoriesDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesDataModel.swift; sourceTree = "<group>"; };
+		E8C190702A84F84A00582224 /* CategoriesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +156,7 @@
 				57A8D3D42A83D04500D411E5 /* SoundsDataModel.swift */,
 				166677592A83DFBD0005965C /* Rule.swift */,
 				1666775B2A83DFE10005965C /* RuleData.swift */,
+				E8C1906E2A84F81200582224 /* CategoriesDataModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -160,6 +167,7 @@
 				57A8D3CD2A83CFBB00D411E5 /* Buttons */,
 				57A8D3CC2A83CFB100D411E5 /* Labels */,
 				166677602A83E20E0005965C /* RulesCustomTableViewCell.swift */,
+				E8C190702A84F84A00582224 /* CategoriesCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -173,6 +181,7 @@
 				5759832E2A83D696001B38A3 /* SettingsViewController.swift */,
 				57A8D39B2A83CBBF00D411E5 /* LaunchScreen.storyboard */,
 				1666775D2A83E03D0005965C /* RulesViewController.swift */,
+				E8C1906C2A84F6E000582224 /* CategoriesViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -355,6 +364,7 @@
 				166677662A83E2C20005965C /* RulesViewController + UITableViewDelegate.swift in Sources */,
 				57A8D3C52A83CF0600D411E5 /* UIColor+ Extension.swift in Sources */,
 				57A8D3952A83CBBC00D411E5 /* MainViewController.swift in Sources */,
+				E8C190712A84F84A00582224 /* CategoriesCollectionViewCell.swift in Sources */,
 				166677612A83E20E0005965C /* RulesCustomTableViewCell.swift in Sources */,
 				57A8D3D32A83D01A00D411E5 /* SettingsButton.swift in Sources */,
 				575983372A83E7FC001B38A3 /* GameEndViewController.swift in Sources */,
@@ -364,6 +374,7 @@
 				57A8D3C72A83CF2400D411E5 /* UIFont+ Extension.swift in Sources */,
 				57A8D3C92A83CF4000D411E5 /* UIViewController+ Extension.swift in Sources */,
 				57A8D3CB2A83CF8500D411E5 /* Constants.swift in Sources */,
+				E8C1906F2A84F81200582224 /* CategoriesDataModel.swift in Sources */,
 				57A8D3912A83CBBC00D411E5 /* AppDelegate.swift in Sources */,
 				57A8D3932A83CBBC00D411E5 /* SceneDelegate.swift in Sources */,
 				434A386E2A84EA22005D5CC0 /* UIImage+Extension.swift in Sources */,
@@ -372,6 +383,7 @@
 				57A8D3CF2A83CFD700D411E5 /* SettingsLabel.swift in Sources */,
 				E518A2F82A840A7E00DA737E /* RoundButtons.swift in Sources */,
 				5759832F2A83D696001B38A3 /* SettingsViewController.swift in Sources */,
+				E8C1906D2A84F6E000582224 /* CategoriesViewController.swift in Sources */,
 				1666775C2A83DFE10005965C /* RuleData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
