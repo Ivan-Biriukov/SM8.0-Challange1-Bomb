@@ -13,6 +13,8 @@
 		166677612A83E20E0005965C /* RulesCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166677602A83E20E0005965C /* RulesCustomTableViewCell.swift */; };
 		166677642A83E27D0005965C /* RulesViewController + UITableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166677632A83E27D0005965C /* RulesViewController + UITableViewDataSource.swift */; };
 		166677662A83E2C20005965C /* RulesViewController + UITableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166677652A83E2C20005965C /* RulesViewController + UITableViewDelegate.swift */; };
+		434A386E2A84EA22005D5CC0 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434A386D2A84EA22005D5CC0 /* UIImage+Extension.swift */; };
+		434A38732A84EAFB005D5CC0 /* bombGif.gif in Resources */ = {isa = PBXBuildFile; fileRef = 434A38722A84EAFB005D5CC0 /* bombGif.gif */; };
 		5759832F2A83D696001B38A3 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5759832E2A83D696001B38A3 /* SettingsViewController.swift */; };
 		575983362A83E7FC001B38A3 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575983342A83E7FC001B38A3 /* GameViewController.swift */; };
 		575983372A83E7FC001B38A3 /* GameEndViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575983352A83E7FC001B38A3 /* GameEndViewController.swift */; };
@@ -50,6 +52,8 @@
 		166677602A83E20E0005965C /* RulesCustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesCustomTableViewCell.swift; sourceTree = "<group>"; };
 		166677632A83E27D0005965C /* RulesViewController + UITableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RulesViewController + UITableViewDataSource.swift"; sourceTree = "<group>"; };
 		166677652A83E2C20005965C /* RulesViewController + UITableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RulesViewController + UITableViewDelegate.swift"; sourceTree = "<group>"; };
+		434A386D2A84EA22005D5CC0 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		434A38722A84EAFB005D5CC0 /* bombGif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = bombGif.gif; sourceTree = "<group>"; };
 		5759832E2A83D696001B38A3 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		575983342A83E7FC001B38A3 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		575983352A83E7FC001B38A3 /* GameEndViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameEndViewController.swift; sourceTree = "<group>"; };
@@ -98,8 +102,17 @@
 			children = (
 				166677632A83E27D0005965C /* RulesViewController + UITableViewDataSource.swift */,
 				166677652A83E2C20005965C /* RulesViewController + UITableViewDelegate.swift */,
+				434A386D2A84EA22005D5CC0 /* UIImage+Extension.swift */,
 			);
 			path = "RulesViewController +Extensions";
+			sourceTree = "<group>";
+		};
+		434A38712A84EADD005D5CC0 /* GIFs */ = {
+			isa = PBXGroup;
+			children = (
+				434A38722A84EAFB005D5CC0 /* bombGif.gif */,
+			);
+			path = GIFs;
 			sourceTree = "<group>";
 		};
 		57A8D3842A83CBBC00D411E5 = {
@@ -167,6 +180,7 @@
 		57A8D3A72A83CC7D00D411E5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				434A38712A84EADD005D5CC0 /* GIFs */,
 				57A8D3C12A83CE8200D411E5 /* Fonts */,
 				57A8D3A92A83CE6000D411E5 /* Sounds */,
 				57A8D3922A83CBBC00D411E5 /* SceneDelegate.swift */,
@@ -320,6 +334,7 @@
 				57A8D3B82A83CE6000D411E5 /* timer1.mp3 in Resources */,
 				57A8D3BB2A83CE6000D411E5 /* explosion2.mp3 in Resources */,
 				57A8D3B92A83CE6000D411E5 /* timer3.mp3 in Resources */,
+				434A38732A84EAFB005D5CC0 /* bombGif.gif in Resources */,
 				57A8D3B72A83CE6000D411E5 /* timer4.mp3 in Resources */,
 				57A8D3BD2A83CE6000D411E5 /* explosion1.mp3 in Resources */,
 				57A8D3C02A83CE6000D411E5 /* mainTheme1.mp3 in Resources */,
@@ -351,6 +366,7 @@
 				57A8D3CB2A83CF8500D411E5 /* Constants.swift in Sources */,
 				57A8D3912A83CBBC00D411E5 /* AppDelegate.swift in Sources */,
 				57A8D3932A83CBBC00D411E5 /* SceneDelegate.swift in Sources */,
+				434A386E2A84EA22005D5CC0 /* UIImage+Extension.swift in Sources */,
 				1666775E2A83E03D0005965C /* RulesViewController.swift in Sources */,
 				1666775A2A83DFBD0005965C /* Rule.swift in Sources */,
 				57A8D3CF2A83CFD700D411E5 /* SettingsLabel.swift in Sources */,
