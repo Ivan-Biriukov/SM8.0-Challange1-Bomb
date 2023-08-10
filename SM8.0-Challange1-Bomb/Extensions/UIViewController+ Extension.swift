@@ -17,8 +17,7 @@ extension UIViewController {
         
         self.navigationController?.navigationBar.standardAppearance = navigationBarAppearance
         self.navigationController?.navigationBar.scrollEdgeAppearance = navigationBarAppearance
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(
-                title: "", style: .plain, target: nil, action: nil)
+        self.navigationController?.navigationBar.topItem?.title = " "
         self.title = title
     }
     
