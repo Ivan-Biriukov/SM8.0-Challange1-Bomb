@@ -7,21 +7,77 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1666775A2A83DFBD0005965C /* Rule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166677592A83DFBD0005965C /* Rule.swift */; };
+		1666775C2A83DFE10005965C /* RuleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1666775B2A83DFE10005965C /* RuleData.swift */; };
+		1666775E2A83E03D0005965C /* RulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1666775D2A83E03D0005965C /* RulesViewController.swift */; };
+		166677612A83E20E0005965C /* RulesCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166677602A83E20E0005965C /* RulesCustomTableViewCell.swift */; };
+		166677642A83E27D0005965C /* RulesViewController + UITableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166677632A83E27D0005965C /* RulesViewController + UITableViewDataSource.swift */; };
+		166677662A83E2C20005965C /* RulesViewController + UITableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166677652A83E2C20005965C /* RulesViewController + UITableViewDelegate.swift */; };
+		5759832F2A83D696001B38A3 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5759832E2A83D696001B38A3 /* SettingsViewController.swift */; };
+		575983362A83E7FC001B38A3 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575983342A83E7FC001B38A3 /* GameViewController.swift */; };
+		575983372A83E7FC001B38A3 /* GameEndViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575983352A83E7FC001B38A3 /* GameEndViewController.swift */; };
 		57A8D3912A83CBBC00D411E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A8D3902A83CBBC00D411E5 /* AppDelegate.swift */; };
 		57A8D3932A83CBBC00D411E5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A8D3922A83CBBC00D411E5 /* SceneDelegate.swift */; };
 		57A8D3952A83CBBC00D411E5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A8D3942A83CBBC00D411E5 /* MainViewController.swift */; };
-		57A8D39A2A83CBBF00D411E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57A8D3992A83CBBF00D411E5 /* Assets.xcassets */; };
 		57A8D39D2A83CBBF00D411E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57A8D39B2A83CBBF00D411E5 /* LaunchScreen.storyboard */; };
+		57A8D3B72A83CE6000D411E5 /* timer4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 57A8D3AB2A83CE6000D411E5 /* timer4.mp3 */; };
+		57A8D3B82A83CE6000D411E5 /* timer1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 57A8D3AC2A83CE6000D411E5 /* timer1.mp3 */; };
+		57A8D3B92A83CE6000D411E5 /* timer3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 57A8D3AD2A83CE6000D411E5 /* timer3.mp3 */; };
+		57A8D3BA2A83CE6000D411E5 /* timer2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 57A8D3AE2A83CE6000D411E5 /* timer2.mp3 */; };
+		57A8D3BB2A83CE6000D411E5 /* explosion2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 57A8D3B02A83CE6000D411E5 /* explosion2.mp3 */; };
+		57A8D3BC2A83CE6000D411E5 /* explosion3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 57A8D3B12A83CE6000D411E5 /* explosion3.mp3 */; };
+		57A8D3BD2A83CE6000D411E5 /* explosion1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 57A8D3B22A83CE6000D411E5 /* explosion1.mp3 */; };
+		57A8D3BE2A83CE6000D411E5 /* explosion4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 57A8D3B32A83CE6000D411E5 /* explosion4.mp3 */; };
+		57A8D3BF2A83CE6000D411E5 /* mainTheme2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 57A8D3B52A83CE6000D411E5 /* mainTheme2.mp3 */; };
+		57A8D3C02A83CE6000D411E5 /* mainTheme1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 57A8D3B62A83CE6000D411E5 /* mainTheme1.mp3 */; };
+		57A8D3C32A83CE8200D411E5 /* DelaGothicOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 57A8D3C22A83CE8200D411E5 /* DelaGothicOne-Regular.ttf */; };
+		57A8D3C52A83CF0600D411E5 /* UIColor+ Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A8D3C42A83CF0600D411E5 /* UIColor+ Extension.swift */; };
+		57A8D3C72A83CF2400D411E5 /* UIFont+ Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A8D3C62A83CF2400D411E5 /* UIFont+ Extension.swift */; };
+		57A8D3C92A83CF4000D411E5 /* UIViewController+ Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A8D3C82A83CF4000D411E5 /* UIViewController+ Extension.swift */; };
+		57A8D3CB2A83CF8500D411E5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A8D3CA2A83CF8500D411E5 /* Constants.swift */; };
+		57A8D3CF2A83CFD700D411E5 /* SettingsLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A8D3CE2A83CFD700D411E5 /* SettingsLabel.swift */; };
+		57A8D3D12A83CFF300D411E5 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A8D3D02A83CFF300D411E5 /* CustomButton.swift */; };
+		57A8D3D32A83D01A00D411E5 /* SettingsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A8D3D22A83D01A00D411E5 /* SettingsButton.swift */; };
+		57A8D3D52A83D04500D411E5 /* SoundsDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A8D3D42A83D04500D411E5 /* SoundsDataModel.swift */; };
+		57A8D3D72A83D15E00D411E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57A8D3D62A83D15E00D411E5 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		166677592A83DFBD0005965C /* Rule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rule.swift; sourceTree = "<group>"; };
+		1666775B2A83DFE10005965C /* RuleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuleData.swift; sourceTree = "<group>"; };
+		1666775D2A83E03D0005965C /* RulesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesViewController.swift; sourceTree = "<group>"; };
+		166677602A83E20E0005965C /* RulesCustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesCustomTableViewCell.swift; sourceTree = "<group>"; };
+		166677632A83E27D0005965C /* RulesViewController + UITableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RulesViewController + UITableViewDataSource.swift"; sourceTree = "<group>"; };
+		166677652A83E2C20005965C /* RulesViewController + UITableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RulesViewController + UITableViewDelegate.swift"; sourceTree = "<group>"; };
+		5759832E2A83D696001B38A3 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		575983342A83E7FC001B38A3 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		575983352A83E7FC001B38A3 /* GameEndViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameEndViewController.swift; sourceTree = "<group>"; };
 		57A8D38D2A83CBBC00D411E5 /* SM8.0-Challange1-Bomb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SM8.0-Challange1-Bomb.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		57A8D3902A83CBBC00D411E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		57A8D3922A83CBBC00D411E5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		57A8D3942A83CBBC00D411E5 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		57A8D3992A83CBBF00D411E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		57A8D39C2A83CBBF00D411E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		57A8D39E2A83CBBF00D411E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		57A8D3AB2A83CE6000D411E5 /* timer4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = timer4.mp3; sourceTree = "<group>"; };
+		57A8D3AC2A83CE6000D411E5 /* timer1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = timer1.mp3; sourceTree = "<group>"; };
+		57A8D3AD2A83CE6000D411E5 /* timer3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = timer3.mp3; sourceTree = "<group>"; };
+		57A8D3AE2A83CE6000D411E5 /* timer2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = timer2.mp3; sourceTree = "<group>"; };
+		57A8D3B02A83CE6000D411E5 /* explosion2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = explosion2.mp3; sourceTree = "<group>"; };
+		57A8D3B12A83CE6000D411E5 /* explosion3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = explosion3.mp3; sourceTree = "<group>"; };
+		57A8D3B22A83CE6000D411E5 /* explosion1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = explosion1.mp3; sourceTree = "<group>"; };
+		57A8D3B32A83CE6000D411E5 /* explosion4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = explosion4.mp3; sourceTree = "<group>"; };
+		57A8D3B52A83CE6000D411E5 /* mainTheme2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = mainTheme2.mp3; sourceTree = "<group>"; };
+		57A8D3B62A83CE6000D411E5 /* mainTheme1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = mainTheme1.mp3; sourceTree = "<group>"; };
+		57A8D3C22A83CE8200D411E5 /* DelaGothicOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DelaGothicOne-Regular.ttf"; sourceTree = "<group>"; };
+		57A8D3C42A83CF0600D411E5 /* UIColor+ Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+ Extension.swift"; sourceTree = "<group>"; };
+		57A8D3C62A83CF2400D411E5 /* UIFont+ Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+ Extension.swift"; sourceTree = "<group>"; };
+		57A8D3C82A83CF4000D411E5 /* UIViewController+ Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ Extension.swift"; sourceTree = "<group>"; };
+		57A8D3CA2A83CF8500D411E5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		57A8D3CE2A83CFD700D411E5 /* SettingsLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLabel.swift; sourceTree = "<group>"; };
+		57A8D3D02A83CFF300D411E5 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		57A8D3D22A83D01A00D411E5 /* SettingsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsButton.swift; sourceTree = "<group>"; };
+		57A8D3D42A83D04500D411E5 /* SoundsDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundsDataModel.swift; sourceTree = "<group>"; };
+		57A8D3D62A83D15E00D411E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +91,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		166677622A83E2630005965C /* RulesViewController +Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				166677632A83E27D0005965C /* RulesViewController + UITableViewDataSource.swift */,
+				166677652A83E2C20005965C /* RulesViewController + UITableViewDelegate.swift */,
+			);
+			path = "RulesViewController +Extensions";
+			sourceTree = "<group>";
+		};
 		57A8D3842A83CBBC00D411E5 = {
 			isa = PBXGroup;
 			children = (
@@ -54,11 +119,11 @@
 		57A8D38F2A83CBBC00D411E5 /* SM8.0-Challange1-Bomb */ = {
 			isa = PBXGroup;
 			children = (
+				57A8D3A42A83CC4900D411E5 /* Models */,
+				57A8D3A52A83CC5500D411E5 /* Views */,
+				57A8D3A62A83CC5C00D411E5 /* Controllers */,
 				57A8D3A82A83CC8600D411E5 /* Extensions */,
 				57A8D3A72A83CC7D00D411E5 /* Supporting Files */,
-				57A8D3A62A83CC5C00D411E5 /* Controllers */,
-				57A8D3A52A83CC5500D411E5 /* Views */,
-				57A8D3A42A83CC4900D411E5 /* Models */,
 				57A8D39E2A83CBBF00D411E5 /* Info.plist */,
 			);
 			path = "SM8.0-Challange1-Bomb";
@@ -67,6 +132,9 @@
 		57A8D3A42A83CC4900D411E5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				57A8D3D42A83D04500D411E5 /* SoundsDataModel.swift */,
+				166677592A83DFBD0005965C /* Rule.swift */,
+				1666775B2A83DFE10005965C /* RuleData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -74,6 +142,9 @@
 		57A8D3A52A83CC5500D411E5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				57A8D3CD2A83CFBB00D411E5 /* Buttons */,
+				57A8D3CC2A83CFB100D411E5 /* Labels */,
+				166677602A83E20E0005965C /* RulesCustomTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -81,8 +152,12 @@
 		57A8D3A62A83CC5C00D411E5 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				575983352A83E7FC001B38A3 /* GameEndViewController.swift */,
+				575983342A83E7FC001B38A3 /* GameViewController.swift */,
 				57A8D3942A83CBBC00D411E5 /* MainViewController.swift */,
+				5759832E2A83D696001B38A3 /* SettingsViewController.swift */,
 				57A8D39B2A83CBBF00D411E5 /* LaunchScreen.storyboard */,
+				1666775D2A83E03D0005965C /* RulesViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -90,9 +165,12 @@
 		57A8D3A72A83CC7D00D411E5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				57A8D3992A83CBBF00D411E5 /* Assets.xcassets */,
+				57A8D3C12A83CE8200D411E5 /* Fonts */,
+				57A8D3A92A83CE6000D411E5 /* Sounds */,
 				57A8D3922A83CBBC00D411E5 /* SceneDelegate.swift */,
 				57A8D3902A83CBBC00D411E5 /* AppDelegate.swift */,
+				57A8D3CA2A83CF8500D411E5 /* Constants.swift */,
+				57A8D3D62A83D15E00D411E5 /* Assets.xcassets */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -100,8 +178,78 @@
 		57A8D3A82A83CC8600D411E5 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				166677622A83E2630005965C /* RulesViewController +Extensions */,
+				57A8D3C42A83CF0600D411E5 /* UIColor+ Extension.swift */,
+				57A8D3C62A83CF2400D411E5 /* UIFont+ Extension.swift */,
+				57A8D3C82A83CF4000D411E5 /* UIViewController+ Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		57A8D3A92A83CE6000D411E5 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				57A8D3AA2A83CE6000D411E5 /* Timer */,
+				57A8D3AF2A83CE6000D411E5 /* Explosion */,
+				57A8D3B42A83CE6000D411E5 /* backgroundMusic */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
+		57A8D3AA2A83CE6000D411E5 /* Timer */ = {
+			isa = PBXGroup;
+			children = (
+				57A8D3AB2A83CE6000D411E5 /* timer4.mp3 */,
+				57A8D3AC2A83CE6000D411E5 /* timer1.mp3 */,
+				57A8D3AD2A83CE6000D411E5 /* timer3.mp3 */,
+				57A8D3AE2A83CE6000D411E5 /* timer2.mp3 */,
+			);
+			path = Timer;
+			sourceTree = "<group>";
+		};
+		57A8D3AF2A83CE6000D411E5 /* Explosion */ = {
+			isa = PBXGroup;
+			children = (
+				57A8D3B02A83CE6000D411E5 /* explosion2.mp3 */,
+				57A8D3B12A83CE6000D411E5 /* explosion3.mp3 */,
+				57A8D3B22A83CE6000D411E5 /* explosion1.mp3 */,
+				57A8D3B32A83CE6000D411E5 /* explosion4.mp3 */,
+			);
+			path = Explosion;
+			sourceTree = "<group>";
+		};
+		57A8D3B42A83CE6000D411E5 /* backgroundMusic */ = {
+			isa = PBXGroup;
+			children = (
+				57A8D3B52A83CE6000D411E5 /* mainTheme2.mp3 */,
+				57A8D3B62A83CE6000D411E5 /* mainTheme1.mp3 */,
+			);
+			path = backgroundMusic;
+			sourceTree = "<group>";
+		};
+		57A8D3C12A83CE8200D411E5 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				57A8D3C22A83CE8200D411E5 /* DelaGothicOne-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		57A8D3CC2A83CFB100D411E5 /* Labels */ = {
+			isa = PBXGroup;
+			children = (
+				57A8D3CE2A83CFD700D411E5 /* SettingsLabel.swift */,
+			);
+			path = Labels;
+			sourceTree = "<group>";
+		};
+		57A8D3CD2A83CFBB00D411E5 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				57A8D3D02A83CFF300D411E5 /* CustomButton.swift */,
+				57A8D3D22A83D01A00D411E5 /* SettingsButton.swift */,
+			);
+			path = Buttons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,8 +310,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57A8D3BC2A83CE6000D411E5 /* explosion3.mp3 in Resources */,
 				57A8D39D2A83CBBF00D411E5 /* LaunchScreen.storyboard in Resources */,
-				57A8D39A2A83CBBF00D411E5 /* Assets.xcassets in Resources */,
+				57A8D3D72A83D15E00D411E5 /* Assets.xcassets in Resources */,
+				57A8D3BA2A83CE6000D411E5 /* timer2.mp3 in Resources */,
+				57A8D3B82A83CE6000D411E5 /* timer1.mp3 in Resources */,
+				57A8D3BB2A83CE6000D411E5 /* explosion2.mp3 in Resources */,
+				57A8D3B92A83CE6000D411E5 /* timer3.mp3 in Resources */,
+				57A8D3B72A83CE6000D411E5 /* timer4.mp3 in Resources */,
+				57A8D3BD2A83CE6000D411E5 /* explosion1.mp3 in Resources */,
+				57A8D3C02A83CE6000D411E5 /* mainTheme1.mp3 in Resources */,
+				57A8D3C32A83CE8200D411E5 /* DelaGothicOne-Regular.ttf in Resources */,
+				57A8D3BF2A83CE6000D411E5 /* mainTheme2.mp3 in Resources */,
+				57A8D3BE2A83CE6000D411E5 /* explosion4.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,9 +333,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				166677642A83E27D0005965C /* RulesViewController + UITableViewDataSource.swift in Sources */,
+				166677662A83E2C20005965C /* RulesViewController + UITableViewDelegate.swift in Sources */,
+				57A8D3C52A83CF0600D411E5 /* UIColor+ Extension.swift in Sources */,
 				57A8D3952A83CBBC00D411E5 /* MainViewController.swift in Sources */,
+				166677612A83E20E0005965C /* RulesCustomTableViewCell.swift in Sources */,
+				57A8D3D32A83D01A00D411E5 /* SettingsButton.swift in Sources */,
+				575983372A83E7FC001B38A3 /* GameEndViewController.swift in Sources */,
+				57A8D3D12A83CFF300D411E5 /* CustomButton.swift in Sources */,
+				57A8D3D52A83D04500D411E5 /* SoundsDataModel.swift in Sources */,
+				575983362A83E7FC001B38A3 /* GameViewController.swift in Sources */,
+				57A8D3C72A83CF2400D411E5 /* UIFont+ Extension.swift in Sources */,
+				57A8D3C92A83CF4000D411E5 /* UIViewController+ Extension.swift in Sources */,
+				57A8D3CB2A83CF8500D411E5 /* Constants.swift in Sources */,
 				57A8D3912A83CBBC00D411E5 /* AppDelegate.swift in Sources */,
 				57A8D3932A83CBBC00D411E5 /* SceneDelegate.swift in Sources */,
+				1666775E2A83E03D0005965C /* RulesViewController.swift in Sources */,
+				1666775A2A83DFBD0005965C /* Rule.swift in Sources */,
+				57A8D3CF2A83CFD700D411E5 /* SettingsLabel.swift in Sources */,
+				5759832F2A83D696001B38A3 /* SettingsViewController.swift in Sources */,
+				1666775C2A83DFE10005965C /* RuleData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
