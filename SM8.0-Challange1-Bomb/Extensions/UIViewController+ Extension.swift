@@ -11,19 +11,41 @@ extension UIViewController {
         navigationBarAppearance.configureWithOpaqueBackground()
         navigationBarAppearance.backgroundColor = .clear
         navigationBarAppearance.shadowColor = .clear
-        navigationBarAppearance.titleTextAttributes = [
-            NSAttributedString.Key.foregroundColor: UIColor.specialViolet, NSAttributedString.Key.font: UIFont.delaGothic20() ?? UIFont.systemFont(ofSize: 20)
-        ]
-        
+      
         self.navigationController?.navigationBar.standardAppearance = navigationBarAppearance
         self.navigationController?.navigationBar.scrollEdgeAppearance = navigationBarAppearance
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(
-                title: "", style: .plain, target: nil, action: nil)
-        self.title = title
+        self.navigationController?.navigationBar.topItem?.title = " "
+        
+        self.navigationItem.title = nil
+        
+        let navTitle : UILabel = {
+            let lb = UILabel()
+            lb.font = .delaGothic30()
+            lb.textColor = .specialViolet
+            lb.textAlignment = .center
+            lb.backgroundColor = .clear
+            lb.text = title
+            return lb
+        }()
+        
+        self.navigationItem.titleView = navTitle
     }
     
-    func addButtonToNavBar() {
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "pause.circle"), style:.done, target: self, action: nil)
+    func addButtonToNavBar(_ button: UIButton?) {
+        if let safeButton = button {
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: safeButton)
+        } else {
+            let customView : UIButton = {
+                let btn = UIButton(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+                btn.setImage(UIImage(systemName: "pause.circle"), for: .normal)
+                btn.tintColor = .black
+                btn.setTitle(nil, for: .normal)
+                btn.contentVerticalAlignment = .fill
+                btn.contentHorizontalAlignment = .fill
+                return btn
+            }()
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: customView)
+        }     
     }
     
     // Function check if UserDefault even exist, true when exist (has value) false when doesnt exist (has no value)
