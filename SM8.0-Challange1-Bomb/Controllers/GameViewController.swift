@@ -81,6 +81,27 @@ class GameViewController: UIViewController {
             runButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -64)
         ])
     }
+    
+    private func createGif() {
+        
+        guard let gifPath = Bundle.main.path(forResource: "bombGif", ofType: "gif") else {
+            print("Failed to find the GIF image.")
+            return
+        }
+
+        guard let gifData = try? Data(contentsOf: URL(fileURLWithPath: gifPath)) else {
+            print("Failed to load the GIF image data.")
+            return
+        }
+
+        guard let gifImage = UIImage.gifImageWithData(gifData) else {
+            print("Failed to create the GIF image.")
+            return
+        }
+
+        // Set the loaded GIF image to the UIImageView
+        bombImageView.image = gifImage
+    }
 }
 
 // MARK: - Target Actions
@@ -88,6 +109,8 @@ extension GameViewController {
 
     @objc func runButtonPressed(_ button: UIButton) {
         print("runButtonPressed")
+        createGif()
         runLabel.text = "Назовите вид зимнего спорта"
+        runButton.isHidden = true
     }
 }
