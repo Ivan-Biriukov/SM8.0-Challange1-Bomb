@@ -9,7 +9,7 @@ import UIKit
 
 class MainViewController: UIViewController {
     
-    let backgroundView: UIImageView = {
+    private lazy var backgroundView: UIImageView = {
         let view = UIImageView()
         view.image = UIImage(named: K.Images.background)
         view.contentMode = .scaleToFill
@@ -17,6 +17,7 @@ class MainViewController: UIViewController {
         return view
     } ()
     
+    // MARK: - StackViews
     private lazy var contentStack: UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
@@ -50,14 +51,16 @@ class MainViewController: UIViewController {
     private lazy var roundButtonsStack: UIStackView = {
         let stack = UIStackView()
         stack.axis = .horizontal
-        stack.distribution = .fillEqually
-        stack.spacing = 235
+        stack.distribution = .equalSpacing
+        stack.spacing = 0
         stack.alignment = .top
         stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
     } ()
     
-    let titleOne: UILabel = {
+    
+    // MARK: - Properties
+    private let titleOne: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
         label.text = "Игра для компании"
@@ -68,7 +71,7 @@ class MainViewController: UIViewController {
         return label
     } ()
     
-    let titleBomb: UILabel = {
+    private let titleBomb: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
         label.text = "БОМБА"
@@ -86,7 +89,7 @@ class MainViewController: UIViewController {
         return label
     } ()
     
-    let logoImage: UIImageView = {
+    private let logoImage: UIImageView = {
       let view = UIImageView()
         view.image = UIImage(named: K.Images.logoImage)
         view.contentMode = .center
@@ -94,16 +97,17 @@ class MainViewController: UIViewController {
         return view
     } ()
     
-    let buttonOne = CustomButton(text: "Старт игры")
-    let buttonTwo = CustomButton(text: "Продолжить")
-    let buttonThree = CustomButton(text: "Категории")
-    private let spaceContainer : UIView = UIView(frame: CGRect(x: 0, y: 0, width: 200, height: 176))
+    
+    // MARK: - Buttons
+    private lazy var buttonOne = CustomButton(text: "Старт игры")
+    private lazy var buttonTwo = CustomButton(text: "Продолжить")
+    private lazy var buttonThree = CustomButton(text: "Категории")
+    
+    private lazy var buttonSettings = RoundButton(image: K.Images.settingsLogo)
+    private lazy var buttonHelp = RoundButton(image: K.Images.question)
     
     
-    let buttonSettings = RoundButton(image: K.Images.settingsLogo)
-    let buttonHelp = RoundButton(image: K.Images.question)
-    
-    
+    // MARK: - Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         addSubviews()
@@ -125,10 +129,9 @@ class MainViewController: UIViewController {
         buttonsStack.addArrangedSubview(buttonOne)
         buttonsStack.addArrangedSubview(buttonTwo)
         buttonsStack.addArrangedSubview(buttonThree)
-        buttonsStack.addArrangedSubview(spaceContainer) // вопрос здесь
     
         
-        contentStack.addArrangedSubview(roundButtonsStack)
+        view.addSubview(roundButtonsStack)
         roundButtonsStack.addArrangedSubview(buttonSettings)
         roundButtonsStack.addArrangedSubview(buttonHelp)
         
@@ -143,7 +146,11 @@ class MainViewController: UIViewController {
             
             contentStack.topAnchor.constraint(equalTo: view.topAnchor, constant: 51),
             contentStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 2),
-            contentStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -3)
+            contentStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -3),
+            
+            roundButtonsStack.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -30),
+            roundButtonsStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 14),
+            roundButtonsStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -14)
         ])
     }
     
@@ -153,6 +160,8 @@ class MainViewController: UIViewController {
         buttonOne.addTarget(self, action: #selector(startGameTaped), for: .touchUpInside)
         buttonTwo.addTarget(self, action: #selector(continewTaped), for: .touchUpInside)
         buttonThree.addTarget(self, action: #selector(categoryTaped), for: .touchUpInside)
+        buttonSettings.addTarget(self, action: #selector(settingsTaped), for: .touchUpInside)
+        buttonHelp.addTarget(self, action: #selector(helpTaped), for: .touchUpInside)
     }
     
     // Вот сами методы кнопок = IBAction
@@ -163,8 +172,12 @@ class MainViewController: UIViewController {
     
     @objc private func continewTaped() {}
     
-    @objc private func categoryTaped() {
-        
+    @objc private func categoryTaped() {}
+    
+    @objc private func settingsTaped() {
+        self.navigationController?.pushViewController(SettingsViewController(), animated: true)
     }
+    
+    @objc private func helpTaped() {}
 }
 

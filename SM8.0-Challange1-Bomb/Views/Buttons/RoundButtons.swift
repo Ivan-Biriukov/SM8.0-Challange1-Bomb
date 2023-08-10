@@ -16,8 +16,8 @@ class RoundButton: UIButton {
     
     private func setup() {
         translatesAutoresizingMaskIntoConstraints = false
-        self.heightAnchor.constraint(equalToConstant: (58)).isActive = true
-        self.widthAnchor.constraint(equalToConstant: (58)).isActive = true
+        self.heightAnchor.constraint(equalToConstant: (60)).isActive = true
+        self.widthAnchor.constraint(equalToConstant: (60)).isActive = true
         setImage(UIImage(named: image), for: .normal)
         
         addTarget(self, action: #selector(didTaped(_:)), for: .touchUpInside)
