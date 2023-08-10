@@ -1,13 +1,8 @@
-//
-//  ViewController.swift
-//  SM8.0-Challange1-Bomb
-//
-//  Created by иван Бирюков on 09.08.2023.
-//
-
 import UIKit
 
 class MainViewController: UIViewController {
+    
+    // MARK: - UI Elements
     
     private lazy var backgroundView: UIImageView = {
         let view = UIImageView()
@@ -17,7 +12,6 @@ class MainViewController: UIViewController {
         return view
     } ()
     
-    // MARK: - StackViews
     private lazy var contentStack: UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
@@ -58,8 +52,6 @@ class MainViewController: UIViewController {
         return stack
     } ()
     
-    
-    // MARK: - Properties
     private let titleOne: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
@@ -78,12 +70,10 @@ class MainViewController: UIViewController {
         label.textAlignment = .center
         label.font = .delaGothic48()
         label.textColor = .specialViolet
-        
         label.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
         label.layer.shadowOpacity = 1
         label.layer.shadowRadius = 4
         label.layer.shadowOffset = CGSize(width: 0, height: 4)
-        
         label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
@@ -97,23 +87,51 @@ class MainViewController: UIViewController {
         return view
     } ()
     
-    
-    // MARK: - Buttons
-    private lazy var buttonOne = CustomButton(text: "Старт игры")
-    private lazy var buttonTwo = CustomButton(text: "Продолжить")
-    private lazy var buttonThree = CustomButton(text: "Категории")
+
+    private lazy var gameStartButton = CustomButton(text: "Старт игры")
+    private lazy var gameContinewButton = CustomButton(text: "Продолжить")
+    private lazy var categoryButton = CustomButton(text: "Категории")
     
     private lazy var buttonSettings = RoundButton(image: K.Images.settingsLogo)
     private lazy var buttonHelp = RoundButton(image: K.Images.question)
     
+    // MARK: - Buttons Methods
     
-    // MARK: - Methods
+
+    
+    // Вот сами методы кнопок = IBAction
+    
+    @objc private func startGameTaped() {
+        self.navigationController?.pushViewController(GameViewController(), animated: true)
+    }
+    
+    @objc private func continewTaped() {
+        
+    }
+    
+    @objc private func categoryTaped() {
+        self.navigationController?.pushViewController(CategoriesViewController(), animated: true)
+    }
+    
+    @objc private func settingsTaped() {
+        self.navigationController?.pushViewController(SettingsViewController(), animated: true)
+    }
+    
+    @objc private func helpTaped() {
+        self.navigationController?.pushViewController(RulesViewController(), animated: true)
+    }
+    
+    // MARK: - LifeCycle Methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         addSubviews()
         setupConstraints()
         addButtonsMethods()
     }
+    
+    
+    // MARK: - Configure UI
     
     private func addSubviews() {
         view.addSubview(backgroundView)
@@ -124,17 +142,14 @@ class MainViewController: UIViewController {
         titleStack.addArrangedSubview(titleBomb)
         
         contentStack.addArrangedSubview(logoImage)
-        
         contentStack.addArrangedSubview(buttonsStack)
-        buttonsStack.addArrangedSubview(buttonOne)
-        buttonsStack.addArrangedSubview(buttonTwo)
-        buttonsStack.addArrangedSubview(buttonThree)
+        buttonsStack.addArrangedSubview(gameStartButton)
+        buttonsStack.addArrangedSubview(gameContinewButton)
+        buttonsStack.addArrangedSubview(categoryButton)
     
-        
         view.addSubview(roundButtonsStack)
         roundButtonsStack.addArrangedSubview(buttonSettings)
         roundButtonsStack.addArrangedSubview(buttonHelp)
-        
     }
     
     private func setupConstraints() {
@@ -154,32 +169,12 @@ class MainViewController: UIViewController {
         ])
     }
     
-    // Добавил функцию которая добавляет методы для кнопок (это аналог @IBACtion)
-    
     private func addButtonsMethods() {
-        buttonOne.addTarget(self, action: #selector(startGameTaped), for: .touchUpInside)
-        buttonTwo.addTarget(self, action: #selector(continewTaped), for: .touchUpInside)
-        buttonThree.addTarget(self, action: #selector(categoryTaped), for: .touchUpInside)
+        gameStartButton.addTarget(self, action: #selector(startGameTaped), for: .touchUpInside)
+        gameContinewButton.addTarget(self, action: #selector(continewTaped), for: .touchUpInside)
+        categoryButton.addTarget(self, action: #selector(categoryTaped), for: .touchUpInside)
         buttonSettings.addTarget(self, action: #selector(settingsTaped), for: .touchUpInside)
         buttonHelp.addTarget(self, action: #selector(helpTaped), for: .touchUpInside)
-    }
-    
-    // Вот сами методы кнопок = IBAction
-    
-    @objc private func startGameTaped() {
-        self.navigationController?.pushViewController(GameViewController(), animated: true)
-    }
-    
-    @objc private func continewTaped() {}
-    
-    @objc private func categoryTaped() {}
-    
-    @objc private func settingsTaped() {
-        self.navigationController?.pushViewController(SettingsViewController(), animated: true)
-    }
-    
-    @objc private func helpTaped() {
-        self.navigationController?.pushViewController(RulesViewController(), animated: true)
     }
 }
 
