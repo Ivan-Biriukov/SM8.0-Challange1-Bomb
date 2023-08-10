@@ -11,14 +11,24 @@ extension UIViewController {
         navigationBarAppearance.configureWithOpaqueBackground()
         navigationBarAppearance.backgroundColor = .clear
         navigationBarAppearance.shadowColor = .clear
-        navigationBarAppearance.titleTextAttributes = [
-            NSAttributedString.Key.foregroundColor: UIColor.specialViolet, NSAttributedString.Key.font: UIFont.delaGothic20() ?? UIFont.systemFont(ofSize: 20)
-        ]
-        
+      
         self.navigationController?.navigationBar.standardAppearance = navigationBarAppearance
         self.navigationController?.navigationBar.scrollEdgeAppearance = navigationBarAppearance
         self.navigationController?.navigationBar.topItem?.title = " "
-        self.title = title
+        
+        self.navigationItem.title = nil
+        
+        let navTitle : UILabel = {
+            let lb = UILabel()
+            lb.font = .delaGothic30()
+            lb.textColor = .specialViolet
+            lb.textAlignment = .center
+            lb.backgroundColor = .clear
+            lb.text = title
+            return lb
+        }()
+        
+        self.navigationItem.titleView = navTitle
     }
     
     func addButtonToNavBar() {
