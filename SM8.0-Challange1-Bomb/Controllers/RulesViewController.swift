@@ -9,24 +9,24 @@ import UIKit
 
 class RulesViewController: UIViewController {
     
-    var totalTableViewHeight: CGFloat = 0
+    private var totalTableViewHeight: CGFloat = 0
     
     //    MARK: - UI Elements
     
-    var scrollView: UIScrollView = {
+    private var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         return scrollView
     }()
     
-    var rulesTableView: UITableView = {
+    private var rulesTableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
     
     
-    let categoryLabel: UILabel = {
+    private let categoryLabel: UILabel = {
         
         let category = UILabel()
         
@@ -39,7 +39,7 @@ class RulesViewController: UIViewController {
         
     }()
     
-    let describtionOfGameLabel: UILabel = {
+    private let describtionOfGameLabel: UILabel = {
         
         let describtion = UILabel()
         
@@ -54,7 +54,7 @@ class RulesViewController: UIViewController {
         
     }()
     
-    let selectCategoryLabel: UILabel = {
+    private let selectCategoryLabel: UILabel = {
         
         let select = UILabel()
         
@@ -66,6 +66,19 @@ class RulesViewController: UIViewController {
         select.textAlignment = .center
         
         return select
+    }()
+    
+    private var categoryCollectionView: UICollectionView = {
+        
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        
+        collectionView.backgroundColor = UIColor.clear
+        collectionView.register(CategoryCustomCollectionViewCell.self, forCellWithReuseIdentifier: CategoryCustomCollectionViewCell.identifier)
+        
+        return collectionView
     }()
     
     // MARK: - View Life Cycle
@@ -94,7 +107,7 @@ class RulesViewController: UIViewController {
         //        MARK: TableView
         
         //        Calculating tableView Height
-        for rule in RulesData.shared.items {
+        for rule in RulesData.shared.gameRules {
             totalTableViewHeight += RulesData.shared.calculateCellHeight(for: rule.description, tableView: rulesTableView)
         }
         
@@ -107,6 +120,16 @@ class RulesViewController: UIViewController {
         rulesTableView.delegate = self
         rulesTableView.dataSource = self
         
+        // CategoryCollectionView
+        
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        
+        categoryCollectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height / 6), collectionViewLayout: layout)
+        categoryCollectionView.register(CategoryCustomCollectionViewCell.self, forCellWithReuseIdentifier: CategoryCustomCollectionViewCell.identifier)
+        categoryCollectionView.isScrollEnabled = false
+        categoryCollectionView.dataSource = self
+        categoryCollectionView.delegate = self
         
         //         MARK: SubViews of UIScrollView
         
@@ -114,29 +137,40 @@ class RulesViewController: UIViewController {
         scrollView.addSubview(categoryLabel)
         scrollView.addSubview(describtionOfGameLabel)
         scrollView.addSubview(selectCategoryLabel)
+        scrollView.addSubview(categoryCollectionView)
         
-        //        MARK: Contrains
         
-        NSLayoutConstraint.activate([
-            
-            categoryLabel.topAnchor.constraint(equalTo: rulesTableView.bottomAnchor, constant: 16),
-            categoryLabel.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-            
-            describtionOfGameLabel.topAnchor.constraint(equalTo: categoryLabel.bottomAnchor, constant: 28),
-            describtionOfGameLabel.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-            
-            selectCategoryLabel.topAnchor.constraint(equalTo: describtionOfGameLabel.bottomAnchor, constant: 28),
-            selectCategoryLabel.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor)
-            
-        ])
+        //        Constrains
         
-        let scrollViewContentHeight = rulesTableView.frame.height + categoryLabel.frame.height + describtionOfGameLabel.frame.height + selectCategoryLabel.frame.height
+        setUpContrains()
+        
+        let scrollViewContentHeight = rulesTableView.frame.height + categoryLabel.frame.height + describtionOfGameLabel.frame.height + selectCategoryLabel.frame.height + categoryCollectionView.frame.height
         
         scrollView.contentSize = CGSize(width: view.bounds.width, height: scrollViewContentHeight * 1.6)
         
     }
     
     
+    func setUpContrains() {
+        
+            NSLayoutConstraint.activate([
+                categoryLabel.topAnchor.constraint(equalTo: rulesTableView.bottomAnchor, constant: 16),
+                categoryLabel.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+                
+                describtionOfGameLabel.topAnchor.constraint(equalTo: categoryLabel.bottomAnchor, constant: 28),
+                describtionOfGameLabel.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+                
+                selectCategoryLabel.topAnchor.constraint(equalTo: describtionOfGameLabel.bottomAnchor, constant: 28),
+                selectCategoryLabel.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+                
+                categoryCollectionView.topAnchor.constraint(equalTo: selectCategoryLabel.topAnchor, constant: 45),
+                categoryCollectionView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+                categoryCollectionView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+                categoryCollectionView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -200)            
+                
+                
+            ])
+        }
     
     
     

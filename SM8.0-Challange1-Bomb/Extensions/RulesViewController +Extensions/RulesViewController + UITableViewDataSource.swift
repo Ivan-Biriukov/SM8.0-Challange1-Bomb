@@ -17,14 +17,14 @@ extension RulesViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        let rulesData = RulesData.shared.items
+        let rulesData = RulesData.shared.gameRules
         
         return rulesData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let rulesData = RulesData.shared.items
+        let rulesData = RulesData.shared.gameRules
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: RulesCustomTableViewCell.identifierForRulesTable, for: indexPath) as? RulesCustomTableViewCell else { fatalError("The TableView could not dequeue in RulesViewController")}
         
@@ -78,7 +78,7 @@ extension RulesViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 
-        let rulesData = RulesData.shared.items
+        let rulesData = RulesData.shared.gameRules
 
         let dataModel = rulesData[indexPath.row].description
 

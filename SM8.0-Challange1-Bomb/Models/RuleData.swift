@@ -16,7 +16,7 @@ struct RulesData {
     private init() {}
     
     
-    let items: [Rule] = [
+    let gameRules: [Rule] = [
         
         Rule(ruleNumber: 1,description: "Все игроки становятся в круг."),
         Rule(ruleNumber: 2, description: "Первый игрок берет телефон и нажимает кнопку: Старт игры"),
@@ -28,23 +28,31 @@ struct RulesData {
         
     ]
     
+    let selectCategory: [Category] = [
+        
+        Category(name: "Природа", image: UIImage(named: "image 6")),
+        Category(name: "Искусство и кино", image: UIImage(named: "image 5")),
+        Category(name: "О Разном", image: UIImage(named: "image 1")),
+        Category(name: "Спорт и Хобби", image: UIImage(named: "image 2"))
+        
+    ]
     
     func calculateCellHeight(for text: String, tableView: UITableView) -> CGFloat {
-            let labelWidth = tableView.bounds.width
-            let labelInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
-            let labelHorizontalInsets = labelInsets.left + labelInsets.right
-            let labelVerticalInsets = labelInsets.top + labelInsets.bottom
-            
-            let labelHeight = text.boundingRect(
-                with: CGSize(width: labelWidth - labelHorizontalInsets,
-                             height: .greatestFiniteMagnitude),
-                options: .usesLineFragmentOrigin,
-                attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16)], // Use your desired font
-                context: nil
-            ).height
-            
-            return labelHeight + labelVerticalInsets
-        }
+        let labelWidth = tableView.bounds.width
+        let labelInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
+        let labelHorizontalInsets = labelInsets.left + labelInsets.right
+        let labelVerticalInsets = labelInsets.top + labelInsets.bottom
+        
+        let labelHeight = text.boundingRect(
+            with: CGSize(width: labelWidth - labelHorizontalInsets,
+                         height: .greatestFiniteMagnitude),
+            options: .usesLineFragmentOrigin,
+            attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16)], // Use your desired font
+            context: nil
+        ).height
+        
+        return labelHeight + labelVerticalInsets
+    }
     
     
 }

@@ -5,4 +5,11 @@
 //  Created by Ислам Пулатов on 8/9/23.
 //
 
-import Foundation
+import UIKit
+
+struct Category {
+    
+    var name: String
+    var image: UIImage?
+    
+}

@@ -13,6 +13,10 @@
 		166677612A83E20E0005965C /* RulesCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166677602A83E20E0005965C /* RulesCustomTableViewCell.swift */; };
 		166677642A83E27D0005965C /* RulesViewController + UITableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166677632A83E27D0005965C /* RulesViewController + UITableViewDataSource.swift */; };
 		166677662A83E2C20005965C /* RulesViewController + UITableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166677652A83E2C20005965C /* RulesViewController + UITableViewDelegate.swift */; };
+		16B8FA952A83F2FD0072B246 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B8FA942A83F2FD0072B246 /* Category.swift */; };
+		16B8FA992A83FA7B0072B246 /* CategoryCustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B8FA982A83FA7B0072B246 /* CategoryCustomCollectionViewCell.swift */; };
+		16B8FA9B2A83FE890072B246 /* RulesViewController + UICollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B8FA9A2A83FE890072B246 /* RulesViewController + UICollectionViewDataSource.swift */; };
+		16B8FA9D2A83FEA00072B246 /* RulesViewController + UICollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B8FA9C2A83FEA00072B246 /* RulesViewController + UICollectionViewDelegate.swift */; };
 		5759832F2A83D696001B38A3 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5759832E2A83D696001B38A3 /* SettingsViewController.swift */; };
 		575983362A83E7FC001B38A3 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575983342A83E7FC001B38A3 /* GameViewController.swift */; };
 		575983372A83E7FC001B38A3 /* GameEndViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575983352A83E7FC001B38A3 /* GameEndViewController.swift */; };
@@ -49,6 +53,10 @@
 		166677602A83E20E0005965C /* RulesCustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesCustomTableViewCell.swift; sourceTree = "<group>"; };
 		166677632A83E27D0005965C /* RulesViewController + UITableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RulesViewController + UITableViewDataSource.swift"; sourceTree = "<group>"; };
 		166677652A83E2C20005965C /* RulesViewController + UITableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RulesViewController + UITableViewDelegate.swift"; sourceTree = "<group>"; };
+		16B8FA942A83F2FD0072B246 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		16B8FA982A83FA7B0072B246 /* CategoryCustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCustomCollectionViewCell.swift; sourceTree = "<group>"; };
+		16B8FA9A2A83FE890072B246 /* RulesViewController + UICollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RulesViewController + UICollectionViewDataSource.swift"; sourceTree = "<group>"; };
+		16B8FA9C2A83FEA00072B246 /* RulesViewController + UICollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RulesViewController + UICollectionViewDelegate.swift"; sourceTree = "<group>"; };
 		5759832E2A83D696001B38A3 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		575983342A83E7FC001B38A3 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		575983352A83E7FC001B38A3 /* GameEndViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameEndViewController.swift; sourceTree = "<group>"; };
@@ -96,8 +104,17 @@
 			children = (
 				166677632A83E27D0005965C /* RulesViewController + UITableViewDataSource.swift */,
 				166677652A83E2C20005965C /* RulesViewController + UITableViewDelegate.swift */,
+				16B8FA9A2A83FE890072B246 /* RulesViewController + UICollectionViewDataSource.swift */,
+				16B8FA9C2A83FEA00072B246 /* RulesViewController + UICollectionViewDelegate.swift */,
 			);
 			path = "RulesViewController +Extensions";
+			sourceTree = "<group>";
+		};
+		16B8FA962A83FA420072B246 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "New Group";
 			sourceTree = "<group>";
 		};
 		57A8D3842A83CBBC00D411E5 = {
@@ -134,6 +151,7 @@
 			children = (
 				57A8D3D42A83D04500D411E5 /* SoundsDataModel.swift */,
 				166677592A83DFBD0005965C /* Rule.swift */,
+				16B8FA942A83F2FD0072B246 /* Category.swift */,
 				1666775B2A83DFE10005965C /* RuleData.swift */,
 			);
 			path = Models;
@@ -142,9 +160,11 @@
 		57A8D3A52A83CC5500D411E5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				16B8FA962A83FA420072B246 /* New Group */,
 				57A8D3CD2A83CFBB00D411E5 /* Buttons */,
 				57A8D3CC2A83CFB100D411E5 /* Labels */,
 				166677602A83E20E0005965C /* RulesCustomTableViewCell.swift */,
+				16B8FA982A83FA7B0072B246 /* CategoryCustomCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -338,6 +358,7 @@
 				57A8D3C52A83CF0600D411E5 /* UIColor+ Extension.swift in Sources */,
 				57A8D3952A83CBBC00D411E5 /* MainViewController.swift in Sources */,
 				166677612A83E20E0005965C /* RulesCustomTableViewCell.swift in Sources */,
+				16B8FA992A83FA7B0072B246 /* CategoryCustomCollectionViewCell.swift in Sources */,
 				57A8D3D32A83D01A00D411E5 /* SettingsButton.swift in Sources */,
 				575983372A83E7FC001B38A3 /* GameEndViewController.swift in Sources */,
 				57A8D3D12A83CFF300D411E5 /* CustomButton.swift in Sources */,
@@ -347,12 +368,15 @@
 				57A8D3C92A83CF4000D411E5 /* UIViewController+ Extension.swift in Sources */,
 				57A8D3CB2A83CF8500D411E5 /* Constants.swift in Sources */,
 				57A8D3912A83CBBC00D411E5 /* AppDelegate.swift in Sources */,
+				16B8FA9B2A83FE890072B246 /* RulesViewController + UICollectionViewDataSource.swift in Sources */,
 				57A8D3932A83CBBC00D411E5 /* SceneDelegate.swift in Sources */,
 				1666775E2A83E03D0005965C /* RulesViewController.swift in Sources */,
 				1666775A2A83DFBD0005965C /* Rule.swift in Sources */,
 				57A8D3CF2A83CFD700D411E5 /* SettingsLabel.swift in Sources */,
+				16B8FA9D2A83FEA00072B246 /* RulesViewController + UICollectionViewDelegate.swift in Sources */,
 				5759832F2A83D696001B38A3 /* SettingsViewController.swift in Sources */,
 				1666775C2A83DFE10005965C /* RuleData.swift in Sources */,
+				16B8FA952A83F2FD0072B246 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

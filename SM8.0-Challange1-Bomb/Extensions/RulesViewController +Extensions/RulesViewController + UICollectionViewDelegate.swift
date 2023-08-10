@@ -5,4 +5,9 @@
 //  Created by Ислам Пулатов on 8/9/23.
 //
 
-import Foundation
+import UIKit
+
+
+extension RulesViewController: UICollectionViewDelegate {
+    
+}
