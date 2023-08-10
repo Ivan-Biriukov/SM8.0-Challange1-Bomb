@@ -34,6 +34,7 @@ extension RulesViewController: UITableViewDataSource {
         cell.backgroundColor = UIColor.clear
         
         return cell
+        
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -77,35 +78,36 @@ extension RulesViewController: UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-
+        
         let rulesData = RulesData.shared.items
-
+        
         let dataModel = rulesData[indexPath.row].description
-
+        
         let labelWidth = tableView.bounds.width - 16 * 2
-
+        
         let labelInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
-
+        
         let labelHorizontalInsets = labelInsets.left + labelInsets.right
-
+        
         let labelVerticalInsets = labelInsets.top + labelInsets.bottom
-
+        
         let labelHeight = dataModel.boundingRect(
             with: CGSize(width: labelWidth - labelHorizontalInsets,
                          height: .greatestFiniteMagnitude),
-                         options: .usesLineFragmentOrigin,
+            options: .usesLineFragmentOrigin,
             attributes: [NSAttributedString.Key.font: (UIFont.delaGothic24() ?? UIFont.systemFont(ofSize: 24)) as UIFont],
-                         context: nil
+            context: nil
         ).height
-
+        
         let totalCellHeight = labelHeight + labelVerticalInsets + 13
-
+        
         return totalCellHeight
     }
-
+    
     
     
     
     
 }
+
 
