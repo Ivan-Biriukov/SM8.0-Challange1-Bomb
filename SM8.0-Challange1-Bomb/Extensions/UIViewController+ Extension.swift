@@ -8,7 +8,6 @@ extension UIViewController {
         navigationBar?.tintColor = .black
         let navigationBarAppearance = UINavigationBarAppearance()
         
-        
         navigationBarAppearance.configureWithOpaqueBackground()
         navigationBarAppearance.backgroundColor = .clear
         navigationBarAppearance.shadowColor = .clear
@@ -25,9 +24,7 @@ extension UIViewController {
     
     func addButtonToNavBar() {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "pause.circle"), style:.done, target: self, action: nil)
-        
     }
-    
     
     // Function check if UserDefault even exist, true when exist (has value) false when doesnt exist (has no value)
     func isKeyPresentInUserDefaults(key: String) -> Bool {
@@ -35,7 +32,6 @@ extension UIViewController {
     }
     
     // Methods for check if UD values = nil we will set a defaults values
-    
     func setUDDefaultsValuesForFirstAppLaunch() {
         if isKeyPresentInUserDefaults(key: K.UserDefaultsKeys.backgroundMusicBool) == false {
             UserDefaults.standard.set(true, forKey: K.UserDefaultsKeys.backgroundMusicBool)
@@ -61,5 +57,4 @@ extension UIViewController {
             UserDefaults.standard.set("explosion1", forKey: K.UserDefaultsKeys.bombExplosionSaveValue)
         }
     }
-    
 }
