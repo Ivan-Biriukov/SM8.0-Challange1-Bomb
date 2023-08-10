@@ -26,4 +26,8 @@ extension UIColor {
         return UIColor(patternImage: image!)
     }
     
+    static let speciallightBlack = UIColor(red: 60/256, green: 58/256, blue: 58/256, alpha: 1)
+    
+    
+    
 }

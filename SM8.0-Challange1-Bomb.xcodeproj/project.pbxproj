@@ -13,7 +13,10 @@
 		166677612A83E20E0005965C /* RulesCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166677602A83E20E0005965C /* RulesCustomTableViewCell.swift */; };
 		166677642A83E27D0005965C /* RulesViewController + UITableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166677632A83E27D0005965C /* RulesViewController + UITableViewDataSource.swift */; };
 		166677662A83E2C20005965C /* RulesViewController + UITableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166677652A83E2C20005965C /* RulesViewController + UITableViewDelegate.swift */; };
-		16860A952A851492000D09F8 /* TestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16860A942A851492000D09F8 /* TestTableViewCell.swift */; };
+		16860A972A854475000D09F8 /* RulesTableViewDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16860A962A854475000D09F8 /* RulesTableViewDataModel.swift */; };
+		16860A992A8544B6000D09F8 /* RulesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16860A982A8544B6000D09F8 /* RulesTableViewCell.swift */; };
+		16860A9B2A854D01000D09F8 /* RulesPlusTaskTableViewDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16860A9A2A854D01000D09F8 /* RulesPlusTaskTableViewDataModel.swift */; };
+		16860A9D2A854D80000D09F8 /* PlusTaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16860A9C2A854D80000D09F8 /* PlusTaskTableViewCell.swift */; };
 		434A386E2A84EA22005D5CC0 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434A386D2A84EA22005D5CC0 /* UIImage+Extension.swift */; };
 		434A38732A84EAFB005D5CC0 /* bombGif.gif in Resources */ = {isa = PBXBuildFile; fileRef = 434A38722A84EAFB005D5CC0 /* bombGif.gif */; };
 		5759832F2A83D696001B38A3 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5759832E2A83D696001B38A3 /* SettingsViewController.swift */; };
@@ -56,7 +59,10 @@
 		166677602A83E20E0005965C /* RulesCustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesCustomTableViewCell.swift; sourceTree = "<group>"; };
 		166677632A83E27D0005965C /* RulesViewController + UITableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RulesViewController + UITableViewDataSource.swift"; sourceTree = "<group>"; };
 		166677652A83E2C20005965C /* RulesViewController + UITableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RulesViewController + UITableViewDelegate.swift"; sourceTree = "<group>"; };
-		16860A942A851492000D09F8 /* TestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTableViewCell.swift; sourceTree = "<group>"; };
+		16860A962A854475000D09F8 /* RulesTableViewDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesTableViewDataModel.swift; sourceTree = "<group>"; };
+		16860A982A8544B6000D09F8 /* RulesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesTableViewCell.swift; sourceTree = "<group>"; };
+		16860A9A2A854D01000D09F8 /* RulesPlusTaskTableViewDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesPlusTaskTableViewDataModel.swift; sourceTree = "<group>"; };
+		16860A9C2A854D80000D09F8 /* PlusTaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusTaskTableViewCell.swift; sourceTree = "<group>"; };
 		434A386D2A84EA22005D5CC0 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		434A38722A84EAFB005D5CC0 /* bombGif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = bombGif.gif; sourceTree = "<group>"; };
 		5759832E2A83D696001B38A3 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -159,6 +165,8 @@
 				166677592A83DFBD0005965C /* Rule.swift */,
 				1666775B2A83DFE10005965C /* RuleData.swift */,
 				E8C1906E2A84F81200582224 /* CategoriesDataModel.swift */,
+				16860A962A854475000D09F8 /* RulesTableViewDataModel.swift */,
+				16860A9A2A854D01000D09F8 /* RulesPlusTaskTableViewDataModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -170,7 +178,8 @@
 				57A8D3CC2A83CFB100D411E5 /* Labels */,
 				166677602A83E20E0005965C /* RulesCustomTableViewCell.swift */,
 				E8C190702A84F84A00582224 /* CategoriesCollectionViewCell.swift */,
-				16860A942A851492000D09F8 /* TestTableViewCell.swift */,
+				16860A982A8544B6000D09F8 /* RulesTableViewCell.swift */,
+				16860A9C2A854D80000D09F8 /* PlusTaskTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -367,12 +376,13 @@
 				166677662A83E2C20005965C /* RulesViewController + UITableViewDelegate.swift in Sources */,
 				57A8D3C52A83CF0600D411E5 /* UIColor+ Extension.swift in Sources */,
 				57A8D3952A83CBBC00D411E5 /* MainViewController.swift in Sources */,
+				16860A9B2A854D01000D09F8 /* RulesPlusTaskTableViewDataModel.swift in Sources */,
 				E8C190712A84F84A00582224 /* CategoriesCollectionViewCell.swift in Sources */,
 				166677612A83E20E0005965C /* RulesCustomTableViewCell.swift in Sources */,
 				57A8D3D32A83D01A00D411E5 /* SettingsButton.swift in Sources */,
-				16860A952A851492000D09F8 /* TestTableViewCell.swift in Sources */,
 				575983372A83E7FC001B38A3 /* GameEndViewController.swift in Sources */,
 				57A8D3D12A83CFF300D411E5 /* CustomButton.swift in Sources */,
+				16860A972A854475000D09F8 /* RulesTableViewDataModel.swift in Sources */,
 				57A8D3D52A83D04500D411E5 /* SoundsDataModel.swift in Sources */,
 				575983362A83E7FC001B38A3 /* GameViewController.swift in Sources */,
 				57A8D3C72A83CF2400D411E5 /* UIFont+ Extension.swift in Sources */,
@@ -380,6 +390,7 @@
 				57A8D3CB2A83CF8500D411E5 /* Constants.swift in Sources */,
 				E8C1906F2A84F81200582224 /* CategoriesDataModel.swift in Sources */,
 				57A8D3912A83CBBC00D411E5 /* AppDelegate.swift in Sources */,
+				16860A9D2A854D80000D09F8 /* PlusTaskTableViewCell.swift in Sources */,
 				57A8D3932A83CBBC00D411E5 /* SceneDelegate.swift in Sources */,
 				434A386E2A84EA22005D5CC0 /* UIImage+Extension.swift in Sources */,
 				1666775E2A83E03D0005965C /* RulesViewController.swift in Sources */,
@@ -389,6 +400,7 @@
 				5759832F2A83D696001B38A3 /* SettingsViewController.swift in Sources */,
 				E8C1906D2A84F6E000582224 /* CategoriesViewController.swift in Sources */,
 				1666775C2A83DFE10005965C /* RuleData.swift in Sources */,
+				16860A992A8544B6000D09F8 /* RulesTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
