@@ -95,11 +95,17 @@ class MainViewController: UIViewController {
     private lazy var buttonSettings = RoundButton(image: K.Images.settingsLogo)
     private lazy var buttonHelp = RoundButton(image: K.Images.question)
     
+    // MARK: - LifeCycle Methods
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        addSubviews()
+        setupConstraints()
+        addButtonsMethods()
+        setUDDefaultsValuesForFirstAppLaunch()
+    }
+    
     // MARK: - Buttons Methods
-    
-
-    
-    // Вот сами методы кнопок = IBAction
     
     @objc private func startGameTaped() {
         self.navigationController?.pushViewController(GameViewController(), animated: true)
@@ -120,16 +126,6 @@ class MainViewController: UIViewController {
     @objc private func helpTaped() {
         self.navigationController?.pushViewController(RulesViewController(), animated: true)
     }
-    
-    // MARK: - LifeCycle Methods
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        addSubviews()
-        setupConstraints()
-        addButtonsMethods()
-    }
-    
     
     // MARK: - Configure UI
     
