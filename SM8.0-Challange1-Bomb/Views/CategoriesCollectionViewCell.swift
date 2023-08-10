@@ -40,8 +40,8 @@ class CategoryesCollectionViewCell: UICollectionViewCell {
     private let checkmarkImage : UIImageView = {
         let img = UIImageView()
         img.image = UIImage(named: K.Images.chekmark)
-        img.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        img.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        img.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        img.widthAnchor.constraint(equalToConstant: 30).isActive = true
         img.contentMode = .scaleToFill
         img.translatesAutoresizingMaskIntoConstraints = false
         return img
@@ -67,7 +67,7 @@ class CategoryesCollectionViewCell: UICollectionViewCell {
         
         NSLayoutConstraint.activate([
             image.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            image.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
+            image.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15),
             titleLabel.topAnchor.constraint(equalTo: image.bottomAnchor, constant: 10),
             titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 5),
             titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -5),
@@ -79,8 +79,8 @@ class CategoryesCollectionViewCell: UICollectionViewCell {
         if isOn {
             contentView.addSubview(checkmarkImage)
             NSLayoutConstraint.activate([
-                checkmarkImage.topAnchor.constraint(equalTo: contentView.topAnchor),
-                checkmarkImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: -5)
+                checkmarkImage.topAnchor.constraint(equalTo: contentView.topAnchor,constant: 10),
+                checkmarkImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10)
             ])
         } else {
             checkmarkImage.removeFromSuperview()
