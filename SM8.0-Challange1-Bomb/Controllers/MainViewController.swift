@@ -50,9 +50,9 @@ class MainViewController: UIViewController {
     private lazy var roundButtonsStack: UIStackView = {
         let stack = UIStackView()
         stack.axis = .horizontal
-        stack.distribution = .fill
-        stack.spacing = 225
-        stack.alignment = .fill
+        stack.distribution = .fillEqually
+        stack.spacing = 235
+        stack.alignment = .top
         stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
     } ()
@@ -97,8 +97,9 @@ class MainViewController: UIViewController {
     let buttonOne = CustomButton(text: "Старт игры")
     let buttonTwo = CustomButton(text: "Продолжить")
     let buttonThree = CustomButton(text: "Категории")
+    private let spaceContainer : UIView = UIView(frame: CGRect(x: 0, y: 0, width: 200, height: 176))
     
-    let spaceContainer : UIView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: 12))
+    
     let buttonSettings = RoundButton(image: K.Images.settingsLogo)
     let buttonHelp = RoundButton(image: K.Images.question)
     
@@ -124,8 +125,8 @@ class MainViewController: UIViewController {
         buttonsStack.addArrangedSubview(buttonOne)
         buttonsStack.addArrangedSubview(buttonTwo)
         buttonsStack.addArrangedSubview(buttonThree)
-        
-        contentStack.addArrangedSubview(spaceContainer)
+        buttonsStack.addArrangedSubview(spaceContainer) // вопрос здесь
+    
         
         contentStack.addArrangedSubview(roundButtonsStack)
         roundButtonsStack.addArrangedSubview(buttonSettings)
