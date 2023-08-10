@@ -10,7 +10,7 @@ import UIKit
 class CategoriesViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     private let cellDataArray : [CategoryesDataModel] = [
-        .init(imageName: K.Images.diference, titleLabel: "О Разном", chechMarkSelected: false),
+        .init(imageName: K.Images.aboutLife, titleLabel: "О Разном", chechMarkSelected: false),
         .init(imageName: K.Images.sportAndHobby, titleLabel: "Спорт и Хобби", chechMarkSelected: false),
         .init(imageName: K.Images.aboutLife, titleLabel: "Про Жизнь", chechMarkSelected: true),
         .init(imageName: K.Images.fameos, titleLabel: "Знаменитости", chechMarkSelected: true),

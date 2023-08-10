@@ -39,7 +39,7 @@ class CategoryesCollectionViewCell: UICollectionViewCell {
     
     private let checkmarkImage : UIImageView = {
         let img = UIImageView()
-        img.image = UIImage(named: "State 1_ On")
+        img.image = UIImage(named: K.Images.chekmark)
         img.heightAnchor.constraint(equalToConstant: 50).isActive = true
         img.widthAnchor.constraint(equalToConstant: 50).isActive = true
         img.contentMode = .scaleToFill

@@ -11,6 +11,9 @@ struct K {
         
         static let diference : String = "image 1"
         
+        // for diferent use one below
+        static let aboutall : String = "planetImg"
+        
         static let sportAndHobby : String = "image 2"
         
         static let aboutLife : String = "image 10"
@@ -28,6 +31,8 @@ struct K {
         static let settingsLogo : String = "image 11"
         
         static let question : String = "question"
+        
+        static let chekmark : String = "checkMarkImg"
     }
     
     struct DeviceSizes {
