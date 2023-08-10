@@ -24,6 +24,10 @@ struct K {
         static let bomb : String = "image 7"
         
         static let explosion : String = "image 9"
+        
+        static let settingsLogo : String = "image 11"
+        
+        static let question : String = "question"
     }
     
     struct DeviceSizes {
