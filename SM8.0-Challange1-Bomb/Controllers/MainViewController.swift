@@ -178,6 +178,8 @@ class MainViewController: UIViewController {
         self.navigationController?.pushViewController(SettingsViewController(), animated: true)
     }
     
-    @objc private func helpTaped() {}
+    @objc private func helpTaped() {
+        self.navigationController?.pushViewController(RulesViewController(), animated: true)
+    }
 }
 
