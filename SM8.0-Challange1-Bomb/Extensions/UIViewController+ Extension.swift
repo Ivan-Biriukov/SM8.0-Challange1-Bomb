@@ -78,5 +78,9 @@ extension UIViewController {
         if isKeyPresentInUserDefaults(key: K.UserDefaultsKeys.bombExplosionSaveValue) == false {
             UserDefaults.standard.set("explosion1", forKey: K.UserDefaultsKeys.bombExplosionSaveValue)
         }
+        
+        if isKeyPresentInUserDefaults(key: K.UserDefaultsKeys.gameInProgress) == false {
+            UserDefaults.standard.set(false, forKey: K.UserDefaultsKeys.gameInProgress)
+        }
     }
 }

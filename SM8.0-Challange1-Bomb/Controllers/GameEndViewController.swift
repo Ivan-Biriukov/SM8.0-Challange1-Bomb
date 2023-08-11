@@ -8,6 +8,8 @@
 import UIKit
 
 class GameEndViewController: UIViewController {
+    
+    private let defaults = UserDefaults.standard
 
     // MARK: - Properties
     private let backgroundImageView: UIImageView = {
@@ -71,6 +73,11 @@ class GameEndViewController: UIViewController {
 //        addButtonToNavBar(<#UIButton?#>)
         addSubviews()
         setupConstraints()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        defaults.set(false, forKey: K.UserDefaultsKeys.gameInProgress)
     }
 
     // MARK: - Private Methods

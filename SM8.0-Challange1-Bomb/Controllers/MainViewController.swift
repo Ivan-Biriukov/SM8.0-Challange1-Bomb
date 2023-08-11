@@ -105,6 +105,11 @@ class MainViewController: UIViewController {
         setUDDefaultsValuesForFirstAppLaunch()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        changeContinewButton()
+    }
+    
     // MARK: - Buttons Methods
     
     @objc private func startGameTaped(_ sender: UIButton) {
@@ -119,6 +124,7 @@ class MainViewController: UIViewController {
         sender.alpha = 0.5
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
             sender.alpha = 1
+            self.navigationController?.pushViewController(GameEndViewController(), animated: true)
         }
     }
     
@@ -190,6 +196,18 @@ class MainViewController: UIViewController {
         categoryButton.addTarget(self, action: #selector(categoryTaped(_:)), for: .touchUpInside)
         buttonSettings.addTarget(self, action: #selector(settingsTaped(_:)), for: .touchUpInside)
         buttonHelp.addTarget(self, action: #selector(helpTaped(_:)), for: .touchUpInside)
+    }
+    
+    private func changeContinewButton() {
+        if UserDefaults.standard.bool(forKey: K.UserDefaultsKeys.gameInProgress) {
+            gameContinewButton.isEnabled = true
+            gameContinewButton.backgroundColor = .specialViolet
+            gameContinewButton.setTitleColor(.specialYellow, for: .normal)
+        } else {
+            gameContinewButton.isEnabled = false
+            gameContinewButton.backgroundColor = .systemGray
+            gameContinewButton.setTitleColor(.systemGray6, for: .normal)
+        }
     }
 }
 

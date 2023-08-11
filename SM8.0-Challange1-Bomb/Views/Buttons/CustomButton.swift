@@ -43,10 +43,6 @@ class CustomButton: UIButton {
             setTitleColor(.systemGray6, for: .normal)
             isEnabled = false
         }
-
-
-
-
     }
     
     @objc private func didTaped(_ sender: UIButton) {

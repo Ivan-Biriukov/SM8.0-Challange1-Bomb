@@ -8,6 +8,7 @@
 import UIKit
 
 class GameViewController: UIViewController {
+    private let defaults = UserDefaults.standard
 
     // MARK: - Properties
     private let backgroundImageView: UIImageView = {
@@ -112,5 +113,6 @@ extension GameViewController {
         createGif()
         runLabel.text = "Назовите вид зимнего спорта"
         runButton.isHidden = true
+        defaults.set(true, forKey: K.UserDefaultsKeys.gameInProgress)
     }
 }
