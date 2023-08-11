@@ -167,6 +167,10 @@ class SettingsViewController: UIViewController {
         print(defaults.string(forKey: K.UserDefaultsKeys.bombTikSavedValue))
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateDurationButtonUIFromUD()
+    }
     
     // MARK: - Switch Methods
     
@@ -193,7 +197,10 @@ class SettingsViewController: UIViewController {
             changeButtonUI(btn: sender, bgColor: .specialViolet, textColor: .specialYellow)
             restoreStandartButtonUI([shortButton, middleButton, randomButton])
         case 3:
-            defaults.set(Int.random(in: 10...45), forKey: K.UserDefaultsKeys.roundTimeDurationInSeconds)
+            var duration = [11, 12, 13, 14, 15, 16, 17, 18, 19, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41,42, 43, 44]
+            duration.shuffle()
+            let shafled = duration.first
+            defaults.set(shafled, forKey: K.UserDefaultsKeys.roundTimeDurationInSeconds)
             changeButtonUI(btn: sender, bgColor: .specialViolet, textColor: .specialYellow)
             restoreStandartButtonUI([shortButton, middleButton, longButton])
         default:
@@ -432,6 +439,24 @@ class SettingsViewController: UIViewController {
         } else {
             defaults.set(SoundsDataModel.bombExplosionSound["Взрыв 1"], forKey: K.UserDefaultsKeys.bombExplosionSaveValue)
             chooseBombExplButton.setTitle("Взрыв 1", for: .normal)
+        }
+    }
+    
+    private func updateDurationButtonUIFromUD() {
+        let currentDuration = defaults.integer(forKey: K.UserDefaultsKeys.roundTimeDurationInSeconds)
+        switch currentDuration {
+        case 10:
+            changeButtonUI(btn: shortButton, bgColor: .specialViolet, textColor: .specialYellow)
+            restoreStandartButtonUI([middleButton, longButton, randomButton])
+        case 20:
+            changeButtonUI(btn: middleButton, bgColor: .specialViolet, textColor: .specialYellow)
+            restoreStandartButtonUI([shortButton, longButton, randomButton])
+        case 45:
+            changeButtonUI(btn: longButton, bgColor: .specialViolet, textColor: .specialYellow)
+            restoreStandartButtonUI([middleButton, shortButton, randomButton])
+        default:
+            changeButtonUI(btn: randomButton, bgColor: .specialViolet, textColor: .specialYellow)
+            restoreStandartButtonUI([middleButton, longButton, shortButton])
         }
     }
     

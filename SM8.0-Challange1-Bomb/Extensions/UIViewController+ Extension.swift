@@ -64,7 +64,7 @@ extension UIViewController {
         }
         
         if isKeyPresentInUserDefaults(key: K.UserDefaultsKeys.roundTimeDurationInSeconds) == false {
-            UserDefaults.standard.set(30, forKey: K.UserDefaultsKeys.roundTimeDurationInSeconds)
+            UserDefaults.standard.set(10, forKey: K.UserDefaultsKeys.roundTimeDurationInSeconds)
         }
         
         if isKeyPresentInUserDefaults(key: K.UserDefaultsKeys.bgMusicSavedValue) == false {
