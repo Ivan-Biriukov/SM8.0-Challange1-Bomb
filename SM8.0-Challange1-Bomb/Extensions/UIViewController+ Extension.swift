@@ -82,5 +82,29 @@ extension UIViewController {
         if isKeyPresentInUserDefaults(key: K.UserDefaultsKeys.gameInProgress) == false {
             UserDefaults.standard.set(false, forKey: K.UserDefaultsKeys.gameInProgress)
         }
+        
+        if isKeyPresentInUserDefaults(key: K.UserDefaultsKeys.aboutAllCategoryChoosen) == false {
+            UserDefaults.standard.set(true, forKey: K.UserDefaultsKeys.aboutAllCategoryChoosen)
+        }
+        
+        if isKeyPresentInUserDefaults(key: K.UserDefaultsKeys.sportAndHobbyCathegoryChoosen) == false {
+            UserDefaults.standard.set(false, forKey: K.UserDefaultsKeys.sportAndHobbyCathegoryChoosen)
+        }
+        
+        if isKeyPresentInUserDefaults(key: K.UserDefaultsKeys.lifeCategoryChoosen) == false {
+            UserDefaults.standard.set(false, forKey: K.UserDefaultsKeys.lifeCategoryChoosen)
+        }
+        
+        if isKeyPresentInUserDefaults(key: K.UserDefaultsKeys.fameosCategoryChoosen) == false {
+            UserDefaults.standard.set(false, forKey: K.UserDefaultsKeys.fameosCategoryChoosen)
+        }
+        
+        if isKeyPresentInUserDefaults(key: K.UserDefaultsKeys.artAndCinemaCategoryChoosen) == false {
+            UserDefaults.standard.set(false, forKey: K.UserDefaultsKeys.artAndCinemaCategoryChoosen)
+        }
+        
+        if isKeyPresentInUserDefaults(key: K.UserDefaultsKeys.natureCategoryChoosen) == false {
+            UserDefaults.standard.set(false, forKey: K.UserDefaultsKeys.natureCategoryChoosen)
+        }
     }
 }
