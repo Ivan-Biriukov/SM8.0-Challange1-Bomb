@@ -149,7 +149,6 @@ extension GameViewController {
         } else {
             print("runButtonPressed")
             timer.invalidate()
-        //    totalTime = gameTimes["Short"]!
             totalTime = defaults.integer(forKey: K.UserDefaultsKeys.roundTimeDurationInSeconds)
             secondPassed = 0
             
@@ -160,7 +159,6 @@ extension GameViewController {
                                          repeats: true)
             createGif()
             
-            //runLabel.text = "Назовите вид зимнего спорта"
             runLabel.text = questionsArray.randomElement()
             runButton.isHidden = true
             defaults.set(true, forKey: K.UserDefaultsKeys.gameInProgress)

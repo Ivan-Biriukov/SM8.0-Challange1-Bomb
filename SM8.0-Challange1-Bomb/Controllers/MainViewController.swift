@@ -103,6 +103,10 @@ class MainViewController: UIViewController {
         setupConstraints()
         addButtonsMethods()
         setUDDefaultsValuesForFirstAppLaunch()
+        print(UserDefaults.standard.string(forKey: K.UserDefaultsKeys.bgMusicSavedValue))
+        print(UserDefaults.standard.string(forKey: K.UserDefaultsKeys.bombTikSavedValue))
+        print(UserDefaults.standard.string(forKey: K.UserDefaultsKeys.bombExplosionSaveValue))
+
     }
     
     override func viewWillAppear(_ animated: Bool) {

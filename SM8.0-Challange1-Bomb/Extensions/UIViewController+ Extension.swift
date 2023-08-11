@@ -68,15 +68,15 @@ extension UIViewController {
         }
         
         if isKeyPresentInUserDefaults(key: K.UserDefaultsKeys.bgMusicSavedValue) == false {
-            UserDefaults.standard.set("mainTheme1", forKey: K.UserDefaultsKeys.bgMusicSavedValue)
+            UserDefaults.standard.set("Шоу Бэнни Хила", forKey: K.UserDefaultsKeys.bgMusicSavedValue)
         }
         
         if isKeyPresentInUserDefaults(key: K.UserDefaultsKeys.bombTikSavedValue) == false {
-            UserDefaults.standard.set("timer1", forKey: K.UserDefaultsKeys.bombTikSavedValue)
+            UserDefaults.standard.set("Тиканье часов", forKey: K.UserDefaultsKeys.bombTikSavedValue)
         }
         
         if isKeyPresentInUserDefaults(key: K.UserDefaultsKeys.bombExplosionSaveValue) == false {
-            UserDefaults.standard.set("explosion1", forKey: K.UserDefaultsKeys.bombExplosionSaveValue)
+            UserDefaults.standard.set("Взрыв 1", forKey: K.UserDefaultsKeys.bombExplosionSaveValue)
         }
         
         if isKeyPresentInUserDefaults(key: K.UserDefaultsKeys.gameInProgress) == false {
