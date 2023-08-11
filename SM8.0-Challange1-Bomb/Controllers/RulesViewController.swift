@@ -31,8 +31,8 @@ class RulesViewController: UIViewController {
     let settingsTableDataArray: [RulesPlusTaskTableViewDataModel] = [
         
         .init(buttonTitle: "Короткое", describtion: "Бомба взорвется в течении 10 секунд."),
-        .init(buttonTitle: "Средние", describtion: "Бомба взорвется в течении 20 секунд."),
-        .init(buttonTitle: "Длиное", describtion: "Бомба взорвется в течении 45 секунд."),
+        .init(buttonTitle: "Средниее", describtion: "Бомба взорвется в течении 20 секунд."),
+        .init(buttonTitle: "Длинное", describtion: "Бомба взорвется в течении 45 секунд."),
         .init(buttonTitle: "Случайное", describtion: "Бомба взорвется в течении 10-45 секунд.")
         
     ]
@@ -158,7 +158,7 @@ class RulesViewController: UIViewController {
         lbl.textAlignment = .center
         
         lbl.layer.shadowColor = UIColor.black.cgColor
-        lbl.layer.shadowOffset = CGSize(width: 0, height: 4) // Positive vertical value for lower shadow
+        lbl.layer.shadowOffset = CGSize(width: 0, height: 4)
         lbl.layer.shadowOpacity = 0.5
         lbl.layer.shadowRadius = 4
         
@@ -220,7 +220,7 @@ class RulesViewController: UIViewController {
         
         NSLayoutConstraint.activate([
             
-            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            scrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
@@ -238,6 +238,7 @@ class RulesViewController: UIViewController {
             settingsLabel.topAnchor.constraint(equalTo: colletctionView.bottomAnchor, constant: 30),
             settingsLabel.centerXAnchor.constraint(equalTo: contentStackView.centerXAnchor),
             
+            
             bombOptionsStackView.topAnchor.constraint(equalTo: settingsLabel.bottomAnchor, constant: 15),
             bombOptionsStackView.leadingAnchor.constraint(equalTo: contentStackView.leadingAnchor),
             bombOptionsStackView.trailingAnchor.constraint(equalTo: contentStackView.trailingAnchor),
@@ -246,6 +247,9 @@ class RulesViewController: UIViewController {
             settingTableView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             settingTableView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             settingTableView.heightAnchor.constraint(equalToConstant: settingsTableViewHeight),
+            
+            
+            
             
             ruleAfterBombActivated.topAnchor.constraint(equalTo: settingTableView.bottomAnchor, constant: 10),
             ruleAfterBombActivated.centerXAnchor.constraint(equalTo: contentStackView.centerXAnchor),
