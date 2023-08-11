@@ -1,15 +1,11 @@
-//
-//  GameViewController.swift
-//  SM8.0-Challange1-Bomb
-//
-//  Created by Ilyas Tyumenev on 09.08.2023.
-//
-
 import UIKit
 import AVFoundation
 
 class GameViewController: UIViewController {
+    
     private let defaults = UserDefaults.standard
+    
+    private var questionsArray : [String] = []
 
     // MARK: - Properties
     private let backgroundImageView: UIImageView = {
@@ -70,6 +66,11 @@ class GameViewController: UIViewController {
         addSubviews()
         setupConstraints()
         playPauseButton.addTarget(self, action: #selector(playButtonPressed), for: .touchUpInside)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateQuestions()
     }
 
     // MARK: - Private Methods
@@ -169,4 +170,38 @@ extension GameViewController {
             navigationController?.pushViewController(GameEndViewController(), animated: true)
         }
     }
+}
+
+// MARK: - Load Question Logic
+
+extension GameViewController {
+    
+    private func updateQuestions() {
+        self.questionsArray = []
+        
+        if defaults.bool(forKey: K.UserDefaultsKeys.aboutAllCategoryChoosen) == true {
+            questionsArray += QuestionsDataModel.miscellaneous
+        }
+        
+        if defaults.bool(forKey: K.UserDefaultsKeys.sportAndHobbyCathegoryChoosen) == true {
+            questionsArray += QuestionsDataModel.sportAndHobby
+        }
+        
+        if defaults.bool(forKey: K.UserDefaultsKeys.lifeCategoryChoosen) == true {
+            questionsArray += QuestionsDataModel.aboutLife
+        }
+        
+        if defaults.bool(forKey: K.UserDefaultsKeys.fameosCategoryChoosen) == true {
+            questionsArray += QuestionsDataModel.fameos
+        }
+        
+        if defaults.bool(forKey: K.UserDefaultsKeys.artAndCinemaCategoryChoosen) == true {
+            questionsArray += QuestionsDataModel.artAndCinema
+        }
+        
+        if defaults.bool(forKey: K.UserDefaultsKeys.natureCategoryChoosen) == true {
+            questionsArray += QuestionsDataModel.nature
+        }
+    }
+    
 }
