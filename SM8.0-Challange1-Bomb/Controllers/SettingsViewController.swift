@@ -158,13 +158,6 @@ class SettingsViewController: UIViewController {
         updateSoundsButtonsLabel()
         updateGameWithTaskSwitchValue()
         updateMusicSwitchValue()
-        
-        print(defaults.bool(forKey: K.UserDefaultsKeys.backgroundMusicBool))
-        print(defaults.bool(forKey: K.UserDefaultsKeys.gameWithTasksBool))
-        print(defaults.integer(forKey: K.UserDefaultsKeys.roundTimeDurationInSeconds))
-        print(defaults.string(forKey: K.UserDefaultsKeys.bgMusicSavedValue))
-        print(defaults.string(forKey: K.UserDefaultsKeys.bombExplosionSaveValue))
-        print(defaults.string(forKey: K.UserDefaultsKeys.bombTikSavedValue))
     }
     
     override func viewWillAppear(_ animated: Bool) {
