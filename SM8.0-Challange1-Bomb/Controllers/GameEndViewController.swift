@@ -49,14 +49,14 @@ class GameEndViewController: UIViewController {
     }()
 
     private lazy var nextTaskButton: UIButton = {
-        let button = CustomButton(text: "Другое Задание")
+        let button = CustomButton(text: "Другое Задание", active: .enable)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(nextTaskButtonPressed), for: .touchUpInside)
         return button
     }()
 
     private lazy var startAgainButton: UIButton = {
-        let button = CustomButton(text: "Начать Заново")
+        let button = CustomButton(text: "Начать Заново", active: .enable)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(startAgainButtonPressed), for: .touchUpInside)
         return button
