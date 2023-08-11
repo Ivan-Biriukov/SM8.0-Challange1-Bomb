@@ -177,14 +177,12 @@ class RulesViewController: UIViewController {
         createCustomNavigationBar(title: "Помощь")
         view.backgroundColor = UIColor.gradientColor()
         
-        setUpView()
+        setUpRulesTableView()
         addSubViews()
         setUpConstrains()
         setUpDelegates()
         registerCells()
-        
-        rulesTableView.register(RulesCustomTableViewCell.self, forCellReuseIdentifier: RulesCustomTableViewCell.identifierForRulesTable)
-        rulesTableView.isScrollEnabled = false
+        setUpSettingTableView()
         
         
     }
@@ -303,6 +301,9 @@ class RulesViewController: UIViewController {
         colletctionView.dataSource = self
         colletctionView.delegate = self
         
+        settingTableView.dataSource = self
+        settingTableView.delegate = self
+        
     }
     
     private func registerCells() {
@@ -380,71 +381,19 @@ class RulesViewController: UIViewController {
     }
     
     
-    func setUpView() {
+    private func setUpRulesTableView() {
         
-        // Navigation Bar
-        //        createCustomNavigationBar(title: "Помощь")
-        
-        // Background Image
-        
-        
-        
-        // ScrollView
-        //        scrollView = UIScrollView(frame: view.bounds)
-        
-        //        view.addSubview(scrollView)
-        
-        //        MARK: TableView
-        
-        //        Calculating tableView Height
-        
-        
-        
-        
-        //        rulesTableView = UITableView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: totalTableViewHeight * 5.1), style: .grouped)
-        //        rulesTableView.reloadData()
-        //        rulesTableView.isScrollEnabled = false
         rulesTableView.backgroundColor = UIColor.clear
         rulesTableView.separatorStyle = .none
-        //        rulesTableView.register(RulesCustomTableViewCell.self, forCellReuseIdentifier: RulesCustomTableViewCell.identifierForRulesTable)
-        rulesTableView.delegate = self
-        rulesTableView.dataSource = self
-        
+        rulesTableView.isScrollEnabled = false
+    }
+    
+    
+    private func setUpSettingTableView() {
         
         settingTableView.backgroundColor = .clear
         settingTableView.separatorStyle = .none
-        settingTableView.delegate = self
-        settingTableView.dataSource = self
-        
-        
-        //         MARK: SubViews of UIScrollView
-        
-        //        scrollView.addSubview(rulesTableView)
-        //        scrollView.addSubview(categoryLabel)
-        //        scrollView.addSubview(describtionOfGameLabel)
-        //        scrollView.addSubview(selectCategoryLabel)
-        
-        //        MARK: Contrains
-        
-        //        NSLayoutConstraint.activate([
-        //
-        //            categoryLabel.topAnchor.constraint(equalTo: rulesTableView.bottomAnchor, constant: 16),
-        //            categoryLabel.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-        //
-        //            describtionOfGameLabel.topAnchor.constraint(equalTo: categoryLabel.bottomAnchor, constant: 28),
-        //            describtionOfGameLabel.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-        //
-        //            selectCategoryLabel.topAnchor.constraint(equalTo: describtionOfGameLabel.bottomAnchor, constant: 28),
-        //            selectCategoryLabel.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor)
-        //
-        //        ])
-        
-        //        let scrollViewContentHeight = rulesTableView.frame.height + categoryLabel.frame.height + describtionOfGameLabel.frame.height + selectCategoryLabel.frame.height
-        //
-        //        scrollView.contentSize = CGSize(width: view.bounds.width, height: scrollViewContentHeight * 1.6)
-        
     }
-    
     
     
     
