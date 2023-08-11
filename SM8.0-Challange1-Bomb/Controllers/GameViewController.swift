@@ -6,6 +6,12 @@ class GameViewController: UIViewController {
     private let defaults = UserDefaults.standard
     
     private var questionsArray : [String] = []
+    
+    private var tikSoundToPlay = SoundsDataModel.bombTikSound[UserDefaults.standard.string(forKey: K.UserDefaultsKeys.bombTikSavedValue)!]
+    
+    private var explosionToPlay = SoundsDataModel.bombExplosionSound[UserDefaults.standard.string(forKey: K.UserDefaultsKeys.bombExplosionSaveValue)!]
+    
+    private var backgroundMusicToPlay = SoundsDataModel.backGroundMisuc[UserDefaults.standard.string(forKey: K.UserDefaultsKeys.bgMusicSavedValue)!]
 
     // MARK: - Properties
     private let backgroundImageView: UIImageView = {
@@ -134,21 +140,31 @@ class GameViewController: UIViewController {
 extension GameViewController {
 
     @objc func runButtonPressed(_ button: UIButton) {
-        print("runButtonPressed")
-        timer.invalidate()
-        totalTime = gameTimes["Short"]!
-        secondPassed = 0
         
-        timer = Timer.scheduledTimer(timeInterval: 1.0,
-                                     target: self,
-                                     selector: #selector(updateTimer),
-                                     userInfo: nil,
-                                     repeats: true)
-        createGif()
-        
-        runLabel.text = "Назовите вид зимнего спорта"
-        runButton.isHidden = true
-        defaults.set(true, forKey: K.UserDefaultsKeys.gameInProgress)
+        if questionsArray.count == 0 {
+            let alert = UIAlertController(title: "Невозможно начать игру", message: "Друг, похоже на то, что ты не выбрал ни одной категории вопросов. К сожалению, играть без вопросов - нельзя 😢. Перейди в раздел 'Категории', чтобы выбрать вопросы, и игра начнеться!", preferredStyle: .alert)
+            let cancelAction = UIAlertAction(title: "Понятно!", style: .default)
+            alert.addAction(cancelAction)
+            self.present(alert, animated: true)
+        } else {
+            print("runButtonPressed")
+            timer.invalidate()
+        //    totalTime = gameTimes["Short"]!
+            totalTime = defaults.integer(forKey: K.UserDefaultsKeys.roundTimeDurationInSeconds)
+            secondPassed = 0
+            
+            timer = Timer.scheduledTimer(timeInterval: 1.0,
+                                         target: self,
+                                         selector: #selector(updateTimer),
+                                         userInfo: nil,
+                                         repeats: true)
+            createGif()
+            
+            //runLabel.text = "Назовите вид зимнего спорта"
+            runLabel.text = questionsArray.randomElement()
+            runButton.isHidden = true
+            defaults.set(true, forKey: K.UserDefaultsKeys.gameInProgress)
+        }
     }
     
     @objc func playButtonPressed(_ button: UIButton) {
@@ -159,13 +175,13 @@ extension GameViewController {
     @objc func updateTimer() {
         if secondPassed < totalTime {
             DispatchQueue.main.async {
-                self.playTimerSound(soundName: "timer4")
+                self.playTimerSound(soundName: self.tikSoundToPlay!)
                 self.secondPassed += 1
             }
         } else {
             timer.invalidate()
             DispatchQueue.main.async {
-                self.playTimerSound(soundName: "explosion4")
+                self.playTimerSound(soundName: self.explosionToPlay!)
             }
             navigationController?.pushViewController(GameEndViewController(), animated: true)
         }
