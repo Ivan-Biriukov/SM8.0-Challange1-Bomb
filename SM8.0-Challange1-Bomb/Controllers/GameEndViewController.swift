@@ -70,7 +70,6 @@ class GameEndViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         createCustomNavigationBar(title: "Игра")
-//        addButtonToNavBar(<#UIButton?#>)
         addSubviews()
         setupConstraints()
     }
@@ -97,7 +96,7 @@ class GameEndViewController: UIViewController {
             backgroundImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             backgroundImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
 
-            topLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 73),
+            topLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 90),
             topLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 2),
             topLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -2),
 
@@ -124,7 +123,7 @@ extension GameEndViewController {
 
     @objc func nextTaskButtonPressed(_ button: UIButton) {
         print("nextTaskButtonPressed")
-        self.navigationController?.popViewController(animated: true)
+        currentTaskLabel.text = "Новое задание"
     }
 
     @objc func startAgainButtonPressed(_ button: UIButton) {

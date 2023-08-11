@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class GameViewController: UIViewController {
     private let defaults = UserDefaults.standard
@@ -44,14 +45,31 @@ class GameViewController: UIViewController {
         button.addTarget(self, action: #selector(runButtonPressed), for: .touchUpInside)
         return button
     }()
+    
+    lazy var playPauseButton: UIButton = {
+        let btn = UIButton(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+        btn.setImage(UIImage(systemName: "play.circle"), for: .normal)
+        btn.tintColor = .black
+        btn.setTitle(nil, for: .normal)
+        btn.contentVerticalAlignment = .fill
+        btn.contentHorizontalAlignment = .fill
+        return btn
+    }()
+    
+    var player: AVAudioPlayer!
+    let gameTimes = ["Short": 4, "Medium": 8, "Long": 12]
+    var timer = Timer()
+    var totalTime = 0
+    var secondPassed = 0
 
     // MARK: - Override Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         createCustomNavigationBar(title: "Игра")
-//        addButtonToNavBar(<#UIButton?#>)
+        addButtonToNavBar(playPauseButton)
         addSubviews()
         setupConstraints()
+        playPauseButton.addTarget(self, action: #selector(playButtonPressed), for: .touchUpInside)
     }
 
     // MARK: - Private Methods
@@ -103,6 +121,12 @@ class GameViewController: UIViewController {
         // Set the loaded GIF image to the UIImageView
         bombImageView.image = gifImage
     }
+    
+    private func playTimerSound(soundName: String) {
+        let url = Bundle.main.url(forResource: soundName, withExtension: "mp3")
+        player = try! AVAudioPlayer(contentsOf: url!)
+        player.play()
+    }
 }
 
 // MARK: - Target Actions
@@ -110,9 +134,39 @@ extension GameViewController {
 
     @objc func runButtonPressed(_ button: UIButton) {
         print("runButtonPressed")
+        timer.invalidate()
+        totalTime = gameTimes["Short"]!
+        secondPassed = 0
+        
+        timer = Timer.scheduledTimer(timeInterval: 1.0,
+                                     target: self,
+                                     selector: #selector(updateTimer),
+                                     userInfo: nil,
+                                     repeats: true)
         createGif()
+        
         runLabel.text = "Назовите вид зимнего спорта"
         runButton.isHidden = true
         defaults.set(true, forKey: K.UserDefaultsKeys.gameInProgress)
+    }
+    
+    @objc func playButtonPressed(_ button: UIButton) {
+        print("playButtonPressed")
+        
+    }
+    
+    @objc func updateTimer() {
+        if secondPassed < totalTime {
+            DispatchQueue.main.async {
+                self.playTimerSound(soundName: "timer4")
+                self.secondPassed += 1
+            }
+        } else {
+            timer.invalidate()
+            DispatchQueue.main.async {
+                self.playTimerSound(soundName: "explosion4")
+            }
+            navigationController?.pushViewController(GameEndViewController(), animated: true)
+        }
     }
 }
