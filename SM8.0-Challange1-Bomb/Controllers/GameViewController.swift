@@ -8,6 +8,7 @@
 import UIKit
 
 class GameViewController: UIViewController {
+    private let defaults = UserDefaults.standard
 
     // MARK: - Properties
     private let backgroundImageView: UIImageView = {
@@ -38,7 +39,7 @@ class GameViewController: UIViewController {
     }()
 
     private lazy var runButton: UIButton = {
-        let button = CustomButton(text: "Запустить")
+        let button = CustomButton(text: "Запустить", active: .enable)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(runButtonPressed), for: .touchUpInside)
         return button
@@ -112,5 +113,6 @@ extension GameViewController {
         createGif()
         runLabel.text = "Назовите вид зимнего спорта"
         runButton.isHidden = true
+        defaults.set(true, forKey: K.UserDefaultsKeys.gameInProgress)
     }
 }

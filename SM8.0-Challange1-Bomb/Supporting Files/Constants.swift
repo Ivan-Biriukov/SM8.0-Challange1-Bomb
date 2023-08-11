@@ -47,6 +47,7 @@ struct K {
         static let bgMusicSavedValue : String = "BGSongName"
         static let bombTikSavedValue : String = "TikSoundName"
         static let bombExplosionSaveValue : String = "ExplosionSoundName"
+        static let gameInProgress : String = "gameProgressState"
     }
     
 }

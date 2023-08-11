@@ -8,6 +8,8 @@
 import UIKit
 
 class GameEndViewController: UIViewController {
+    
+    private let defaults = UserDefaults.standard
 
     // MARK: - Properties
     private let backgroundImageView: UIImageView = {
@@ -49,14 +51,14 @@ class GameEndViewController: UIViewController {
     }()
 
     private lazy var nextTaskButton: UIButton = {
-        let button = CustomButton(text: "Другое Задание")
+        let button = CustomButton(text: "Другое Задание", active: .enable)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(nextTaskButtonPressed), for: .touchUpInside)
         return button
     }()
 
     private lazy var startAgainButton: UIButton = {
-        let button = CustomButton(text: "Начать Заново")
+        let button = CustomButton(text: "Начать Заново", active: .enable)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(startAgainButtonPressed), for: .touchUpInside)
         return button
@@ -71,6 +73,11 @@ class GameEndViewController: UIViewController {
 //        addButtonToNavBar(<#UIButton?#>)
         addSubviews()
         setupConstraints()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        defaults.set(false, forKey: K.UserDefaultsKeys.gameInProgress)
     }
 
     // MARK: - Private Methods

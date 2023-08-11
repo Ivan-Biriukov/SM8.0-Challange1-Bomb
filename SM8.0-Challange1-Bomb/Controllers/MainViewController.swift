@@ -88,9 +88,9 @@ class MainViewController: UIViewController {
     } ()
     
 
-    private lazy var gameStartButton = CustomButton(text: "Старт игры")
-    private lazy var gameContinewButton = CustomButton(text: "Продолжить")
-    private lazy var categoryButton = CustomButton(text: "Категории")
+    private lazy var gameStartButton = CustomButton(text: "Старт игры", active: .enable)
+    private lazy var gameContinewButton = CustomButton(text: "Продолжить", active: .disable)
+    private lazy var categoryButton = CustomButton(text: "Категории", active: .enable)
     
     private lazy var buttonSettings = RoundButton(image: K.Images.settingsLogo)
     private lazy var buttonHelp = RoundButton(image: K.Images.question)
@@ -105,26 +105,51 @@ class MainViewController: UIViewController {
         setUDDefaultsValuesForFirstAppLaunch()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        changeContinewButton()
+    }
+    
     // MARK: - Buttons Methods
     
-    @objc private func startGameTaped() {
-        self.navigationController?.pushViewController(GameViewController(), animated: true)
+    @objc private func startGameTaped(_ sender: UIButton) {
+        sender.alpha = 0.5
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            sender.alpha = 1
+            self.navigationController?.pushViewController(GameViewController(), animated: true)
+        }
     }
     
-    @objc private func continewTaped() {
-        
+    @objc private func continewTaped(_ sender: UIButton) {
+        sender.alpha = 0.5
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            sender.alpha = 1
+            self.navigationController?.pushViewController(GameEndViewController(), animated: true)
+        }
     }
     
-    @objc private func categoryTaped() {
-        self.navigationController?.pushViewController(CategoriesViewController(), animated: true)
+    @objc private func categoryTaped(_ sender: UIButton) {
+        sender.alpha = 0.5
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            sender.alpha = 1
+            self.navigationController?.pushViewController(CategoriesViewController(), animated: true)
+        }
     }
     
-    @objc private func settingsTaped() {
-        self.navigationController?.pushViewController(SettingsViewController(), animated: true)
+    @objc private func settingsTaped(_ sender: UIButton) {
+        sender.alpha = 0.5
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            sender.alpha = 1
+            self.navigationController?.pushViewController(SettingsViewController(), animated: true)
+        }
     }
     
-    @objc private func helpTaped() {
-        self.navigationController?.pushViewController(RulesViewController(), animated: true)
+    @objc private func helpTaped(_ sender: UIButton) {
+        sender.alpha = 0.5
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            sender.alpha = 1
+            self.navigationController?.pushViewController(RulesViewController(), animated: true)
+        }
     }
     
     // MARK: - Configure UI
@@ -166,11 +191,23 @@ class MainViewController: UIViewController {
     }
     
     private func addButtonsMethods() {
-        gameStartButton.addTarget(self, action: #selector(startGameTaped), for: .touchUpInside)
-        gameContinewButton.addTarget(self, action: #selector(continewTaped), for: .touchUpInside)
-        categoryButton.addTarget(self, action: #selector(categoryTaped), for: .touchUpInside)
-        buttonSettings.addTarget(self, action: #selector(settingsTaped), for: .touchUpInside)
-        buttonHelp.addTarget(self, action: #selector(helpTaped), for: .touchUpInside)
+        gameStartButton.addTarget(self, action: #selector(startGameTaped(_:)), for: .touchUpInside)
+        gameContinewButton.addTarget(self, action: #selector(continewTaped(_:)), for: .touchUpInside)
+        categoryButton.addTarget(self, action: #selector(categoryTaped(_:)), for: .touchUpInside)
+        buttonSettings.addTarget(self, action: #selector(settingsTaped(_:)), for: .touchUpInside)
+        buttonHelp.addTarget(self, action: #selector(helpTaped(_:)), for: .touchUpInside)
+    }
+    
+    private func changeContinewButton() {
+        if UserDefaults.standard.bool(forKey: K.UserDefaultsKeys.gameInProgress) {
+            gameContinewButton.isEnabled = true
+            gameContinewButton.backgroundColor = .specialViolet
+            gameContinewButton.setTitleColor(.specialYellow, for: .normal)
+        } else {
+            gameContinewButton.isEnabled = false
+            gameContinewButton.backgroundColor = .systemGray
+            gameContinewButton.setTitleColor(.systemGray6, for: .normal)
+        }
     }
 }
 
