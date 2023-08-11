@@ -48,6 +48,12 @@ struct K {
         static let bombTikSavedValue : String = "TikSoundName"
         static let bombExplosionSaveValue : String = "ExplosionSoundName"
         static let gameInProgress : String = "gameProgressState"
+        static let aboutAllCategoryChoosen = "aboutAllCategory"
+        static let sportAndHobbyCathegoryChoosen = "sportAndHobbyCategory"
+        static let lifeCategoryChoosen = "lifyCategory"
+        static let fameosCategoryChoosen = "fameosCategory"
+        static let artAndCinemaCategoryChoosen = "artAndCinemaCategory"
+        static let natureCategoryChoosen = "natureCategory"
     }
     
 }
