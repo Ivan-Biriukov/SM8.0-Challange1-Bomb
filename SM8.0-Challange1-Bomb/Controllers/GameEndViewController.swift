@@ -10,6 +10,8 @@ import UIKit
 class GameEndViewController: UIViewController {
     
     private let defaults = UserDefaults.standard
+    
+    private var tasksArray = TasksDataModel.tasks.shuffled()
 
     // MARK: - Properties
     private let backgroundImageView: UIImageView = {
@@ -122,12 +124,25 @@ class GameEndViewController: UIViewController {
 extension GameEndViewController {
 
     @objc func nextTaskButtonPressed(_ button: UIButton) {
-        print("nextTaskButtonPressed")
-        currentTaskLabel.text = "Новое задание"
+        if tasksArray.first != nil {
+            currentTaskLabel.text = tasksArray.first
+            removeFirstTask()
+        } else {
+            updateTasks()
+            currentTaskLabel.text = tasksArray.first
+        }
     }
 
     @objc func startAgainButtonPressed(_ button: UIButton) {
         print("startAgainButtonPressed")
         self.navigationController?.popToRootViewController(animated: true)
+    }
+    
+    private func removeFirstTask() {
+        tasksArray.removeFirst()
+    }
+    
+    private func updateTasks() {
+        tasksArray = TasksDataModel.tasks.shuffled()
     }
 }
