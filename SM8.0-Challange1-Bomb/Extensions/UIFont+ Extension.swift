@@ -29,4 +29,9 @@ extension UIFont {
     static func delaGothic16() -> UIFont? {
         return UIFont(name: "DelaGothicOne-Regular", size: 16)
     }
+    
+    static func delaGothic14() -> UIFont? {
+        return UIFont(name: "DelaGothicOne-Regular", size: 14)
+    }
+    
 }
