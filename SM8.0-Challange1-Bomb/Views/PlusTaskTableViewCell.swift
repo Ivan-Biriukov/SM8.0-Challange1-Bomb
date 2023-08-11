@@ -5,7 +5,6 @@
 //  Created by Ислам Пулатов on 8/10/23.
 //
 
-//  MARK: - Font 14 button
 
 import UIKit
 
@@ -23,7 +22,7 @@ class PlusTaskTableViewCell: UITableViewCell {
         let btn = UIButton()
         
         btn.translatesAutoresizingMaskIntoConstraints = false
-        btn.titleLabel?.font = .delaGothic16()
+        btn.titleLabel?.font = .delaGothic14()
         btn.setTitleColor(UIColor.specialYellow, for: .normal)
         btn.backgroundColor = .specialViolet
         
@@ -88,11 +87,11 @@ class PlusTaskTableViewCell: UITableViewCell {
             conteiner.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             
             button.topAnchor.constraint(equalTo: conteiner.topAnchor, constant: 5),
-            button.leadingAnchor.constraint(equalTo: conteiner.leadingAnchor, constant: 20),
+            button.leadingAnchor.constraint(equalTo: conteiner.leadingAnchor, constant: 15),
             
             titleLabel.topAnchor.constraint(equalTo: conteiner.topAnchor, constant: 5),
             titleLabel.leadingAnchor.constraint(equalTo: button.trailingAnchor, constant: 5),
-            titleLabel.trailingAnchor.constraint(equalTo: conteiner.trailingAnchor),
+            titleLabel.trailingAnchor.constraint(equalTo: conteiner.trailingAnchor, constant: -3),
             titleLabel.bottomAnchor.constraint(equalTo: conteiner.bottomAnchor, constant: -5)
             
         ])

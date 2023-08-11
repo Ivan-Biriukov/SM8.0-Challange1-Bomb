@@ -28,13 +28,13 @@ class RulesViewController: UIViewController {
     ]
     
     
-    let timeTableDataArray: [RulesPlusTaskTableViewDataModel] = [
-    
+    let settingsTableDataArray: [RulesPlusTaskTableViewDataModel] = [
+        
         .init(buttonTitle: "Короткое", describtion: "Бомба взорвется в течении 10 секунд."),
-        .init(buttonTitle: "Средние", describtion: "Бомба взорвется в течении 20 секунд."),
-        .init(buttonTitle: "Длиное", describtion: "Бомба взорвется в течении 45 секунд."),
+        .init(buttonTitle: "Средниее", describtion: "Бомба взорвется в течении 20 секунд."),
+        .init(buttonTitle: "Длинное", describtion: "Бомба взорвется в течении 45 секунд."),
         .init(buttonTitle: "Случайное", describtion: "Бомба взорвется в течении 10-45 секунд.")
-    
+        
     ]
     
     
@@ -44,8 +44,10 @@ class RulesViewController: UIViewController {
     
     let collectionCellID = "collectionID"
     
+    let settingsCellID = "settingsCellID"
+    
     private var contentSize: CGSize  {
-        CGSize(width: view.frame.width, height: view.frame.height + 615)
+        CGSize(width: view.frame.width, height: view.frame.height + 615 + 232 + 350)
     }
     
     //    MARK: - UI Elements
@@ -74,14 +76,14 @@ class RulesViewController: UIViewController {
         return stack
     }()
     
-    var rulesTableView: UITableView = {
+    private var rulesTableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
     
     
-    let categoryLabel: UILabel = {
+    private let categoryLabel: UILabel = {
         let category = UILabel()
         category.translatesAutoresizingMaskIntoConstraints = false
         category.text = "Категории"
@@ -90,7 +92,7 @@ class RulesViewController: UIViewController {
         return category
     }()
     
-    let describtionOfGameLabel: UILabel = {
+    private let describtionOfGameLabel: UILabel = {
         let describtion = UILabel()
         describtion.translatesAutoresizingMaskIntoConstraints = false
         describtion.text = "В игре доступно 6 \n категорий и более \n 90 вопросов."
@@ -101,7 +103,7 @@ class RulesViewController: UIViewController {
         return describtion
     }()
     
-    let selectCategoryLabel: UILabel = {
+    private let selectCategoryLabel: UILabel = {
         let select = UILabel()
         select.translatesAutoresizingMaskIntoConstraints = false
         select.text = "Можно выбрать \n сразу несколько \n категорий для игры."
@@ -112,7 +114,7 @@ class RulesViewController: UIViewController {
         return select
     }()
     
-    let colletctionView : UICollectionView = {
+    private let colletctionView : UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let c = UICollectionView(frame: .zero, collectionViewLayout: layout)
         layout.scrollDirection = .vertical
@@ -123,6 +125,49 @@ class RulesViewController: UIViewController {
         return c
     }()
     
+    
+    private let settingsLabel: UILabel = {
+        let lbl = UILabel()
+        
+        lbl.translatesAutoresizingMaskIntoConstraints = false
+        lbl.text = "Настройки"
+        lbl.font = .delaGothic20()
+        lbl.textColor = UIColor.specialViolet
+        
+        return lbl
+    }()
+    
+    lazy private var bombOptionsStackView = createOptionsSetting("В настройках игры можно \n задать время взрыва бомбы:")
+    
+    private var settingTableView: UITableView = {
+        let tableView = UITableView()
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        return tableView
+    }()
+    
+    lazy private var ruleAfterBombActivated = createOptionsSetting("Если выбран режим “С Заданиями”,\n то после взрыва бомбы на экране \n будет появляться задание для \n проигравшего игрока.")
+    
+    private let additionalFeaturessettingsLabel: UILabel = {
+        let lbl = UILabel()
+        
+        lbl.translatesAutoresizingMaskIntoConstraints = false
+        lbl.text = "Также в настройках\n можно"
+        lbl.font = .delaGothic20()
+        lbl.textColor = UIColor.specialViolet
+        lbl.numberOfLines = 0
+        lbl.textAlignment = .center
+        
+        lbl.layer.shadowColor = UIColor.black.cgColor
+        lbl.layer.shadowOffset = CGSize(width: 0, height: 4)
+        lbl.layer.shadowOpacity = 0.5
+        lbl.layer.shadowRadius = 4
+        
+        return lbl
+    }()
+    
+    lazy private var ruleAboutMusic = createOptionsSetting("Включить / Отключить фоновую \n музыку.")
+    
+    lazy private var ruleAboutSounds  = createOptionsSetting("Выбрать звуки для фоновой музыки, тиканья бомбы и взрыва.")
     
     // MARK: - View Life Cycle
     
@@ -156,17 +201,26 @@ class RulesViewController: UIViewController {
         contentStackView.addArrangedSubview(describtionOfGameLabel)
         contentStackView.addArrangedSubview(selectCategoryLabel)
         contentStackView.addArrangedSubview(colletctionView)
+        contentStackView.addArrangedSubview(settingsLabel)
+        contentStackView.addArrangedSubview(bombOptionsStackView)
+        contentStackView.addArrangedSubview(settingTableView)
+        contentStackView.addArrangedSubview(ruleAfterBombActivated)
+        contentStackView.addArrangedSubview(additionalFeaturessettingsLabel)
+        contentStackView.addArrangedSubview(ruleAboutMusic)
+        contentStackView.addArrangedSubview(ruleAboutSounds)
         
     }
     
     private func setUpConstrains() {
         
-        let heightTableView = tableViewHeightCalculate() * 2.5
+        let rulesTableViewheight = tableViewHeightCalculate(rulesTableView) * 2.5
+        
+        let settingsTableViewHeight = tableViewHeightCalculate(settingTableView) * 1.65
         
         
         NSLayoutConstraint.activate([
             
-            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            scrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
@@ -175,26 +229,69 @@ class RulesViewController: UIViewController {
             contentStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             contentStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             
-            rulesTableView.heightAnchor.constraint(equalToConstant: heightTableView),
+            rulesTableView.heightAnchor.constraint(equalToConstant: rulesTableViewheight),
             rulesTableView.widthAnchor.constraint(equalToConstant: K.DeviceSizes.currentWidth - 40),
             
             colletctionView.heightAnchor.constraint(equalToConstant: 400),
-            colletctionView.widthAnchor.constraint(equalToConstant: K.DeviceSizes.currentWidth - 20)
+            colletctionView.widthAnchor.constraint(equalToConstant: K.DeviceSizes.currentWidth - 20),
+            
+            settingsLabel.topAnchor.constraint(equalTo: colletctionView.bottomAnchor, constant: 30),
+            settingsLabel.centerXAnchor.constraint(equalTo: contentStackView.centerXAnchor),
+            
+            
+            bombOptionsStackView.topAnchor.constraint(equalTo: settingsLabel.bottomAnchor, constant: 15),
+            bombOptionsStackView.leadingAnchor.constraint(equalTo: contentStackView.leadingAnchor),
+            bombOptionsStackView.trailingAnchor.constraint(equalTo: contentStackView.trailingAnchor),
+            
+            settingTableView.topAnchor.constraint(equalTo: bombOptionsStackView.bottomAnchor, constant: 30),
+            settingTableView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            settingTableView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            settingTableView.heightAnchor.constraint(equalToConstant: settingsTableViewHeight),
+            
+            
+            
+            
+            ruleAfterBombActivated.topAnchor.constraint(equalTo: settingTableView.bottomAnchor, constant: 10),
+            ruleAfterBombActivated.centerXAnchor.constraint(equalTo: contentStackView.centerXAnchor),
+            
+            additionalFeaturessettingsLabel.topAnchor.constraint(equalTo: ruleAfterBombActivated.bottomAnchor, constant: 20),
+            additionalFeaturessettingsLabel.centerXAnchor.constraint(equalTo: contentStackView.centerXAnchor),
+            
+            ruleAboutMusic.topAnchor.constraint(equalTo: additionalFeaturessettingsLabel.bottomAnchor, constant: 20),
+            ruleAboutMusic.leadingAnchor.constraint(equalTo: contentStackView.leadingAnchor),
+            ruleAboutMusic.trailingAnchor.constraint(equalTo: contentStackView.trailingAnchor),
+            
+            ruleAboutSounds.topAnchor.constraint(equalTo: ruleAboutMusic.bottomAnchor, constant: 25),
+            ruleAboutSounds.leadingAnchor.constraint(equalTo: contentStackView.leadingAnchor),
+            ruleAboutSounds.trailingAnchor.constraint(equalTo: contentStackView.trailingAnchor),
             
             
         ])
         
     }
     
-    private func tableViewHeightCalculate() -> CGFloat {
+    private func tableViewHeightCalculate(_ tableView: UITableView) -> CGFloat {
         
-        var totalHeight: CGFloat = 0
-        
-        for rule in RulesData.shared.items {
-            totalHeight += RulesData.shared.calculateCellHeight(for: rule.description, tableView: rulesTableView)
+        if tableView == rulesTableView {
+            var totalHeight: CGFloat = 0
+            
+            for rule in RulesData.shared.items {
+                totalHeight += RulesData.shared.calculateCellHeight(for: rule.description, tableView: rulesTableView)
+            }
+            
+            return totalHeight
+        } else {
+            
+            var settingTableViewTotalHeight: CGFloat = 0
+            
+            for setting in settingsTableDataArray {
+                settingTableViewTotalHeight += RulesData.shared.calculateCellHeight(for: setting.describtion, tableView: settingTableView)
+            }
+            
+            return settingTableViewTotalHeight
         }
         
-        return totalHeight
+        
     }
     
     
@@ -214,7 +311,74 @@ class RulesViewController: UIViewController {
         
         colletctionView.register(CategoryesCollectionViewCell.self, forCellWithReuseIdentifier: collectionCellID)
         
+        settingTableView.register(PlusTaskTableViewCell.self, forCellReuseIdentifier: settingsCellID)
     }
+    
+    
+    private func createOptionsSetting(_ textOfLabel: String) -> UIStackView {
+        
+        let settingsOPtionsBombStackView: UIStackView = {
+            let stack = UIStackView()
+            
+            stack.translatesAutoresizingMaskIntoConstraints = false
+            stack.axis = .horizontal
+            stack.alignment = .center
+            stack.spacing = 15
+            
+            return stack
+        }()
+        
+        let optionDot: UIView = {
+            let view = UIView()
+            view.translatesAutoresizingMaskIntoConstraints = false
+            view.backgroundColor = .specialViolet
+            view.layer.borderColor = UIColor.black.cgColor
+            view.layer.borderWidth = 1.0
+            view.layer.cornerRadius = 4.5
+            view.heightAnchor.constraint(equalToConstant: 9).isActive = true
+            view.widthAnchor.constraint(equalToConstant: 9).isActive = true
+            return view
+        }()
+        
+        
+        let settingOptionLablel: UILabel = {
+            let lbl = UILabel()
+            
+            lbl.translatesAutoresizingMaskIntoConstraints = false
+            lbl.numberOfLines = 0
+            lbl.textAlignment = .center
+            lbl.textColor = .speciallightBlack
+            lbl.font = .delaGothic16()
+            lbl.text = textOfLabel
+            
+            
+            return lbl
+        }()
+        
+        
+        settingsOPtionsBombStackView.addArrangedSubview(optionDot)
+        settingsOPtionsBombStackView.addArrangedSubview(settingOptionLablel)
+        
+        
+        NSLayoutConstraint.activate([
+            
+            optionDot.centerYAnchor.constraint(equalTo: settingsOPtionsBombStackView.centerYAnchor),
+            optionDot.leadingAnchor.constraint(equalTo: settingsOPtionsBombStackView.leadingAnchor, constant: 30),
+            
+            settingOptionLablel.centerYAnchor.constraint(equalTo: settingsOPtionsBombStackView.centerYAnchor),
+            //            settingOptionLablel.topAnchor.constraint(equalTo: optionDot.topAnchor),
+            settingOptionLablel.leadingAnchor.constraint(equalTo: optionDot.trailingAnchor, constant: 15),
+            
+            
+        ])
+        
+        
+        
+        
+        return settingsOPtionsBombStackView
+        
+    }
+    
     
     func setUpView() {
         
@@ -245,6 +409,12 @@ class RulesViewController: UIViewController {
         //        rulesTableView.register(RulesCustomTableViewCell.self, forCellReuseIdentifier: RulesCustomTableViewCell.identifierForRulesTable)
         rulesTableView.delegate = self
         rulesTableView.dataSource = self
+        
+        
+        settingTableView.backgroundColor = .clear
+        settingTableView.separatorStyle = .none
+        settingTableView.delegate = self
+        settingTableView.dataSource = self
         
         
         //         MARK: SubViews of UIScrollView
@@ -291,13 +461,13 @@ extension RulesViewController: UITableViewDataSource, UITableViewDelegate {
         if tableView == rulesTableView {
             return dataArray.count
         } else {
-            return timeTableDataArray.count
+            return settingsTableDataArray.count
         }
         
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       
+        
         if tableView == rulesTableView {
             
             let cell = rulesTableView.dequeueReusableCell(withIdentifier: ruleIdentifier, for: indexPath) as! RulesTableViewCell
@@ -309,10 +479,19 @@ extension RulesViewController: UITableViewDataSource, UITableViewDelegate {
             
             return cell
             
+        } else {
+            
+            let cell = settingTableView.dequeueReusableCell(withIdentifier: settingsCellID, for: indexPath) as! PlusTaskTableViewCell
+            
+            let currentCell = settingsTableDataArray[indexPath.row]
+            
+            cell.cellData = currentCell
+            
+            
+            return cell
         }
         
         
-        return UITableViewCell()
     }
     
     
@@ -336,7 +515,7 @@ extension RulesViewController: UICollectionViewDataSource, UICollectionViewDeleg
         let currentCell = collectionDataArray[indexPath.row]
         cell.cellData = currentCell
         cell.addCheckMark(isOn: currentCell.chechMarkSelected)
-
+        
         
         
         return cell

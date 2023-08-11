@@ -128,13 +128,33 @@ class RulesTableViewCell: UITableViewCell {
         }
     }
     
-    // Тут нужно найти решение как в атрибутет стринг лейбла запихнуть совокупность трех атрибученых лейблов
     
     func changeLabelStyle(bool:Bool) {
+        
         if bool {
-            self.discriptionLabel.text = ""
+            let combinedAttributedString = NSMutableAttributedString()
             
+            let firstPartOfText = NSAttributedString(string: "Если в настройках выбран режим игры ",
+                                                     attributes: [NSAttributedString.Key.font: UIFont.delaGothic16()!, NSAttributedString.Key.foregroundColor: UIColor.speciallightBlack])
+            
+            let secondPartOfText = NSAttributedString(string: "“С Заданиями” ",
+                                                      attributes: [NSAttributedString.Key.font: UIFont.delaGothic16()!, NSAttributedString.Key.foregroundColor: UIColor.specialViolet])
+            
+            
+            let thirdPartOfText = NSAttributedString(string: ",то проигравший выполняет задание.",
+                                                     attributes: [NSAttributedString.Key.font: UIFont.delaGothic16()!, NSAttributedString.Key.foregroundColor: UIColor.black])
+            
+            combinedAttributedString.append(firstPartOfText)
+            combinedAttributedString.append(secondPartOfText)
+            combinedAttributedString.append(thirdPartOfText)
+            
+            
+            self.discriptionLabel.attributedText = combinedAttributedString
+        } else {
+            self.discriptionLabel.attributedText = nil
+            self.discriptionLabel.text = cellData?.dicription
         }
+        
     }
     
     

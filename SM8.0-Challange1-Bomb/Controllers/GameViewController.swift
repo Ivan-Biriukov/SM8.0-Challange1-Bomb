@@ -48,7 +48,7 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         createCustomNavigationBar(title: "Игра")
-        addButtonToNavBar()
+//        addButtonToNavBar(<#UIButton?#>)
         addSubviews()
         setupConstraints()
     }
