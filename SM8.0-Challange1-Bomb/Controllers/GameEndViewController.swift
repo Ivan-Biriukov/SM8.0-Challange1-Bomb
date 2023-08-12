@@ -55,15 +55,20 @@ class GameEndViewController: UIViewController {
         button.addTarget(self, action: #selector(startAgainButtonPressed), for: .touchUpInside)
         return button
     }()
+    
+    private let navBarBackButton = NavBarBackButton()
 
     // MARK: - Override Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .gradientColor()
         createCustomNavigationBar(title: "Игра")
+        navBarForGameVC(vc: self, button: navBarBackButton)
         addSubviews()
         setupConstraints()
-        self.navigationController?.navigationBar.topItem?.title = " "
+       // self.navigationController?.navigationBar.topItem?.title = " "
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -145,8 +150,5 @@ extension GameEndViewController {
             currentTaskLabel.isHidden = true
             nextTaskButton.isHidden = true
         }
-    }
-    
-    private func oveerideBackButtonAction() {
     }
 }

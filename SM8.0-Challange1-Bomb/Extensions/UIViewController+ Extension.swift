@@ -48,6 +48,10 @@ extension UIViewController {
         }     
     }
     
+    func navBarForGameVC(vc: UIViewController, button: UIButton) {
+        vc.navigationController!.navigationBar.topItem!.backBarButtonItem = UIBarButtonItem(customView:button)
+    }
+    
     // Function check if UserDefault even exist, true when exist (has value) false when doesnt exist (has no value)
     func isKeyPresentInUserDefaults(key: String) -> Bool {
         return UserDefaults.standard.object(forKey: key) != nil
