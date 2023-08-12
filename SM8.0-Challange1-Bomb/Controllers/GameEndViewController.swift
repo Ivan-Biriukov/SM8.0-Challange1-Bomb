@@ -60,11 +60,11 @@ class GameEndViewController: UIViewController {
         createCustomNavigationBar(title: "Игра")
         addSubviews()
         setupConstraints()
+        self.navigationController?.navigationBar.topItem?.title = " "
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        defaults.set(false, forKey: K.UserDefaultsKeys.gameInProgress)
         setupFirstTaskText()
         removeFirstTask()
     }
