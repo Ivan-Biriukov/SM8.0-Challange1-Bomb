@@ -43,7 +43,6 @@ class GameEndViewController: UIViewController {
 
     private let currentTaskLabel: UILabel = {
         let label = UILabel()
-        label.text = "В следующем раунде после каждого ответа хлопать в ладоши"
         label.font = .delaGothic20()
         label.textColor = .specialViolet
         label.textAlignment = .center
@@ -66,8 +65,6 @@ class GameEndViewController: UIViewController {
         return button
     }()
 
-
-
     // MARK: - Override Methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,6 +76,8 @@ class GameEndViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         defaults.set(false, forKey: K.UserDefaultsKeys.gameInProgress)
+        setupFirstTaskText()
+        removeFirstTask()
     }
 
     // MARK: - Private Methods
@@ -144,5 +143,9 @@ extension GameEndViewController {
     
     private func updateTasks() {
         tasksArray = TasksDataModel.tasks.shuffled()
+    }
+    
+    private func setupFirstTaskText() {
+        currentTaskLabel.text = tasksArray.first
     }
 }
