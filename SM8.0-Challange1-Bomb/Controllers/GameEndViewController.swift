@@ -52,14 +52,16 @@ class GameEndViewController: UIViewController {
     }()
 
     private lazy var nextTaskButton: UIButton = {
-        let button = CustomButton(text: "Другое Задание", active: .enable)
+        let button = CustomButton(text: "  Другое \nЗадание", active: .enable)
+        button.titleLabel?.numberOfLines = 0
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(nextTaskButtonPressed), for: .touchUpInside)
         return button
     }()
 
     private lazy var startAgainButton: UIButton = {
-        let button = CustomButton(text: "Начать Заново", active: .enable)
+        let button = CustomButton(text: "Начать \nЗаново", active: .enable)
+        button.titleLabel?.numberOfLines = 0
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(startAgainButtonPressed), for: .touchUpInside)
         return button
@@ -101,17 +103,17 @@ class GameEndViewController: UIViewController {
             topLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 2),
             topLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -2),
 
-            explosionImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 166),
+            explosionImageView.topAnchor.constraint(equalTo: topLabel.bottomAnchor, constant: 35),
             explosionImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            explosionImageView.widthAnchor.constraint(equalToConstant: 249),
+            explosionImageView.widthAnchor.constraint(equalToConstant: 265),
             explosionImageView.heightAnchor.constraint(equalToConstant: 300),
 
-            currentTaskLabel.topAnchor.constraint(equalTo: explosionImageView.bottomAnchor, constant: 20),
-            currentTaskLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 5),
-            currentTaskLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -5),
+            currentTaskLabel.topAnchor.constraint(equalTo: explosionImageView.bottomAnchor, constant: 35),
+            currentTaskLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
+            currentTaskLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),
 
             nextTaskButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 51),
-            nextTaskButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -143),
+            nextTaskButton.bottomAnchor.constraint(equalTo: startAgainButton.topAnchor, constant: -15),
 
             startAgainButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 51),
             startAgainButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -49)
