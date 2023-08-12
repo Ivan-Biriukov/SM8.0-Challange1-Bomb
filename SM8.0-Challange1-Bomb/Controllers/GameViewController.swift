@@ -14,6 +14,8 @@ class GameViewController: UIViewController {
     private var explosionToPlay = SoundsDataModel.bombExplosionSound[UserDefaults.standard.string(forKey: K.UserDefaultsKeys.bombExplosionSaveValue)!]
     
     private var backgroundMusicToPlay = SoundsDataModel.backGroundMisuc[UserDefaults.standard.string(forKey: K.UserDefaultsKeys.bgMusicSavedValue)!]
+    
+    private var isGameInProgress = UserDefaults.standard.bool(forKey: K.UserDefaultsKeys.gameInProgress)
 
     // MARK: - Properties
     private let runLabel: UILabel = {
@@ -86,6 +88,8 @@ class GameViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         updateQuestions()
+        updateUIIfGameInProgress()
+        
     }
     
     // MARK: - Private Methods
@@ -196,6 +200,31 @@ class GameViewController: UIViewController {
         self.navigationItem.title = nil
         self.navigationItem.titleView = navTitle
     }
+    
+    private func saveCurrentQuestion() {
+        defaults.set(currentLabelText, forKey: K.UserDefaultsKeys.currentQuestionTextSaved)
+    }
+    
+    private func saveSecondsPassedValue() {
+        defaults.set(secondPassed, forKey: K.UserDefaultsKeys.secondPassedSavedValue)
+    }
+    
+    private func updateUIIfGameInProgress() {
+        if isGameInProgress {
+            secondPassed = defaults.integer(forKey: K.UserDefaultsKeys.secondPassedSavedValue)
+            currentLabelText = defaults.string(forKey: K.UserDefaultsKeys.currentQuestionTextSaved)
+            addButtonToNavBar(playPauseButton)
+            totalTime = defaults.integer(forKey: K.UserDefaultsKeys.roundTimeDurationInSeconds)
+            timer = Timer.scheduledTimer(timeInterval: 1.0,
+                                         target: self,
+                                         selector: #selector(updateTimer),
+                                         userInfo: nil,
+                                         repeats: true)
+            createGif()
+            runLabel.text = currentLabelText
+            runButton.isHidden = true
+        }
+    }
 }
 
 // MARK: - Target Actions
@@ -240,6 +269,8 @@ extension GameViewController {
             playPauseButton.setImage(UIImage(systemName: "play.circle"), for: .normal)
             pauseTimer()
             bombImageView.image = UIImage(named: K.Images.bomb)
+            saveCurrentQuestion()
+            saveSecondsPassedValue()
         } else {
             runLabel.text = currentLabelText
             tikPlayer.play()
@@ -268,6 +299,8 @@ extension GameViewController {
             tikPlayer.stop()
         }
         stopBackgroundPlayer()
+        saveCurrentQuestion()
+        saveSecondsPassedValue()
         self.navigationController?.popToRootViewController(animated: true)
     }
 }

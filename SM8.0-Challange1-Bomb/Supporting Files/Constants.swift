@@ -54,6 +54,8 @@ struct K {
         static let fameosCategoryChoosen = "fameosCategory"
         static let artAndCinemaCategoryChoosen = "artAndCinemaCategory"
         static let natureCategoryChoosen = "natureCategory"
+        static let secondPassedSavedValue = "secondsPassed"
+        static let currentQuestionTextSaved = "savedQustionText"
     }
     
 }
