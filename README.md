@@ -13,7 +13,7 @@ TeamLead - [Ivan](https://github.com/Ivan-Biriukov)
 
 [Islam](https://github.com/Morganzy9)
 
-[Elizaveta]()
+[Elizaveta](https://github.com/Eremyonok)
 
 [Caroline](https://github.com/CarolineTV) 
 ____
