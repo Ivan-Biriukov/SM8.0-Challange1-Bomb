@@ -3,7 +3,8 @@
 
 > Bomba is a fun game that will brighten up any party! Answer the questions together with your friends until the bomb explodes. The loser performs the tasks
 ____
-This project was implemented as part of the [Swift-Marathon 8.0](https://boosty.to/swiftmarathon)
+This project was implemented as part of the [Swift-Marathon 8.0](https://boosty.to/swiftmarathon)   <a href="url"><img src="ReadMeAssets/swift Marathon.jpeg" height="auto" width="50" align="center"></a>
+
 
 
 # Our team:
