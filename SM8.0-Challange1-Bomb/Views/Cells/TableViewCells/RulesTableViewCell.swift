@@ -1,10 +1,3 @@
-//
-//  RulesTableViewCell.swift
-//  SM8.0-Challange1-Bomb
-//
-//  Created by Ислам Пулатов on 8/10/23.
-//
-
 import UIKit
 
 class RulesTableViewCell: UITableViewCell {
@@ -68,15 +61,11 @@ class RulesTableViewCell: UITableViewCell {
         return view
     }()
     
-    
-    
     let attributedFirst = NSAttributedString(string: "Если в настройках выбран режим игры", attributes: [NSAttributedString.Key.font: UIFont.delaGothic16()!, NSAttributedString.Key.foregroundColor: UIColor.speciallightBlack])
     
     let attributedSecond = NSAttributedString(string: "С Заданиями", attributes: [NSAttributedString.Key.font: UIFont.delaGothic16()!, NSAttributedString.Key.foregroundColor: UIColor.specialViolet])
     
     let attributedThird = NSAttributedString(string: ",то проигравший выполняет задание.", attributes: [NSAttributedString.Key.font: UIFont.delaGothic16()!, NSAttributedString.Key.foregroundColor: UIColor.black])
-    
-    
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -86,7 +75,6 @@ class RulesTableViewCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
     
     private func setUp() {
         selectionStyle = .none
@@ -118,7 +106,6 @@ class RulesTableViewCell: UITableViewCell {
         if bool {
             container.addSubview(startButton)
             NSLayoutConstraint.activate([
-                
                 startButton.centerXAnchor.constraint(equalTo: container.centerXAnchor),
                 startButton.bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: -15),
                 discriptionLabel.bottomAnchor.constraint(equalTo: startButton.topAnchor, constant: -5),
@@ -128,9 +115,7 @@ class RulesTableViewCell: UITableViewCell {
         }
     }
     
-    
     func changeLabelStyle(bool:Bool) {
-        
         if bool {
             let combinedAttributedString = NSMutableAttributedString()
             
@@ -140,7 +125,6 @@ class RulesTableViewCell: UITableViewCell {
             let secondPartOfText = NSAttributedString(string: "“С Заданиями” ",
                                                       attributes: [NSAttributedString.Key.font: UIFont.delaGothic16()!, NSAttributedString.Key.foregroundColor: UIColor.specialViolet])
             
-            
             let thirdPartOfText = NSAttributedString(string: ",то проигравший выполняет задание.",
                                                      attributes: [NSAttributedString.Key.font: UIFont.delaGothic16()!, NSAttributedString.Key.foregroundColor: UIColor.black])
             
@@ -148,14 +132,10 @@ class RulesTableViewCell: UITableViewCell {
             combinedAttributedString.append(secondPartOfText)
             combinedAttributedString.append(thirdPartOfText)
             
-            
             self.discriptionLabel.attributedText = combinedAttributedString
         } else {
             self.discriptionLabel.attributedText = nil
             self.discriptionLabel.text = cellData?.dicription
         }
-        
     }
-    
-    
 }

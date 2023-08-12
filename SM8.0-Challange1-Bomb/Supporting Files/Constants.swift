@@ -4,34 +4,18 @@ import UIKit.UIScreen
 struct K {
     
     struct Images {
-        
         static let background : String = "background"
-        
         static let logoImage : String = "bomb"
-        
-        static let diference : String = "image 1"
-        
-        // for diferent use one below
         static let aboutall : String = "planetImg"
-        
         static let sportAndHobby : String = "image 2"
-        
         static let aboutLife : String = "image 10"
-        
         static let fameos : String = "image 4"
-        
         static let artAndCinema : String = "image 5"
-        
         static let nature : String = "image 6"
-        
         static let bomb : String = "image 7"
-        
         static let explosion : String = "image 9"
-        
         static let settingsLogo : String = "image 11"
-        
         static let question : String = "question"
-        
         static let chekmark : String = "checkMarkImg"
     }
     
@@ -57,5 +41,4 @@ struct K {
         static let secondPassedSavedValue = "secondsPassed"
         static let currentQuestionTextSaved = "savedQustionText"
     }
-    
 }

@@ -48,6 +48,5 @@ class SettingsButton: UIButton {
             setTitleColor(.black, for: .normal)
             backgroundColor = .clear
         }
-
     }
 }

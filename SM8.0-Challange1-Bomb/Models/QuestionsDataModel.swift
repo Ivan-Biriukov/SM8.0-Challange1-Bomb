@@ -1,10 +1,3 @@
-//
-//  QuestionsDataModel.swift
-//  SM8.0-Challange1-Bomb
-//
-//  Created by Ilyas Tyumenev on 11.08.2023.
-//
-
 import Foundation
 
 struct QuestionsDataModel {
