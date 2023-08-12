@@ -56,19 +56,15 @@ class GameEndViewController: UIViewController {
         return button
     }()
     
-    private let navBarBackButton = NavBarBackButton()
-
     // MARK: - Override Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .gradientColor()
         createCustomNavigationBar(title: "Игра")
-        navBarForGameVC(vc: self, button: navBarBackButton)
         addSubviews()
         setupConstraints()
-       // self.navigationController?.navigationBar.topItem?.title = " "
-        
-        
+        self.navigationController?.navigationBar.topItem?.title = " "
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .done, target: self, action: #selector(backToInitial(_:)))
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -129,6 +125,10 @@ extension GameEndViewController {
         print("startAgainButtonPressed")
         self.navigationController?.popViewController(animated: true)
     }
+    
+    @objc func backToInitial(_ sender: AnyObject) {
+         self.navigationController?.popToRootViewController(animated: true)
+     }
     
     private func removeFirstTask() {
         tasksArray.removeFirst()
