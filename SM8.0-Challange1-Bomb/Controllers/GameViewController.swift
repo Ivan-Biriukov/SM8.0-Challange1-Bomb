@@ -264,7 +264,8 @@ extension GameViewController {
     }
     
     @objc func navBackTaped(_ sender: UIBarButtonItem) {
-        
+        tikPlayer.stop()
+        stopBackgroundPlayer()
         self.navigationController?.popToRootViewController(animated: true)
     }
 }
