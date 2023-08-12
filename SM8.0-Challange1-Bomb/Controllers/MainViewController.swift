@@ -4,14 +4,6 @@ class MainViewController: UIViewController {
     
     // MARK: - UI Elements
     
-    private lazy var backgroundView: UIImageView = {
-        let view = UIImageView()
-        view.image = UIImage(named: K.Images.background)
-        view.contentMode = .scaleToFill
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    } ()
-    
     private lazy var contentStack: UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
@@ -99,13 +91,11 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .gradientColor()
         addSubviews()
         setupConstraints()
         addButtonsMethods()
         setUDDefaultsValuesForFirstAppLaunch()
-        print(UserDefaults.standard.string(forKey: K.UserDefaultsKeys.bgMusicSavedValue))
-        print(UserDefaults.standard.string(forKey: K.UserDefaultsKeys.bombTikSavedValue))
-        print(UserDefaults.standard.string(forKey: K.UserDefaultsKeys.bombExplosionSaveValue))
 
     }
     
@@ -159,7 +149,6 @@ class MainViewController: UIViewController {
     // MARK: - Configure UI
     
     private func addSubviews() {
-        view.addSubview(backgroundView)
         view.addSubview(contentStack)
         
         contentStack.addArrangedSubview(titleStack)
@@ -179,11 +168,6 @@ class MainViewController: UIViewController {
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            backgroundView.topAnchor.constraint(equalTo: view.topAnchor),
-            backgroundView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            backgroundView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            backgroundView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            
             contentStack.topAnchor.constraint(equalTo: view.topAnchor, constant: 51),
             contentStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 2),
             contentStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -3),

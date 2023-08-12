@@ -14,14 +14,6 @@ class GameViewController: UIViewController {
     private var backgroundMusicToPlay = SoundsDataModel.backGroundMisuc[UserDefaults.standard.string(forKey: K.UserDefaultsKeys.bgMusicSavedValue)!]
 
     // MARK: - Properties
-    private let backgroundImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: K.Images.background)
-        imageView.contentMode = .scaleAspectFill
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
-    }()
-
     private let runLabel: UILabel = {
         let label = UILabel()
         label.text = "Нажмите \"Запустить\", чтобы начать игру"
@@ -67,6 +59,7 @@ class GameViewController: UIViewController {
     // MARK: - Override Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .gradientColor()
         createCustomNavigationBar(title: "Игра")
         addButtonToNavBar(playPauseButton)
         addSubviews()
@@ -81,7 +74,6 @@ class GameViewController: UIViewController {
 
     // MARK: - Private Methods
     private func addSubviews() {
-        view.addSubview(backgroundImageView)
         view.addSubview(runLabel)
         view.addSubview(bombImageView)
         view.addSubview(runButton)
@@ -89,11 +81,6 @@ class GameViewController: UIViewController {
 
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            backgroundImageView.topAnchor.constraint(equalTo: view.topAnchor),
-            backgroundImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            backgroundImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            backgroundImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-
             runLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 105),
             runLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
             runLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -22),
