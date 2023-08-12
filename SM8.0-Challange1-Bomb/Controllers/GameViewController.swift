@@ -68,6 +68,7 @@ class GameViewController: UIViewController {
         playPauseButton.addTarget(self, action: #selector(playPauseButtonPressed), for: .touchUpInside)
         self.navigationController?.navigationBar.topItem?.title = " "
         self.navigationController?.navigationBar.tintColor = .black
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .done, target: self, action: #selector(navBackTaped(_:)))
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -226,6 +227,11 @@ extension GameViewController {
             defaults.set(false, forKey: K.UserDefaultsKeys.gameInProgress)
             navigationController?.pushViewController(GameEndViewController(), animated: true)
         }
+    }
+    
+    @objc func navBackTaped(_ sender: UIBarButtonItem) {
+        
+        self.navigationController?.popToRootViewController(animated: true)
     }
 }
 
