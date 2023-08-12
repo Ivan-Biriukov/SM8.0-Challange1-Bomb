@@ -15,8 +15,8 @@ extension UIColor {
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = UIScreen.main.bounds
         gradientLayer.colors = [specialYellow.cgColor, specialOrange.cgColor]
-        gradientLayer.startPoint = CGPoint(x: 0, y: 1) // Start from bottom
-        gradientLayer.endPoint = CGPoint(x: 1, y: 1)
+        gradientLayer.startPoint = CGPoint(x: 0.5, y: 0)
+        gradientLayer.endPoint = CGPoint(x: 0.8, y: 1)
         
         UIGraphicsBeginImageContext(gradientLayer.frame.size)
         gradientLayer.render(in: UIGraphicsGetCurrentContext()!)

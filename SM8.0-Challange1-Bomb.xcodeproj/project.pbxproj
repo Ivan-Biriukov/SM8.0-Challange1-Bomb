@@ -17,6 +17,8 @@
 		16860A9B2A854D01000D09F8 /* RulesPlusTaskTableViewDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16860A9A2A854D01000D09F8 /* RulesPlusTaskTableViewDataModel.swift */; };
 		16860A9D2A854D80000D09F8 /* PlusTaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16860A9C2A854D80000D09F8 /* PlusTaskTableViewCell.swift */; };
 		16860A9F2A855478000D09F8 /* RulesCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16860A9E2A855478000D09F8 /* RulesCustomTableViewCell.swift */; };
+		16F86C2C2A878317000D8334 /* backGroundMusic1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 16F86C2A2A878317000D8334 /* backGroundMusic1.mp3 */; };
+		16F86C2D2A878317000D8334 /* backGroundMusic2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 16F86C2B2A878317000D8334 /* backGroundMusic2.mp3 */; };
 		434A386E2A84EA22005D5CC0 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434A386D2A84EA22005D5CC0 /* UIImage+Extension.swift */; };
 		434A38732A84EAFB005D5CC0 /* bombGif.gif in Resources */ = {isa = PBXBuildFile; fileRef = 434A38722A84EAFB005D5CC0 /* bombGif.gif */; };
 		434A38752A858CA7005D5CC0 /* QuestionsDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434A38742A858CA7005D5CC0 /* QuestionsDataModel.swift */; };
@@ -65,6 +67,8 @@
 		16860A9A2A854D01000D09F8 /* RulesPlusTaskTableViewDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesPlusTaskTableViewDataModel.swift; sourceTree = "<group>"; };
 		16860A9C2A854D80000D09F8 /* PlusTaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusTaskTableViewCell.swift; sourceTree = "<group>"; };
 		16860A9E2A855478000D09F8 /* RulesCustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RulesCustomTableViewCell.swift; sourceTree = "<group>"; };
+		16F86C2A2A878317000D8334 /* backGroundMusic1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = backGroundMusic1.mp3; sourceTree = "<group>"; };
+		16F86C2B2A878317000D8334 /* backGroundMusic2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = backGroundMusic2.mp3; sourceTree = "<group>"; };
 		434A386D2A84EA22005D5CC0 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		434A38722A84EAFB005D5CC0 /* bombGif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = bombGif.gif; sourceTree = "<group>"; };
 		434A38742A858CA7005D5CC0 /* QuestionsDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsDataModel.swift; sourceTree = "<group>"; };
@@ -266,6 +270,8 @@
 			children = (
 				57A8D3B52A83CE6000D411E5 /* mainTheme2.mp3 */,
 				57A8D3B62A83CE6000D411E5 /* mainTheme1.mp3 */,
+				16F86C2A2A878317000D8334 /* backGroundMusic1.mp3 */,
+				16F86C2B2A878317000D8334 /* backGroundMusic2.mp3 */,
 			);
 			path = backgroundMusic;
 			sourceTree = "<group>";
@@ -356,10 +362,12 @@
 			files = (
 				57A8D3BC2A83CE6000D411E5 /* explosion3.mp3 in Resources */,
 				57A8D39D2A83CBBF00D411E5 /* LaunchScreen.storyboard in Resources */,
+				16F86C2C2A878317000D8334 /* backGroundMusic1.mp3 in Resources */,
 				57A8D3D72A83D15E00D411E5 /* Assets.xcassets in Resources */,
 				57A8D3BA2A83CE6000D411E5 /* timer2.mp3 in Resources */,
 				57A8D3B82A83CE6000D411E5 /* timer1.mp3 in Resources */,
 				57A8D3BB2A83CE6000D411E5 /* explosion2.mp3 in Resources */,
+				16F86C2D2A878317000D8334 /* backGroundMusic2.mp3 in Resources */,
 				57A8D3B92A83CE6000D411E5 /* timer3.mp3 in Resources */,
 				434A38732A84EAFB005D5CC0 /* bombGif.gif in Resources */,
 				57A8D3B72A83CE6000D411E5 /* timer4.mp3 in Resources */,

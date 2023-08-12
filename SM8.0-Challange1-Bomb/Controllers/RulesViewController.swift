@@ -155,12 +155,15 @@ class RulesViewController: UIViewController {
         super.viewDidLoad()
         createCustomNavigationBar(title: "Помощь")
         view.backgroundColor = UIColor.gradientColor()
-        setUpView()
+        
+        setUpRulesTableView()
         addSubViews()
         setUpConstrains()
         setUpDelegates()
         registerCells()
-        rulesTableView.isScrollEnabled = false
+        setUpSettingTableView()
+        
+        
     }
     
     // MARK: - Setup
@@ -281,12 +284,24 @@ class RulesViewController: UIViewController {
         return settingsOPtionsBombStackView
     }
     
-    func setUpView() {
+    
+    private func setUpRulesTableView() {
+        
         rulesTableView.backgroundColor = UIColor.clear
         rulesTableView.separatorStyle = .none
+        rulesTableView.isScrollEnabled = false
+    }
+    
+    
+    private func setUpSettingTableView() {
+        
         settingTableView.backgroundColor = .clear
         settingTableView.separatorStyle = .none
     }
+    
+    
+    
+    
 }
 
 //  MARK: - TableViewDelegates DataSource
