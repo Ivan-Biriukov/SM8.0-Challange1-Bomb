@@ -52,6 +52,16 @@ class GameViewController: UIViewController {
         return btn
     }()
     
+    private let navTitle : UILabel = {
+        let lb = UILabel()
+        lb.text = "Игра"
+        lb.font = .delaGothic30()
+        lb.textColor = .specialViolet
+        lb.textAlignment = .center
+        lb.backgroundColor = .clear
+        return lb
+    }()
+    
     var tikPlayer: AVAudioPlayer!
     var backgroundPlayer: AVAudioPlayer!
     var timer = Timer()
@@ -69,6 +79,8 @@ class GameViewController: UIViewController {
         self.navigationController?.navigationBar.topItem?.title = " "
         self.navigationController?.navigationBar.tintColor = .black
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .done, target: self, action: #selector(navBackTaped(_:)))
+        self.navigationItem.title = nil
+        self.navigationItem.titleView = navTitle
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -116,7 +128,6 @@ class GameViewController: UIViewController {
             return
         }
         
-        // Set the loaded GIF image to the UIImageView
         bombImageView.image = gifImage
     }
     
@@ -162,6 +173,29 @@ class GameViewController: UIViewController {
             playBackgroundSound(soundName: self.backgroundMusicToPlay!)
         }
     }
+    
+    private func playBackgroundPlayer() {
+        if gameWithBackgroundMusicEnabled {
+            backgroundPlayer.play()
+        }
+    }
+    
+    private func pauseBackgroundPlayer() {
+        if gameWithBackgroundMusicEnabled {
+            backgroundPlayer.pause()
+        }
+    }
+    
+    private func stopBackgroundPlayer() {
+        if gameWithBackgroundMusicEnabled {
+            backgroundPlayer.stop()
+        }
+    }
+    
+    private func setupTitle() {
+        self.navigationItem.title = nil
+        self.navigationItem.titleView = navTitle
+    }
 }
 
 // MARK: - Target Actions
@@ -179,7 +213,6 @@ extension GameViewController {
             alert.addAction(cancelAction)
             self.present(alert, animated: true)
         } else {
-            print("runButtonPressed")
             pauseTimer()
             
             totalTime = defaults.integer(forKey: K.UserDefaultsKeys.roundTimeDurationInSeconds)
@@ -200,9 +233,9 @@ extension GameViewController {
     }
     
     @objc func playPauseButtonPressed(_ button: UIButton) {
-        print("playPauseButtonPressed")
         if tikPlayer.isPlaying {
             tikPlayer.pause()
+            pauseBackgroundPlayer()
             runLabel.text = "Пауза"
             playPauseButton.setImage(UIImage(systemName: "play.circle"), for: .normal)
             pauseTimer()
@@ -210,6 +243,7 @@ extension GameViewController {
         } else {
             runLabel.text = currentLabelText
             tikPlayer.play()
+            playBackgroundPlayer()
             playPauseButton.setImage(UIImage(systemName: "pause.circle"), for: .normal)
             resumeTimer()
             createGif()
@@ -222,7 +256,7 @@ extension GameViewController {
         } else {
             timer.invalidate()
             tikPlayer.stop()
-            backgroundPlayer.stop()
+            stopBackgroundPlayer()
             self.playBackgroundSound(soundName: self.explosionToPlay!)
             defaults.set(false, forKey: K.UserDefaultsKeys.gameInProgress)
             navigationController?.pushViewController(GameEndViewController(), animated: true)
@@ -230,7 +264,8 @@ extension GameViewController {
     }
     
     @objc func navBackTaped(_ sender: UIBarButtonItem) {
-        
+        tikPlayer.stop()
+        stopBackgroundPlayer()
         self.navigationController?.popToRootViewController(animated: true)
     }
 }

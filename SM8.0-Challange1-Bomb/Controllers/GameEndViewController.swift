@@ -72,7 +72,6 @@ class GameEndViewController: UIViewController {
         setupFirstTaskText()
         removeFirstTask()
         settingUIFromUD()
-        print(defaults.bool(forKey: K.UserDefaultsKeys.gameWithTasksBool))
     }
 
     // MARK: - Private Methods
