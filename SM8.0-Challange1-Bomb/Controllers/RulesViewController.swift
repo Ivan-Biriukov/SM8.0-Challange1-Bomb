@@ -248,7 +248,6 @@ class RulesViewController: UIViewController {
             
             
             
-            
             ruleAfterBombActivated.topAnchor.constraint(equalTo: settingTableView.bottomAnchor, constant: 10),
             ruleAfterBombActivated.centerXAnchor.constraint(equalTo: contentStackView.centerXAnchor),
             
