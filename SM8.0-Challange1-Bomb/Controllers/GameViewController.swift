@@ -16,6 +16,7 @@ class GameViewController: UIViewController {
     private var backgroundMusicToPlay = SoundsDataModel.backGroundMisuc[UserDefaults.standard.string(forKey: K.UserDefaultsKeys.bgMusicSavedValue)!]
     
     private var isGameInProgress = UserDefaults.standard.bool(forKey: K.UserDefaultsKeys.gameInProgress)
+    
 
     // MARK: - Properties
     private let runLabel: UILabel = {
@@ -209,8 +210,16 @@ class GameViewController: UIViewController {
         defaults.set(secondPassed, forKey: K.UserDefaultsKeys.secondPassedSavedValue)
     }
     
+    private func stopTimer() {
+        
+    }
+    
     private func updateUIIfGameInProgress() {
         if isGameInProgress {
+            playTikSound(soundName: self.tikSoundToPlay!)
+            if UserDefaults.standard.bool(forKey: K.UserDefaultsKeys.backgroundMusicBool) {
+                playBackgroundSound(soundName: self.backgroundMusicToPlay!)
+            }
             secondPassed = defaults.integer(forKey: K.UserDefaultsKeys.secondPassedSavedValue)
             currentLabelText = defaults.string(forKey: K.UserDefaultsKeys.currentQuestionTextSaved)
             addButtonToNavBar(playPauseButton)
@@ -284,6 +293,7 @@ extension GameViewController {
     @objc func updateTimer() {
         if secondPassed < totalTime {
             self.secondPassed += 1
+            print(secondPassed)
         } else {
             timer.invalidate()
             tikPlayer.stop()
@@ -301,6 +311,7 @@ extension GameViewController {
         stopBackgroundPlayer()
         saveCurrentQuestion()
         saveSecondsPassedValue()
+        timer.invalidate()
         self.navigationController?.popToRootViewController(animated: true)
     }
 }
