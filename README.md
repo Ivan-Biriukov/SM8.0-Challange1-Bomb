@@ -11,13 +11,13 @@ This project was implemented as part of the [Swift-Marathon 8.0](https://boosty.
 
 TeamLead - [Ivan](https://github.com/Ivan-Biriukov) 
 
-[Ilyas](https://github.com/TyumenevIF)
+- [Ilyas](https://github.com/TyumenevIF)
 
-[Islam](https://github.com/Morganzy9)
+- [Islam](https://github.com/Morganzy9)
 
-[Elizaveta](https://github.com/Eremyonok)
+- [Elizaveta](https://github.com/Eremyonok)
 
-[Caroline](https://github.com/CarolineTV) 
+- [Caroline](https://github.com/CarolineTV) 
 ____
 
 
