@@ -21,14 +21,6 @@ class SettingsViewController: UIViewController {
     var bombTikPicker = UIPickerView()
     var bombExplosionPicker = UIPickerView()
     
-    private lazy var backgroundImage : UIImageView = {
-        let img = UIImageView()
-        img.image = UIImage(named: K.Images.background)
-        img.contentMode = .scaleToFill
-        img.translatesAutoresizingMaskIntoConstraints = false
-        return img
-    }()
-    
     private lazy var contentStack : UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
@@ -150,6 +142,7 @@ class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .gradientColor()
         createCustomNavigationBar(title: "Настройки")
         addSubviews()
         setupConstraints()
@@ -158,13 +151,6 @@ class SettingsViewController: UIViewController {
         updateSoundsButtonsLabel()
         updateGameWithTaskSwitchValue()
         updateMusicSwitchValue()
-        
-        print(defaults.bool(forKey: K.UserDefaultsKeys.backgroundMusicBool))
-        print(defaults.bool(forKey: K.UserDefaultsKeys.gameWithTasksBool))
-        print(defaults.integer(forKey: K.UserDefaultsKeys.roundTimeDurationInSeconds))
-        print(defaults.string(forKey: K.UserDefaultsKeys.bgMusicSavedValue))
-        print(defaults.string(forKey: K.UserDefaultsKeys.bombExplosionSaveValue))
-        print(defaults.string(forKey: K.UserDefaultsKeys.bombTikSavedValue))
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -318,7 +304,6 @@ class SettingsViewController: UIViewController {
     // MARK: - Configure UI
     
     private func addSubviews() {
-        view.addSubview(backgroundImage)
         view.addSubview(contentStack)
         contentStack.addArrangedSubview(topStack)
         topStack.addArrangedSubview(timeLabel)
@@ -353,11 +338,6 @@ class SettingsViewController: UIViewController {
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            backgroundImage.topAnchor.constraint(equalTo: view.topAnchor),
-            backgroundImage.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            backgroundImage.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            backgroundImage.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            
             contentStack.topAnchor.constraint(equalTo: view.topAnchor,constant: 100),
             contentStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 14),
             contentStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -14),
