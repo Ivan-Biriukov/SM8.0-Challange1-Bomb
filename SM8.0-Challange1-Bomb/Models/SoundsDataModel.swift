@@ -4,7 +4,9 @@ struct SoundsDataModel {
     
     static let backGroundMisuc : [String : String] = [
         "Шоу Бэнни Хила" : "mainTheme1",
-        "X-Files" : "mainTheme2"
+        "X-Files" : "mainTheme2",
+        "Приключения" : "backGroundMusic1",
+        "Приключения 2" : "backGroundMusic2"
     ]
     
     static let bombTikSound : [String : String] = [
