@@ -17,7 +17,19 @@ class GameViewController: UIViewController {
     
     private var isGameInProgress = UserDefaults.standard.bool(forKey: K.UserDefaultsKeys.gameInProgress)
     
-
+    private let gameIsPaused : Bool
+    
+    init(gameIsPaused: Bool) {
+        self.gameIsPaused = gameIsPaused
+        super.init(nibName: nil
+                   , bundle: nil)
+    }
+    
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     // MARK: - Properties
     private let runLabel: UILabel = {
         let label = UILabel()
@@ -89,8 +101,9 @@ class GameViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         updateQuestions()
-        updateUIIfGameInProgress()
-        
+        if gameIsPaused {
+            updateUIIfGameInProgress()
+        }
     }
     
     // MARK: - Private Methods

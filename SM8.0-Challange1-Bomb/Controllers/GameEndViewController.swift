@@ -121,7 +121,7 @@ extension GameEndViewController {
     }
 
     @objc func startAgainButtonPressed(_ button: UIButton) {
-        self.navigationController?.pushViewController(GameViewController(), animated: true)
+        self.navigationController?.pushViewController(GameViewController(gameIsPaused: false), animated: true)
     }
     
     @objc func backToInitial(_ sender: AnyObject) {

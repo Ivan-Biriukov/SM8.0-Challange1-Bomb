@@ -110,7 +110,7 @@ class MainViewController: UIViewController {
         sender.alpha = 0.5
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
             sender.alpha = 1
-            self.navigationController?.pushViewController(GameViewController(), animated: true)
+            self.navigationController?.pushViewController(GameViewController(gameIsPaused: false), animated: true)
         }
     }
     
@@ -118,7 +118,7 @@ class MainViewController: UIViewController {
         sender.alpha = 0.5
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
             sender.alpha = 1
-            self.navigationController?.pushViewController(GameViewController(), animated: true)
+            self.navigationController?.pushViewController(GameViewController(gameIsPaused: true), animated: true)
         }
     }
     
