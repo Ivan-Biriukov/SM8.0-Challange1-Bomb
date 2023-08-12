@@ -26,7 +26,6 @@
 		5759832F2A83D696001B38A3 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5759832E2A83D696001B38A3 /* SettingsViewController.swift */; };
 		575983362A83E7FC001B38A3 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575983342A83E7FC001B38A3 /* GameViewController.swift */; };
 		575983372A83E7FC001B38A3 /* GameEndViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575983352A83E7FC001B38A3 /* GameEndViewController.swift */; };
-		578C08372A87C46B00D133ED /* NavBarBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578C08362A87C46B00D133ED /* NavBarBackButton.swift */; };
 		57A8D3912A83CBBC00D411E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A8D3902A83CBBC00D411E5 /* AppDelegate.swift */; };
 		57A8D3932A83CBBC00D411E5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A8D3922A83CBBC00D411E5 /* SceneDelegate.swift */; };
 		57A8D3952A83CBBC00D411E5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A8D3942A83CBBC00D411E5 /* MainViewController.swift */; };
@@ -77,7 +76,6 @@
 		5759832E2A83D696001B38A3 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		575983342A83E7FC001B38A3 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		575983352A83E7FC001B38A3 /* GameEndViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameEndViewController.swift; sourceTree = "<group>"; };
-		578C08362A87C46B00D133ED /* NavBarBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBarBackButton.swift; sourceTree = "<group>"; };
 		57A8D38D2A83CBBC00D411E5 /* SM8.0-Challange1-Bomb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SM8.0-Challange1-Bomb.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		57A8D3902A83CBBC00D411E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		57A8D3922A83CBBC00D411E5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -300,7 +298,6 @@
 				57A8D3D02A83CFF300D411E5 /* CustomButton.swift */,
 				57A8D3D22A83D01A00D411E5 /* SettingsButton.swift */,
 				E518A2F72A840A7E00DA737E /* RoundButtons.swift */,
-				578C08362A87C46B00D133ED /* NavBarBackButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -413,7 +410,6 @@
 				1666775E2A83E03D0005965C /* RulesViewController.swift in Sources */,
 				1666775A2A83DFBD0005965C /* Rule.swift in Sources */,
 				57A8D3CF2A83CFD700D411E5 /* SettingsLabel.swift in Sources */,
-				578C08372A87C46B00D133ED /* NavBarBackButton.swift in Sources */,
 				E518A2F82A840A7E00DA737E /* RoundButtons.swift in Sources */,
 				5759832F2A83D696001B38A3 /* SettingsViewController.swift in Sources */,
 				434A38752A858CA7005D5CC0 /* QuestionsDataModel.swift in Sources */,
