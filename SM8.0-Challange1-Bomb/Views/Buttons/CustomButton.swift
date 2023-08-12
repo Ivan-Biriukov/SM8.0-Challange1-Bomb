@@ -28,6 +28,10 @@ class CustomButton: UIButton {
         setTitle(text, for: .normal)
         titleLabel?.font = .delaGothic24()
         layer.cornerRadius = ((K.DeviceSizes.currentHeight / 10.3417722) / 2)
+        layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
+        layer.shadowOpacity = 1
+        layer.shadowRadius = 4
+        layer.shadowOffset = CGSize(width: 0, height: 4)
         layer.borderColor = UIColor.black.cgColor
         layer.borderWidth = 1
         
