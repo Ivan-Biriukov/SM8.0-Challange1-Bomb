@@ -5,6 +5,9 @@ class GameEndViewController: UIViewController {
     private let defaults = UserDefaults.standard
     
     private var tasksArray = TasksDataModel.tasks.shuffled()
+    
+    private var gameWithTasksEnabled : Bool = UserDefaults.standard.bool(forKey: K.UserDefaultsKeys.gameWithTasksBool)
+    
 
     // MARK: - Properties
     
@@ -67,6 +70,8 @@ class GameEndViewController: UIViewController {
         super.viewWillAppear(animated)
         setupFirstTaskText()
         removeFirstTask()
+        settingUIFromUD()
+        print(defaults.bool(forKey: K.UserDefaultsKeys.gameWithTasksBool))
     }
 
     // MARK: - Private Methods
@@ -130,5 +135,18 @@ extension GameEndViewController {
     
     private func setupFirstTaskText() {
         currentTaskLabel.text = tasksArray.first
+    }
+    
+    private func settingUIFromUD() {
+        if gameWithTasksEnabled {
+            currentTaskLabel.isHidden = false
+            nextTaskButton.isHidden = false
+        } else {
+            currentTaskLabel.isHidden = true
+            nextTaskButton.isHidden = true
+        }
+    }
+    
+    private func oveerideBackButtonAction() {
     }
 }
