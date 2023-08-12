@@ -5,6 +5,8 @@ class GameViewController: UIViewController {
     
     private let defaults = UserDefaults.standard
     
+    private var gameWithBackgroundMusicEnabled : Bool = UserDefaults.standard.bool(forKey: K.UserDefaultsKeys.backgroundMusicBool)
+    
     private var questionsArray : [String] = []
     
     private var tikSoundToPlay = SoundsDataModel.bombTikSound[UserDefaults.standard.string(forKey: K.UserDefaultsKeys.bombTikSavedValue)!]
@@ -153,13 +155,19 @@ class GameViewController: UIViewController {
             timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
         }
     }
+    
+    private func checkGameWithBackgroundMusic() {
+        if gameWithBackgroundMusicEnabled {
+            playBackgroundSound(soundName: self.backgroundMusicToPlay!)
+        }
+    }
 }
 
 // MARK: - Target Actions
 extension GameViewController {
     
     @objc func runButtonPressed(_ button: UIButton) {
-        playBackgroundSound(soundName: self.backgroundMusicToPlay!)
+        checkGameWithBackgroundMusic()
         playTikSound(soundName: self.tikSoundToPlay!)
         
         addButtonToNavBar(playPauseButton)
