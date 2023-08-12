@@ -52,6 +52,16 @@ class GameViewController: UIViewController {
         return btn
     }()
     
+    private let navTitle : UILabel = {
+        let lb = UILabel()
+        lb.text = "Игра"
+        lb.font = .delaGothic30()
+        lb.textColor = .specialViolet
+        lb.textAlignment = .center
+        lb.backgroundColor = .clear
+        return lb
+    }()
+    
     var tikPlayer: AVAudioPlayer!
     var backgroundPlayer: AVAudioPlayer!
     var timer = Timer()
@@ -69,6 +79,8 @@ class GameViewController: UIViewController {
         self.navigationController?.navigationBar.topItem?.title = " "
         self.navigationController?.navigationBar.tintColor = .black
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .done, target: self, action: #selector(navBackTaped(_:)))
+        self.navigationItem.title = nil
+        self.navigationItem.titleView = navTitle
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -161,6 +173,12 @@ class GameViewController: UIViewController {
         if gameWithBackgroundMusicEnabled {
             playBackgroundSound(soundName: self.backgroundMusicToPlay!)
         }
+    }
+    
+    private func setupTitle() {
+        self.navigationItem.title = nil
+        
+        self.navigationItem.titleView = navTitle
     }
 }
 
