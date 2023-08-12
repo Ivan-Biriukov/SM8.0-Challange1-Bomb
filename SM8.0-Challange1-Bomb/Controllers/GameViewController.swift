@@ -42,7 +42,7 @@ class GameViewController: UIViewController {
     
     lazy var playPauseButton: UIButton = {
         let btn = UIButton(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
-        btn.setImage(UIImage(systemName: "play.circle"), for: .normal)
+        btn.setImage(UIImage(systemName: "pause.circle"), for: .normal)
         btn.tintColor = .black
         btn.setTitle(nil, for: .normal)
         btn.contentVerticalAlignment = .fill
@@ -51,45 +51,44 @@ class GameViewController: UIViewController {
     }()
     
     var player: AVAudioPlayer!
-    let gameTimes = ["Short": 4, "Medium": 8, "Long": 12]
     var timer = Timer()
     var totalTime = 0
     var secondPassed = 0
-
+    var currentLabelText: String?
+    
     // MARK: - Override Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .gradientColor()
-        createCustomNavigationBar(title: "Игра")
-        addButtonToNavBar(playPauseButton)
         addSubviews()
         setupConstraints()
-        playPauseButton.addTarget(self, action: #selector(playButtonPressed), for: .touchUpInside)
+        playPauseButton.addTarget(self, action: #selector(playPauseButtonPressed), for: .touchUpInside)
+        playSound(soundName: self.backgroundMusicToPlay!)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         updateQuestions()
     }
-
+    
     // MARK: - Private Methods
     private func addSubviews() {
         view.addSubview(runLabel)
         view.addSubview(bombImageView)
         view.addSubview(runButton)
     }
-
+    
     private func setupConstraints() {
         NSLayoutConstraint.activate([
             runLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 105),
             runLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
             runLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -22),
-
+            
             bombImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 11),
             bombImageView.widthAnchor.constraint(equalToConstant: 312),
             bombImageView.heightAnchor.constraint(equalToConstant: 352),
             bombImageView.bottomAnchor.constraint(equalTo: runButton.topAnchor, constant: -94),
-
+            
             runButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 53),
             runButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -64)
         ])
@@ -101,32 +100,55 @@ class GameViewController: UIViewController {
             print("Failed to find the GIF image.")
             return
         }
-
+        
         guard let gifData = try? Data(contentsOf: URL(fileURLWithPath: gifPath)) else {
             print("Failed to load the GIF image data.")
             return
         }
-
+        
         guard let gifImage = UIImage.gifImageWithData(gifData) else {
             print("Failed to create the GIF image.")
             return
         }
-
+        
         // Set the loaded GIF image to the UIImageView
         bombImageView.image = gifImage
     }
     
-    private func playTimerSound(soundName: String) {
-        let url = Bundle.main.url(forResource: soundName, withExtension: "mp3")
-        player = try! AVAudioPlayer(contentsOf: url!)
+    private func playSound(soundName: String) {
+        guard let url = Bundle.main.url(forResource: soundName, withExtension: "mp3") else { return }
+        
+        do {
+            player = try AVAudioPlayer(contentsOf: url)
+            player?.prepareToPlay()
+        } catch {
+            print("Ошибка при создании экземпляра AVAudioPlayer: \(error.localizedDescription)")
+        }
         player.play()
+    }
+    
+    // Остановка таймера
+    func pauseTimer() {
+        timer.invalidate()
+    }
+    
+    // Продолжение таймера
+    func resumeTimer() {
+        if !timer.isValid {
+            timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+        }
     }
 }
 
 // MARK: - Target Actions
 extension GameViewController {
-
+    
     @objc func runButtonPressed(_ button: UIButton) {
+        player.stop()
+        playSound(soundName: self.tikSoundToPlay!)
+        player.numberOfLoops = -1
+        
+        addButtonToNavBar(playPauseButton)
         
         if questionsArray.count == 0 {
             let alert = UIAlertController(title: "Невозможно начать игру", message: "Друг, похоже на то, что ты не выбрал ни одной категории вопросов. К сожалению, играть без вопросов - нельзя 😢. Перейди в раздел 'Категории', чтобы выбрать вопросы, и игра начнется!", preferredStyle: .alert)
@@ -135,7 +157,8 @@ extension GameViewController {
             self.present(alert, animated: true)
         } else {
             print("runButtonPressed")
-            timer.invalidate()
+            pauseTimer()
+            
             totalTime = defaults.integer(forKey: K.UserDefaultsKeys.roundTimeDurationInSeconds)
             secondPassed = 0
             
@@ -146,28 +169,38 @@ extension GameViewController {
                                          repeats: true)
             createGif()
             
-            runLabel.text = questionsArray.randomElement()
+            currentLabelText = questionsArray.randomElement()
+            runLabel.text = currentLabelText
             runButton.isHidden = true
             defaults.set(true, forKey: K.UserDefaultsKeys.gameInProgress)
         }
     }
     
-    @objc func playButtonPressed(_ button: UIButton) {
-        print("playButtonPressed")
-        
+    @objc func playPauseButtonPressed(_ button: UIButton) {
+        print("playPauseButtonPressed")
+        if player.isPlaying {
+            player.pause()
+            runLabel.text = "Пауза"
+            playPauseButton.setImage(UIImage(systemName: "play.circle"), for: .normal)
+            pauseTimer()
+            bombImageView.image = UIImage(named: K.Images.bomb)
+        } else {
+            runLabel.text = currentLabelText
+            player.play()
+            playPauseButton.setImage(UIImage(systemName: "pause.circle"), for: .normal)
+            resumeTimer()
+            createGif()
+        }
     }
     
     @objc func updateTimer() {
         if secondPassed < totalTime {
-            DispatchQueue.main.async {
-                self.playTimerSound(soundName: self.tikSoundToPlay!)
-                self.secondPassed += 1
-            }
+            self.secondPassed += 1
+            let sec = totalTime - secondPassed
+            print("Осталось \(sec) секунд")
         } else {
             timer.invalidate()
-            DispatchQueue.main.async {
-                self.playTimerSound(soundName: self.explosionToPlay!)
-            }
+            self.playSound(soundName: self.explosionToPlay!)
             navigationController?.pushViewController(GameEndViewController(), animated: true)
         }
     }

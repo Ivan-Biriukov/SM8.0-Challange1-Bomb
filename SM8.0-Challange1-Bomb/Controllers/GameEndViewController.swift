@@ -117,7 +117,7 @@ extension GameEndViewController {
 
     @objc func startAgainButtonPressed(_ button: UIButton) {
         print("startAgainButtonPressed")
-        self.navigationController?.popToRootViewController(animated: true)
+        self.navigationController?.popViewController(animated: true)
     }
     
     private func removeFirstTask() {
