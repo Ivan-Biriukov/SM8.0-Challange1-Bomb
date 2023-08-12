@@ -128,7 +128,6 @@ class GameViewController: UIViewController {
             return
         }
         
-        // Set the loaded GIF image to the UIImageView
         bombImageView.image = gifImage
     }
     
@@ -175,9 +174,26 @@ class GameViewController: UIViewController {
         }
     }
     
+    private func playBackgroundPlayer() {
+        if gameWithBackgroundMusicEnabled {
+            backgroundPlayer.play()
+        }
+    }
+    
+    private func pauseBackgroundPlayer() {
+        if gameWithBackgroundMusicEnabled {
+            backgroundPlayer.pause()
+        }
+    }
+    
+    private func stopBackgroundPlayer() {
+        if gameWithBackgroundMusicEnabled {
+            backgroundPlayer.stop()
+        }
+    }
+    
     private func setupTitle() {
         self.navigationItem.title = nil
-        
         self.navigationItem.titleView = navTitle
     }
 }
@@ -197,7 +213,6 @@ extension GameViewController {
             alert.addAction(cancelAction)
             self.present(alert, animated: true)
         } else {
-            print("runButtonPressed")
             pauseTimer()
             
             totalTime = defaults.integer(forKey: K.UserDefaultsKeys.roundTimeDurationInSeconds)
@@ -218,9 +233,9 @@ extension GameViewController {
     }
     
     @objc func playPauseButtonPressed(_ button: UIButton) {
-        print("playPauseButtonPressed")
         if tikPlayer.isPlaying {
             tikPlayer.pause()
+            pauseBackgroundPlayer()
             runLabel.text = "Пауза"
             playPauseButton.setImage(UIImage(systemName: "play.circle"), for: .normal)
             pauseTimer()
@@ -228,6 +243,7 @@ extension GameViewController {
         } else {
             runLabel.text = currentLabelText
             tikPlayer.play()
+            playBackgroundPlayer()
             playPauseButton.setImage(UIImage(systemName: "pause.circle"), for: .normal)
             resumeTimer()
             createGif()
@@ -240,7 +256,7 @@ extension GameViewController {
         } else {
             timer.invalidate()
             tikPlayer.stop()
-            backgroundPlayer.stop()
+            stopBackgroundPlayer()
             self.playBackgroundSound(soundName: self.explosionToPlay!)
             defaults.set(false, forKey: K.UserDefaultsKeys.gameInProgress)
             navigationController?.pushViewController(GameEndViewController(), animated: true)
