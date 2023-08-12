@@ -241,10 +241,6 @@ class GameViewController: UIViewController {
 extension GameViewController {
     
     @objc func runButtonPressed(_ button: UIButton) {
-        checkGameWithBackgroundMusic()
-        playTikSound(soundName: self.tikSoundToPlay!)
-        
-        addButtonToNavBar(playPauseButton)
         
         if questionsArray.count == 0 {
             let alert = UIAlertController(title: "Невозможно начать игру", message: "Друг, похоже на то, что ты не выбрал ни одной категории вопросов. К сожалению, играть без вопросов - нельзя 😢. Перейди в раздел 'Категории', чтобы выбрать вопросы, и игра начнется!", preferredStyle: .alert)
@@ -252,8 +248,10 @@ extension GameViewController {
             alert.addAction(cancelAction)
             self.present(alert, animated: true)
         } else {
+            checkGameWithBackgroundMusic()
+            playTikSound(soundName: self.tikSoundToPlay!)
+            addButtonToNavBar(playPauseButton)
             pauseTimer()
-            
             totalTime = defaults.integer(forKey: K.UserDefaultsKeys.roundTimeDurationInSeconds)
             secondPassed = 0
             
