@@ -5,7 +5,7 @@ class SettingsViewController: UIViewController {
     
     // MARK: - Needed Data
     
-    private let bgMusicArray : [String] = ["Шоу Бэнни Хила", "X-Files"]
+    private let bgMusicArray : [String] = ["Шоу Бэнни Хила", "X-Files", "Приключения", "Приключения 2"]
     private let bombTikSoundsArray : [String] = ["Тиканье часов", "Маятник","Маятник с Эхо", "Электронный"]
     private let bombExplosionSoundArray : [String] = ["Взрыв 1", "Взрыв 2","Взырв 3", "Взрыв 4"]
     
