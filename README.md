@@ -78,6 +78,7 @@ ____
 - Application language - Swift 5
 - Minimum Deployment - iOS 15
 - Device Orientation - Portraiеt
+- Design Pattern - MVC
 
 ____
 # What we have created:
