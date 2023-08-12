@@ -1,4 +1,5 @@
-# BOMB-app
+# BOMB-app   <a href="url"><img src="ReadMeAssets/0x0ss-85 (9) (1).png"  align="left"></a>
+
 
 > Bomba is a fun game that will brighten up any party! Answer the questions together with your friends until the bomb explodes. The loser performs the tasks
 ____
