@@ -64,6 +64,8 @@ class GameViewController: UIViewController {
         setupConstraints()
         playPauseButton.addTarget(self, action: #selector(playPauseButtonPressed), for: .touchUpInside)
         playSound(soundName: self.backgroundMusicToPlay!)
+        self.navigationController?.navigationBar.topItem?.title = " "
+        self.navigationController?.navigationBar.tintColor = .black
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -201,6 +203,7 @@ extension GameViewController {
         } else {
             timer.invalidate()
             self.playSound(soundName: self.explosionToPlay!)
+            defaults.set(false, forKey: K.UserDefaultsKeys.gameInProgress)
             navigationController?.pushViewController(GameEndViewController(), animated: true)
         }
     }
