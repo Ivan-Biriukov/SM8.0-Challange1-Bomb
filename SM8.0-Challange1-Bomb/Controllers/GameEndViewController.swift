@@ -5,6 +5,9 @@ class GameEndViewController: UIViewController {
     private let defaults = UserDefaults.standard
     
     private var tasksArray = TasksDataModel.tasks.shuffled()
+    
+    private var gameWithTasksEnabled : Bool = UserDefaults.standard.bool(forKey: K.UserDefaultsKeys.gameWithTasksBool)
+    
 
     // MARK: - Properties
     
@@ -52,21 +55,28 @@ class GameEndViewController: UIViewController {
         button.addTarget(self, action: #selector(startAgainButtonPressed), for: .touchUpInside)
         return button
     }()
+    
+    private let navBarBackButton = NavBarBackButton()
 
     // MARK: - Override Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .gradientColor()
         createCustomNavigationBar(title: "Игра")
+        navBarForGameVC(vc: self, button: navBarBackButton)
         addSubviews()
         setupConstraints()
-        self.navigationController?.navigationBar.topItem?.title = " "
+       // self.navigationController?.navigationBar.topItem?.title = " "
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupFirstTaskText()
         removeFirstTask()
+        settingUIFromUD()
+        print(defaults.bool(forKey: K.UserDefaultsKeys.gameWithTasksBool))
     }
 
     // MARK: - Private Methods
@@ -130,5 +140,15 @@ extension GameEndViewController {
     
     private func setupFirstTaskText() {
         currentTaskLabel.text = tasksArray.first
+    }
+    
+    private func settingUIFromUD() {
+        if gameWithTasksEnabled {
+            currentTaskLabel.isHidden = false
+            nextTaskButton.isHidden = false
+        } else {
+            currentTaskLabel.isHidden = true
+            nextTaskButton.isHidden = true
+        }
     }
 }
