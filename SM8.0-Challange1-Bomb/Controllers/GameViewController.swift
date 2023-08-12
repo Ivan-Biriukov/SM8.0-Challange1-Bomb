@@ -50,7 +50,8 @@ class GameViewController: UIViewController {
         return btn
     }()
     
-    var player: AVAudioPlayer!
+    var tikPlayer: AVAudioPlayer!
+    var backgroundPlayer: AVAudioPlayer!
     var timer = Timer()
     var totalTime = 0
     var secondPassed = 0
@@ -63,7 +64,6 @@ class GameViewController: UIViewController {
         addSubviews()
         setupConstraints()
         playPauseButton.addTarget(self, action: #selector(playPauseButtonPressed), for: .touchUpInside)
-        playSound(soundName: self.backgroundMusicToPlay!)
         self.navigationController?.navigationBar.topItem?.title = " "
         self.navigationController?.navigationBar.tintColor = .black
     }
@@ -89,7 +89,7 @@ class GameViewController: UIViewController {
             bombImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 11),
             bombImageView.widthAnchor.constraint(equalToConstant: 312),
             bombImageView.heightAnchor.constraint(equalToConstant: 352),
-            bombImageView.bottomAnchor.constraint(equalTo: runButton.topAnchor, constant: -94),
+            bombImageView.bottomAnchor.constraint(equalTo: runButton.topAnchor, constant: -30),
             
             runButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 53),
             runButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -64)
@@ -117,16 +117,29 @@ class GameViewController: UIViewController {
         bombImageView.image = gifImage
     }
     
-    private func playSound(soundName: String) {
+    private func playTikSound(soundName: String) {
         guard let url = Bundle.main.url(forResource: soundName, withExtension: "mp3") else { return }
         
         do {
-            player = try AVAudioPlayer(contentsOf: url)
-            player?.prepareToPlay()
+            tikPlayer = try AVAudioPlayer(contentsOf: url)
+            tikPlayer.numberOfLoops = -1
+            tikPlayer?.prepareToPlay()
         } catch {
             print("Ошибка при создании экземпляра AVAudioPlayer: \(error.localizedDescription)")
         }
-        player.play()
+        tikPlayer.play()
+    }
+    
+    private func playBackgroundSound(soundName: String) {
+        guard let url = Bundle.main.url(forResource: soundName, withExtension: "mp3") else { return }
+        
+        do {
+            backgroundPlayer = try AVAudioPlayer(contentsOf: url)
+            backgroundPlayer?.prepareToPlay()
+        } catch {
+            print("Ошибка при создании экземпляра AVAudioPlayer: \(error.localizedDescription)")
+        }
+        backgroundPlayer.play()
     }
     
     // Остановка таймера
@@ -146,9 +159,8 @@ class GameViewController: UIViewController {
 extension GameViewController {
     
     @objc func runButtonPressed(_ button: UIButton) {
-        player.stop()
-        playSound(soundName: self.tikSoundToPlay!)
-        player.numberOfLoops = -1
+        playBackgroundSound(soundName: self.backgroundMusicToPlay!)
+        playTikSound(soundName: self.tikSoundToPlay!)
         
         addButtonToNavBar(playPauseButton)
         
@@ -180,15 +192,15 @@ extension GameViewController {
     
     @objc func playPauseButtonPressed(_ button: UIButton) {
         print("playPauseButtonPressed")
-        if player.isPlaying {
-            player.pause()
+        if tikPlayer.isPlaying {
+            tikPlayer.pause()
             runLabel.text = "Пауза"
             playPauseButton.setImage(UIImage(systemName: "play.circle"), for: .normal)
             pauseTimer()
             bombImageView.image = UIImage(named: K.Images.bomb)
         } else {
             runLabel.text = currentLabelText
-            player.play()
+            tikPlayer.play()
             playPauseButton.setImage(UIImage(systemName: "pause.circle"), for: .normal)
             resumeTimer()
             createGif()
@@ -198,11 +210,11 @@ extension GameViewController {
     @objc func updateTimer() {
         if secondPassed < totalTime {
             self.secondPassed += 1
-            let sec = totalTime - secondPassed
-            print("Осталось \(sec) секунд")
         } else {
             timer.invalidate()
-            self.playSound(soundName: self.explosionToPlay!)
+            tikPlayer.stop()
+            backgroundPlayer.stop()
+            self.playBackgroundSound(soundName: self.explosionToPlay!)
             defaults.set(false, forKey: K.UserDefaultsKeys.gameInProgress)
             navigationController?.pushViewController(GameEndViewController(), animated: true)
         }
