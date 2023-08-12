@@ -3,11 +3,8 @@ import UIKit
 class GameEndViewController: UIViewController {
     
     private let defaults = UserDefaults.standard
-    
     private var tasksArray = TasksDataModel.tasks.shuffled()
-    
     private var gameWithTasksEnabled : Bool = UserDefaults.standard.bool(forKey: K.UserDefaultsKeys.gameWithTasksBool)
-    
 
     // MARK: - Properties
     
@@ -57,6 +54,7 @@ class GameEndViewController: UIViewController {
     }()
     
     // MARK: - Override Methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .gradientColor()
@@ -75,6 +73,7 @@ class GameEndViewController: UIViewController {
     }
 
     // MARK: - Private Methods
+    
     private func addSubviews() {
         view.addSubview(topLabel)
         view.addSubview(explosionImageView)
@@ -108,6 +107,7 @@ class GameEndViewController: UIViewController {
 }
 
 // MARK: - Target Actions
+
 extension GameEndViewController {
 
     @objc func nextTaskButtonPressed(_ button: UIButton) {

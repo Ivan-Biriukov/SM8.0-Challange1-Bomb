@@ -1,8 +1,8 @@
 import UIKit
 
 class CategoriesViewController: UIViewController {
-    private let defaults = UserDefaults.standard
     
+    private let defaults = UserDefaults.standard
     private var cellDataArray : [CategoryesDataModel] = [
         .init(imageName: K.Images.aboutLife, titleLabel: "О Разном", chechMarkSelected: UserDefaults.standard.bool(forKey: K.UserDefaultsKeys.aboutAllCategoryChoosen)),
         .init(imageName: K.Images.sportAndHobby, titleLabel: "Спорт и Хобби", chechMarkSelected: UserDefaults.standard.bool(forKey: K.UserDefaultsKeys.sportAndHobbyCathegoryChoosen)),
@@ -95,7 +95,7 @@ extension CategoriesViewController : UICollectionViewDelegate, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6
+        return cellDataArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

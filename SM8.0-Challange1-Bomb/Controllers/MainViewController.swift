@@ -12,7 +12,7 @@ class MainViewController: UIViewController {
         stack.alignment = .center
         stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
-    } ()
+    }()
     
     private lazy var titleStack: UIStackView = {
         let stack = UIStackView()
@@ -22,7 +22,7 @@ class MainViewController: UIViewController {
         stack.alignment = .center
         stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
-    } ()
+    }()
     
     private lazy var buttonsStack: UIStackView = {
         let stack = UIStackView()
@@ -32,7 +32,7 @@ class MainViewController: UIViewController {
         stack.alignment = .center
         stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
-    } ()
+    }()
     
     private lazy var roundButtonsStack: UIStackView = {
         let stack = UIStackView()
@@ -42,7 +42,7 @@ class MainViewController: UIViewController {
         stack.alignment = .top
         stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
-    } ()
+    }()
     
     private let titleOne: UILabel = {
         let label = UILabel()
@@ -53,7 +53,7 @@ class MainViewController: UIViewController {
         label.textColor = .black
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
-    } ()
+    }()
     
     private let titleBomb: UILabel = {
         let label = UILabel()
@@ -67,9 +67,8 @@ class MainViewController: UIViewController {
         label.layer.shadowRadius = 4
         label.layer.shadowOffset = CGSize(width: 0, height: 4)
         label.translatesAutoresizingMaskIntoConstraints = false
-        
         return label
-    } ()
+    }()
     
     private let logoImage: UIImageView = {
       let view = UIImageView()
@@ -77,13 +76,12 @@ class MainViewController: UIViewController {
         view.contentMode = .center
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
-    } ()
+    }()
     
 
     private lazy var gameStartButton = CustomButton(text: "Старт игры", active: .enable)
     private lazy var gameContinewButton = CustomButton(text: "Продолжить", active: .disable)
     private lazy var categoryButton = CustomButton(text: "Категории", active: .enable)
-    
     private lazy var buttonSettings = RoundButton(image: K.Images.settingsLogo)
     private lazy var buttonHelp = RoundButton(image: K.Images.question)
     

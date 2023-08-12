@@ -10,8 +10,6 @@
 		1666775A2A83DFBD0005965C /* Rule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166677592A83DFBD0005965C /* Rule.swift */; };
 		1666775C2A83DFE10005965C /* RuleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1666775B2A83DFE10005965C /* RuleData.swift */; };
 		1666775E2A83E03D0005965C /* RulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1666775D2A83E03D0005965C /* RulesViewController.swift */; };
-		166677642A83E27D0005965C /* RulesViewController + UITableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166677632A83E27D0005965C /* RulesViewController + UITableViewDataSource.swift */; };
-		166677662A83E2C20005965C /* RulesViewController + UITableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166677652A83E2C20005965C /* RulesViewController + UITableViewDelegate.swift */; };
 		16860A972A854475000D09F8 /* RulesTableViewDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16860A962A854475000D09F8 /* RulesTableViewDataModel.swift */; };
 		16860A992A8544B6000D09F8 /* RulesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16860A982A8544B6000D09F8 /* RulesTableViewCell.swift */; };
 		16860A9B2A854D01000D09F8 /* RulesPlusTaskTableViewDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16860A9A2A854D01000D09F8 /* RulesPlusTaskTableViewDataModel.swift */; };
@@ -60,8 +58,6 @@
 		166677592A83DFBD0005965C /* Rule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rule.swift; sourceTree = "<group>"; };
 		1666775B2A83DFE10005965C /* RuleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuleData.swift; sourceTree = "<group>"; };
 		1666775D2A83E03D0005965C /* RulesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesViewController.swift; sourceTree = "<group>"; };
-		166677632A83E27D0005965C /* RulesViewController + UITableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RulesViewController + UITableViewDataSource.swift"; sourceTree = "<group>"; };
-		166677652A83E2C20005965C /* RulesViewController + UITableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RulesViewController + UITableViewDelegate.swift"; sourceTree = "<group>"; };
 		16860A962A854475000D09F8 /* RulesTableViewDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesTableViewDataModel.swift; sourceTree = "<group>"; };
 		16860A982A8544B6000D09F8 /* RulesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesTableViewCell.swift; sourceTree = "<group>"; };
 		16860A9A2A854D01000D09F8 /* RulesPlusTaskTableViewDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesPlusTaskTableViewDataModel.swift; sourceTree = "<group>"; };
@@ -119,22 +115,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		166677622A83E2630005965C /* RulesViewController +Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				166677632A83E27D0005965C /* RulesViewController + UITableViewDataSource.swift */,
-				166677652A83E2C20005965C /* RulesViewController + UITableViewDelegate.swift */,
-				434A386D2A84EA22005D5CC0 /* UIImage+Extension.swift */,
-			);
-			path = "RulesViewController +Extensions";
-			sourceTree = "<group>";
-		};
 		434A38712A84EADD005D5CC0 /* GIFs */ = {
 			isa = PBXGroup;
 			children = (
 				434A38722A84EAFB005D5CC0 /* bombGif.gif */,
 			);
 			path = GIFs;
+			sourceTree = "<group>";
+		};
+		578C083A2A88201200D133ED /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				578C083C2A88202C00D133ED /* CollectionViewCells */,
+				578C083B2A88201D00D133ED /* TableViewCells */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		578C083B2A88201D00D133ED /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				16860A9C2A854D80000D09F8 /* PlusTaskTableViewCell.swift */,
+				16860A982A8544B6000D09F8 /* RulesTableViewCell.swift */,
+				16860A9E2A855478000D09F8 /* RulesCustomTableViewCell.swift */,
+			);
+			path = TableViewCells;
+			sourceTree = "<group>";
+		};
+		578C083C2A88202C00D133ED /* CollectionViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				E8C190702A84F84A00582224 /* CategoriesCollectionViewCell.swift */,
+			);
+			path = CollectionViewCells;
+			sourceTree = "<group>";
+		};
+		578C083D2A88227000D133ED /* GameViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				575983342A83E7FC001B38A3 /* GameViewController.swift */,
+				575983352A83E7FC001B38A3 /* GameEndViewController.swift */,
+			);
+			path = GameViewControllers;
 			sourceTree = "<group>";
 		};
 		57A8D3842A83CBBC00D411E5 = {
@@ -184,12 +206,9 @@
 		57A8D3A52A83CC5500D411E5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				578C083A2A88201200D133ED /* Cells */,
 				57A8D3CD2A83CFBB00D411E5 /* Buttons */,
 				57A8D3CC2A83CFB100D411E5 /* Labels */,
-				16860A9E2A855478000D09F8 /* RulesCustomTableViewCell.swift */,
-				E8C190702A84F84A00582224 /* CategoriesCollectionViewCell.swift */,
-				16860A982A8544B6000D09F8 /* RulesTableViewCell.swift */,
-				16860A9C2A854D80000D09F8 /* PlusTaskTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -197,13 +216,12 @@
 		57A8D3A62A83CC5C00D411E5 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				575983352A83E7FC001B38A3 /* GameEndViewController.swift */,
-				575983342A83E7FC001B38A3 /* GameViewController.swift */,
-				57A8D3942A83CBBC00D411E5 /* MainViewController.swift */,
-				5759832E2A83D696001B38A3 /* SettingsViewController.swift */,
 				57A8D39B2A83CBBF00D411E5 /* LaunchScreen.storyboard */,
-				1666775D2A83E03D0005965C /* RulesViewController.swift */,
+				57A8D3942A83CBBC00D411E5 /* MainViewController.swift */,
+				578C083D2A88227000D133ED /* GameViewControllers */,
 				E8C1906C2A84F6E000582224 /* CategoriesViewController.swift */,
+				1666775D2A83E03D0005965C /* RulesViewController.swift */,
+				5759832E2A83D696001B38A3 /* SettingsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -225,7 +243,7 @@
 		57A8D3A82A83CC8600D411E5 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				166677622A83E2630005965C /* RulesViewController +Extensions */,
+				434A386D2A84EA22005D5CC0 /* UIImage+Extension.swift */,
 				57A8D3C42A83CF0600D411E5 /* UIColor+ Extension.swift */,
 				57A8D3C62A83CF2400D411E5 /* UIFont+ Extension.swift */,
 				57A8D3C82A83CF4000D411E5 /* UIViewController+ Extension.swift */,
@@ -386,8 +404,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				166677642A83E27D0005965C /* RulesViewController + UITableViewDataSource.swift in Sources */,
-				166677662A83E2C20005965C /* RulesViewController + UITableViewDelegate.swift in Sources */,
 				57A8D3C52A83CF0600D411E5 /* UIColor+ Extension.swift in Sources */,
 				57A8D3952A83CBBC00D411E5 /* MainViewController.swift in Sources */,
 				16860A9B2A854D01000D09F8 /* RulesPlusTaskTableViewDataModel.swift in Sources */,

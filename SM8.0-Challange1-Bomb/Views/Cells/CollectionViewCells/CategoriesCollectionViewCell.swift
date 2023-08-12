@@ -1,10 +1,3 @@
-//
-//  CategoriesCollectionViewCell.swift
-//  SM8.0-Challange1-Bomb
-//
-//  Created by Elizaveta Eremyonok on 10.08.2023.
-//
-
 import UIKit
 
 class CategoryesCollectionViewCell: UICollectionViewCell {
@@ -72,7 +65,6 @@ class CategoryesCollectionViewCell: UICollectionViewCell {
             titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 5),
             titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -5),
         ])
-        
     }
     
      func addCheckMark(isOn : Bool) {
@@ -90,5 +82,4 @@ class CategoryesCollectionViewCell: UICollectionViewCell {
             ])
         }
     }
-    
 }

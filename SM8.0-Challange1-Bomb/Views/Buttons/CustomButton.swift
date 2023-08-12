@@ -34,7 +34,6 @@ class CustomButton: UIButton {
         layer.shadowOffset = CGSize(width: 0, height: 4)
         layer.borderColor = UIColor.black.cgColor
         layer.borderWidth = 1
-        
         addTarget(self, action: #selector(didTaped(_:)), for: .touchUpInside)
         
         switch active {

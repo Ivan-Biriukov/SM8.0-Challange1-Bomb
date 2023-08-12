@@ -4,33 +4,16 @@ import AVFoundation
 class GameViewController: UIViewController {
     
     private let defaults = UserDefaults.standard
-    
     private var gameWithBackgroundMusicEnabled : Bool = UserDefaults.standard.bool(forKey: K.UserDefaultsKeys.backgroundMusicBool)
-    
     private var questionsArray : [String] = []
-    
     private var tikSoundToPlay = SoundsDataModel.bombTikSound[UserDefaults.standard.string(forKey: K.UserDefaultsKeys.bombTikSavedValue)!]
-    
     private var explosionToPlay = SoundsDataModel.bombExplosionSound[UserDefaults.standard.string(forKey: K.UserDefaultsKeys.bombExplosionSaveValue)!]
-    
     private var backgroundMusicToPlay = SoundsDataModel.backGroundMisuc[UserDefaults.standard.string(forKey: K.UserDefaultsKeys.bgMusicSavedValue)!]
-    
     private var isGameInProgress = UserDefaults.standard.bool(forKey: K.UserDefaultsKeys.gameInProgress)
-    
     private let gameIsPaused : Bool
     
-    init(gameIsPaused: Bool) {
-        self.gameIsPaused = gameIsPaused
-        super.init(nibName: nil
-                   , bundle: nil)
-    }
-    
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     // MARK: - Properties
+    
     private let runLabel: UILabel = {
         let label = UILabel()
         label.text = "Нажмите \"Запустить\", чтобы начать игру"
@@ -85,6 +68,7 @@ class GameViewController: UIViewController {
     var currentLabelText: String?
     
     // MARK: - Override Methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .gradientColor()
@@ -104,6 +88,16 @@ class GameViewController: UIViewController {
         if gameIsPaused {
             updateUIIfGameInProgress()
         }
+    }
+    
+    init(gameIsPaused: Bool) {
+        self.gameIsPaused = gameIsPaused
+        super.init(nibName: nil
+                   , bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     // MARK: - Private Methods
@@ -174,12 +168,10 @@ class GameViewController: UIViewController {
         backgroundPlayer.play()
     }
     
-    // Остановка таймера
     func pauseTimer() {
         timer.invalidate()
     }
     
-    // Продолжение таймера
     func resumeTimer() {
         if !timer.isValid {
             timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
@@ -221,10 +213,6 @@ class GameViewController: UIViewController {
     
     private func saveSecondsPassedValue() {
         defaults.set(secondPassed, forKey: K.UserDefaultsKeys.secondPassedSavedValue)
-    }
-    
-    private func stopTimer() {
-        
     }
     
     private func updateUIIfGameInProgress() {

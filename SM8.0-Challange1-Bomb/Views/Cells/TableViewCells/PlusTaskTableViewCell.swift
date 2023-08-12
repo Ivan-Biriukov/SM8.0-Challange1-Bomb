@@ -20,7 +20,6 @@ class PlusTaskTableViewCell: UITableViewCell {
         btn.layer.cornerRadius = 13.5
         btn.layer.borderWidth = 1
         btn.layer.borderColor = UIColor.black.cgColor
-        
         return btn
     }()
     
@@ -31,7 +30,6 @@ class PlusTaskTableViewCell: UITableViewCell {
         lb.textColor = .speciallightBlack
         lb.textAlignment = .center
         lb.numberOfLines = 0
-        
         return lb
     }()
     
@@ -54,7 +52,7 @@ class PlusTaskTableViewCell: UITableViewCell {
         backgroundColor = .clear
         contentView.backgroundColor = .clear
         selectionStyle = .none
-        
+    
         contentView.addSubview(conteiner)
         conteiner.addSubview(button)
         conteiner.addSubview(titleLabel)

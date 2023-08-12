@@ -5,7 +5,6 @@ class RulesViewController: UIViewController {
     // MARK: - Required Data
     
     static let shared = RulesViewController()
-    
     private let dataArray : [RulesTableViewDataModel] = [
         .init(numberString: "1", dicription: "Все игроки становятся в круг.", buttonNeeded: false, attributedStringNeeded: false),
         .init(numberString: "2", dicription: "Первый игрок берет телефон и нажимает кнопку:", buttonNeeded: true, attributedStringNeeded: false),
@@ -146,7 +145,6 @@ class RulesViewController: UIViewController {
     }()
     
     lazy private var ruleAboutMusic = createOptionsSetting("Включить / Отключить фоновую \n музыку.")
-    
     lazy private var ruleAboutSounds  = createOptionsSetting("Выбрать звуки для фоновой музыки, тиканья бомбы и взрыва.")
     
     // MARK: - View Life Cycle
@@ -155,15 +153,12 @@ class RulesViewController: UIViewController {
         super.viewDidLoad()
         createCustomNavigationBar(title: "Помощь")
         view.backgroundColor = UIColor.gradientColor()
-        
         setUpRulesTableView()
         addSubViews()
         setUpConstrains()
         setUpDelegates()
         registerCells()
         setUpSettingTableView()
-        
-        
     }
     
     // MARK: - Setup
@@ -286,7 +281,6 @@ class RulesViewController: UIViewController {
     
     
     private func setUpRulesTableView() {
-        
         rulesTableView.backgroundColor = UIColor.clear
         rulesTableView.separatorStyle = .none
         rulesTableView.isScrollEnabled = false
@@ -294,14 +288,9 @@ class RulesViewController: UIViewController {
     
     
     private func setUpSettingTableView() {
-        
         settingTableView.backgroundColor = .clear
         settingTableView.separatorStyle = .none
     }
-    
-    
-    
-    
 }
 
 //  MARK: - TableViewDelegates DataSource

@@ -1,11 +1,4 @@
-//
-//  UIImage+Extension.swift
-//  SM8.0-Challange1-Bomb
-//
-//  Created by Ilyas Tyumenev on 10.08.2023.
-//
-
-import UIKit
+import UIKit.UIImage
 
 extension UIImage {
     
