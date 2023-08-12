@@ -187,7 +187,7 @@ class GameViewController: UIViewController {
     }
     
     private func stopBackgroundPlayer() {
-        if gameWithBackgroundMusicEnabled {
+        if gameWithBackgroundMusicEnabled && backgroundPlayer != nil {
             backgroundPlayer.stop()
         }
     }
@@ -264,7 +264,9 @@ extension GameViewController {
     }
     
     @objc func navBackTaped(_ sender: UIBarButtonItem) {
-        tikPlayer.stop()
+        if tikPlayer != nil {
+            tikPlayer.stop()
+        }
         stopBackgroundPlayer()
         self.navigationController?.popToRootViewController(animated: true)
     }
