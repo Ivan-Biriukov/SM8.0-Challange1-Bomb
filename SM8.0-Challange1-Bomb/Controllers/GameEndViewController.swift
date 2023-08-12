@@ -1,10 +1,3 @@
-//
-//  GameEndViewController.swift
-//  SM8.0-Challange1-Bomb
-//
-//  Created by Ilyas Tyumenev on 09.08.2023.
-//
-
 import UIKit
 
 class GameEndViewController: UIViewController {
@@ -14,14 +7,7 @@ class GameEndViewController: UIViewController {
     private var tasksArray = TasksDataModel.tasks.shuffled()
 
     // MARK: - Properties
-    private let backgroundImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: K.Images.background)
-        imageView.contentMode = .scaleAspectFill
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
-    }()
-
+    
     private let topLabel: UILabel = {
         let label = UILabel()
         label.text = "Проигравший выполняет \nзадание"
@@ -70,6 +56,7 @@ class GameEndViewController: UIViewController {
     // MARK: - Override Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .gradientColor()
         createCustomNavigationBar(title: "Игра")
         addSubviews()
         setupConstraints()
@@ -84,7 +71,6 @@ class GameEndViewController: UIViewController {
 
     // MARK: - Private Methods
     private func addSubviews() {
-        view.addSubview(backgroundImageView)
         view.addSubview(topLabel)
         view.addSubview(explosionImageView)
         view.addSubview(currentTaskLabel)
@@ -94,11 +80,6 @@ class GameEndViewController: UIViewController {
 
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            backgroundImageView.topAnchor.constraint(equalTo: view.topAnchor),
-            backgroundImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            backgroundImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            backgroundImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-
             topLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 90),
             topLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 2),
             topLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -2),

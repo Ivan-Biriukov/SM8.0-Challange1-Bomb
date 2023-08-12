@@ -25,18 +25,11 @@ class CategoriesViewController: UIViewController {
         return c
     }()
     
-    let backgroundView: UIImageView = {
-        let view = UIImageView()
-        view.image = UIImage(named: "background")
-        view.contentMode = .scaleToFill
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-    
     // MARK: - LifeCycle Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .gradientColor()
         createCustomNavigationBar(title: "Категории")
         setupViews()
         setupConstraints()
@@ -46,17 +39,11 @@ class CategoriesViewController: UIViewController {
     // MARK: - Configure UI
     
     private func setupViews() {
-        view.addSubview(backgroundView)
         view.addSubview(collectionView)
     }
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            backgroundView.topAnchor.constraint(equalTo: view.topAnchor),
-            backgroundView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            backgroundView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            backgroundView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 10),
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -10),
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
