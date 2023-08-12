@@ -98,10 +98,10 @@ class GameViewController: UIViewController {
             runLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
             runLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -22),
 
-            bombImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 223),
             bombImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 11),
             bombImageView.widthAnchor.constraint(equalToConstant: 312),
             bombImageView.heightAnchor.constraint(equalToConstant: 352),
+            bombImageView.bottomAnchor.constraint(equalTo: runButton.topAnchor, constant: -94),
 
             runButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 53),
             runButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -64)
@@ -142,7 +142,7 @@ extension GameViewController {
     @objc func runButtonPressed(_ button: UIButton) {
         
         if questionsArray.count == 0 {
-            let alert = UIAlertController(title: "Невозможно начать игру", message: "Друг, похоже на то, что ты не выбрал ни одной категории вопросов. К сожалению, играть без вопросов - нельзя 😢. Перейди в раздел 'Категории', чтобы выбрать вопросы, и игра начнеться!", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Невозможно начать игру", message: "Друг, похоже на то, что ты не выбрал ни одной категории вопросов. К сожалению, играть без вопросов - нельзя 😢. Перейди в раздел 'Категории', чтобы выбрать вопросы, и игра начнется!", preferredStyle: .alert)
             let cancelAction = UIAlertAction(title: "Понятно!", style: .default)
             alert.addAction(cancelAction)
             self.present(alert, animated: true)
