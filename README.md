@@ -1,8 +1,10 @@
 # BOMB-app
 
+> Bomba is a fun game that will brighten up any party! Answer the questions together with your friends until the bomb explodes. The loser performs the tasks
+____
 This project was implemented as part of the [Swift-Marathon 8.0](https://boosty.to/swiftmarathon)
 
-____
+
 # Our team:
 
 TeamLead - [Ivan](https://github.com/Ivan-Biriukov) 
@@ -17,7 +19,7 @@ TeamLead - [Ivan](https://github.com/Ivan-Biriukov)
 ____
 
 
-#### As part of this challenge [project design](https://www.figma.com/community/file/1267859220936385331) was provided and tasks were assigned:
+### As part of this challenge [project design](https://www.figma.com/community/file/1267859220936385331) was provided and tasks were assigned:
 
 ### Home Screen
 
@@ -74,7 +76,7 @@ ____
 - Device Orientation - Portraiеt
 
 ____
-#What we have created:
+# What we have created:
 
 
 
