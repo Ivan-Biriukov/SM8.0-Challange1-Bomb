@@ -15,10 +15,22 @@ class CategoriesViewController: UIViewController {
     // MARK: - UIElements
     
     let collectionView: UICollectionView = {
+        let currentWidth : CGFloat
+        let currentHeight : CGFloat
+        if K.DeviceSizes.currentHeight <= 575 {
+            currentWidth = 140
+            currentHeight = 140
+        } else if K.DeviceSizes.currentHeight <= 667{
+            currentWidth = 160
+            currentHeight = 160
+        } else {
+            currentWidth = 178
+            currentHeight = 175
+        }
         let layout = UICollectionViewFlowLayout()
         let c = UICollectionView(frame: .zero, collectionViewLayout: layout)
         layout.scrollDirection = .vertical
-        layout.itemSize = CGSize(width: 178, height: 175)
+        layout.itemSize = CGSize(width: currentWidth, height: 175)
         c.backgroundColor = .clear
         c.showsHorizontalScrollIndicator = false
         c.translatesAutoresizingMaskIntoConstraints = false
@@ -43,11 +55,21 @@ class CategoriesViewController: UIViewController {
     }
     
     private func setupConstraints() {
+        let topAnchor : CGFloat
+        
+        if K.DeviceSizes.currentHeight <= 565 {
+            topAnchor = 60
+        } else if K.DeviceSizes.currentHeight <= 667 {
+            topAnchor = 80
+        } else {
+            topAnchor = 150
+        }
+        
         NSLayoutConstraint.activate([
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 10),
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -10),
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 150),
+            collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: topAnchor),
         ])
     }
     
