@@ -100,4 +100,6 @@ ____
 <a href="url"><img src="ReadMeAssets/GamePaused.png" height="400" width="auto"></a>
 <a href="url"><img src="ReadMeAssets/gameEnded.png" height="400" width="auto"></a>
 
-
+<h3> Game Settings Screen</h3>
+<a href="url"><img src="ReadMeAssets/Settings1.png" height="400" width="auto"></a>
+<a href="url"><img src="ReadMeAssets/setting2.png" height="400" width="auto"></a>
