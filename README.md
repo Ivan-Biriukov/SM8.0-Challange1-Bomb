@@ -91,7 +91,7 @@ ____
 <h3 align="center"> MainScreen
 <p align="center">
   <a href="url"><img src="ReadMeAssets/mainDisabled.png" height="400" width="auto"></a>
-   <a href="url"><img src="ReadMeAssets/mainDisabled.png" height="400" width="auto"></a> 
+   <a href="url"><img src="ReadMeAssets/mainEnabled.png" height="400" width="auto"></a> 
 </p>
 
 <h3 align="center"> Coose Questions Categoryes Screen
