@@ -19,7 +19,7 @@ struct SoundsDataModel {
     static let bombExplosionSound : [String : String] = [
         "Взрыв 1" : "explosion1",
         "Взрыв 2" : "explosion2",
-        "Взырв 3" : "explosion3",
+        "Взрыв 3" : "explosion3",
         "Взрыв 4" : "explosion4",
     ]
 }
