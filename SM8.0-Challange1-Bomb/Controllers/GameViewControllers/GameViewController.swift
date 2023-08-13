@@ -112,7 +112,6 @@ class GameViewController: UIViewController {
         NSLayoutConstraint.activate([
             runLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
             runLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -22),
-            
             runButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 53),
             runButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -64)
         ])
