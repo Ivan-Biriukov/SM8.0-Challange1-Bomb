@@ -83,6 +83,11 @@ ____
 ____
 # What we have created:
 
+<h3 align="center"> Launch Screen
+<p align="center">
+  <a href="url"><img src="ReadMeAssets/Simulator Screenshot - iPhone 14 Pro - 2023-08-13 at 12.12.55.png" height="400" width="auto"></a>
+</p>
+
 <h3 align="center"> MainScreen
 <p align="center">
   <a href="url"><img src="ReadMeAssets/mainDisabled.png" height="400" width="auto"></a>
@@ -96,7 +101,13 @@ ____
 </p>
 
 
-<h3> Rules Screen</h3>
+<h3 align="center"> Rules Screen
+<p align="center">
+  <a href="url"><img src="ReadMeAssets/Simulator Screenshot - iPhone 14 Pro - 2023-08-13 at 12.39.22.png" height="400" width="auto"></a>
+  <a href="url"><img src="ReadMeAssets/Simulator Screenshot - iPhone 14 Pro - 2023-08-13 at 12.39.30.png" height="400" width="auto"></a>
+    <a href="url"><img src="ReadMeAssets/Simulator Screenshot - iPhone 14 Pro - 2023-08-13 at 12.39.35.png" height="400" width="auto"></a>
+</p>
+
 
 
 <h3 align="center"> Game Processing Screens
