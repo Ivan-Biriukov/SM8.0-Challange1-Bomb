@@ -74,6 +74,7 @@ class GameViewController: UIViewController {
         view.backgroundColor = .gradientColor()
         addSubviews()
         setupConstraints()
+        adaptiveUI()
         playPauseButton.addTarget(self, action: #selector(playPauseButtonPressed), for: .touchUpInside)
         self.navigationController?.navigationBar.topItem?.title = " "
         self.navigationController?.navigationBar.tintColor = .black
@@ -109,14 +110,8 @@ class GameViewController: UIViewController {
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            runLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 105),
             runLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
             runLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -22),
-            
-            bombImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 11),
-            bombImageView.widthAnchor.constraint(equalToConstant: 312),
-            bombImageView.heightAnchor.constraint(equalToConstant: 352),
-            bombImageView.bottomAnchor.constraint(equalTo: runButton.topAnchor, constant: -30),
             
             runButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 53),
             runButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -64)
@@ -233,6 +228,29 @@ class GameViewController: UIViewController {
             createGif()
             runLabel.text = currentLabelText
             runButton.isHidden = true
+        }
+    }
+    
+    private func adaptiveUI() {
+        if K.DeviceSizes.currentHeight <= 575 {
+            runLabel.font = .delaGothic24()
+            runLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 60).isActive = true
+            bombImageView.widthAnchor.constraint(equalToConstant: K.DeviceSizes.currentWidth / 2).isActive = true
+            bombImageView.heightAnchor.constraint(equalToConstant: K.DeviceSizes.currentHeight / 2).isActive = true
+            bombImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 110).isActive = true
+            bombImageView.bottomAnchor.constraint(equalTo: runButton.topAnchor).isActive = true
+        } else if K.DeviceSizes.currentHeight <= 675 {
+            runLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 80).isActive = true
+            bombImageView.widthAnchor.constraint(equalToConstant: K.DeviceSizes.currentWidth / 2).isActive = true
+            bombImageView.heightAnchor.constraint(equalToConstant: K.DeviceSizes.currentHeight / 2).isActive = true
+            bombImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 140).isActive = true
+            bombImageView.bottomAnchor.constraint(equalTo: runButton.topAnchor).isActive = true
+        } else {
+            runLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
+            bombImageView.widthAnchor.constraint(equalToConstant: K.DeviceSizes.currentWidth / 2.5).isActive = true
+            bombImageView.heightAnchor.constraint(equalToConstant: K.DeviceSizes.currentHeight / 2.5).isActive = true
+            bombImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 160).isActive = true
+            bombImageView.bottomAnchor.constraint(equalTo: runButton.topAnchor,constant: -60).isActive = true
         }
     }
 }
