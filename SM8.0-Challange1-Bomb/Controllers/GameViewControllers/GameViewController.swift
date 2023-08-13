@@ -309,7 +309,6 @@ extension GameViewController {
     @objc func updateTimer() {
         if secondPassed < totalTime {
             self.secondPassed += 1
-            print(secondPassed)
         } else {
             timer.invalidate()
             tikPlayer.stop()

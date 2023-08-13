@@ -90,17 +90,12 @@ class GameEndViewController: UIViewController {
 
             explosionImageView.topAnchor.constraint(equalTo: topLabel.bottomAnchor, constant: 35),
             explosionImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-//            explosionImageView.widthAnchor.constraint(equalToConstant: 265),
-//            explosionImageView.heightAnchor.constraint(equalToConstant: 300),
 
             currentTaskLabel.topAnchor.constraint(equalTo: explosionImageView.bottomAnchor, constant: 35),
-//            currentTaskLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
-//            currentTaskLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),
 
             nextTaskButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             nextTaskButton.bottomAnchor.constraint(equalTo: startAgainButton.topAnchor, constant: -15),
             startAgainButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-//            startAgainButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -49)
         ])
     }
     
@@ -134,9 +129,6 @@ class GameEndViewController: UIViewController {
             explosionImageView.heightAnchor.constraint(equalToConstant: K.DeviceSizes.currentHeight / 3).isActive = true
             currentTaskLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15).isActive = true
             currentTaskLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15).isActive = true
-//            currentTaskLabel.font = .delaGothic20()
-//            startAgainButton.titleLabel?.font = .delaGothic16()
-//            nextTaskButton.titleLabel?.font = .delaGothic16()
             startAgainButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50).isActive = true
         }
     }

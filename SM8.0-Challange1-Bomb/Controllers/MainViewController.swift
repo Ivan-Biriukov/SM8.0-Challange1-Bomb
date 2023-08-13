@@ -100,11 +100,6 @@ class MainViewController: UIViewController {
         self.navigationController?.navigationBar.isHidden = true
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        self.navigationController?.navigationBar.isHidden = false
-    }
-    
     // MARK: - Buttons Methods
     
     @objc private func startGameTaped(_ sender: UIButton) {
