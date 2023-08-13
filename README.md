@@ -83,23 +83,34 @@ ____
 ____
 # What we have created:
 
-<h3> MainScreen</h3>
-<a href="url"><img src="ReadMeAssets/mainDisabled.png" height="400" width="auto"></a>
-<a href="url"><img src="ReadMeAssets/mainDisabled.png" height="400" width="auto"></a>
+<h3 align="center"> MainScreen
+<p align="center">
+  <a href="url"><img src="ReadMeAssets/mainDisabled.png" height="400" width="auto"></a>
+   <a href="url"><img src="ReadMeAssets/mainDisabled.png" height="400" width="auto"></a> 
+</p>
 
-<h3> Coose Questions Categoryes Screen</h3>
-<a href="url"><img src="ReadMeAssets/chooseCat1.png" height="400" width="auto"></a>
-<a href="url"><img src="ReadMeAssets/chooseCat2.png" height="400" width="auto"></a>
+<h3 align="center"> Coose Questions Categoryes Screen
+<p align="center">
+  <a href="url"><img src="ReadMeAssets/chooseCat1.png" height="400" width="auto"></a>
+  <a href="url"><img src="ReadMeAssets/chooseCat2.png" height="400" width="auto"></a>
+</p>
+
 
 <h3> Rules Screen</h3>
 
 
-<h3> Game Processing Screens</h3>
-<a href="url"><img src="ReadMeAssets/gameStart.png" height="400" width="auto"></a>
-<a href="url"><img src="ReadMeAssets/gameInProgress.png" height="400" width="auto"></a>
-<a href="url"><img src="ReadMeAssets/GamePaused.png" height="400" width="auto"></a>
-<a href="url"><img src="ReadMeAssets/gameEnded.png" height="400" width="auto"></a>
+<h3 align="center"> Game Processing Screens
+<p align="center">
+  <a href="url"><img src="ReadMeAssets/gameStart.png" height="400" width="auto"></a>
+  <a href="url"><img src="ReadMeAssets/gameInProgress.png" height="400" width="auto"></a>
+  <a href="url"><img src="ReadMeAssets/GamePaused.png" height="400" width="auto"></a>
+  <a href="url"><img src="ReadMeAssets/gameEnded.png" height="400" width="auto"></a>
+</p>
 
-<h3> Game Settings Screen</h3>
-<a href="url"><img src="ReadMeAssets/Settings1.png" height="400" width="auto"></a>
-<a href="url"><img src="ReadMeAssets/setting2.png" height="400" width="auto"></a>
+
+<h3 align="center"> Game Settings Screen
+<p align="center">
+  <a href="url"><img src="ReadMeAssets/Settings1.png" height="400" width="auto"></a>
+  <a href="url"><img src="ReadMeAssets/setting2.png" height="400" width="auto"></a>
+</p>
+
