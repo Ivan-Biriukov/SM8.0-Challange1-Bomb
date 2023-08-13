@@ -142,9 +142,11 @@ extension GameEndViewController {
     
     private func settingUIFromUD() {
         if gameWithTasksEnabled {
+            topLabel.text = "Проигравший выполняет \nзадание"
             currentTaskLabel.isHidden = false
             nextTaskButton.isHidden = false
         } else {
+            topLabel.text = "Игра закончена"
             currentTaskLabel.isHidden = true
             nextTaskButton.isHidden = true
         }
