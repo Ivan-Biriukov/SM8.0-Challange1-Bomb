@@ -8,7 +8,6 @@ class MainViewController: UIViewController {
         let stack = UIStackView()
         stack.axis = .vertical
         stack.distribution = .fill
-        stack.spacing = -36
         stack.alignment = .center
         stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
@@ -73,11 +72,10 @@ class MainViewController: UIViewController {
     private let logoImage: UIImageView = {
       let view = UIImageView()
         view.image = UIImage(named: K.Images.logoImage)
-        view.contentMode = .center
+        view.contentMode = .scaleAspectFit
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    
 
     private lazy var gameStartButton = CustomButton(text: "Старт игры", active: .enable)
     private lazy var gameContinewButton = CustomButton(text: "Продолжить", active: .disable)
@@ -99,6 +97,12 @@ class MainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         changeContinewButton()
+        self.navigationController?.navigationBar.isHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        self.navigationController?.navigationBar.isHidden = false
     }
     
     // MARK: - Buttons Methods
@@ -158,7 +162,7 @@ class MainViewController: UIViewController {
         buttonsStack.addArrangedSubview(gameContinewButton)
         buttonsStack.addArrangedSubview(categoryButton)
     
-        view.addSubview(roundButtonsStack)
+        contentStack.addArrangedSubview(roundButtonsStack)
         roundButtonsStack.addArrangedSubview(buttonSettings)
         roundButtonsStack.addArrangedSubview(buttonHelp)
     }
@@ -168,10 +172,9 @@ class MainViewController: UIViewController {
             contentStack.topAnchor.constraint(equalTo: view.topAnchor, constant: 51),
             contentStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 2),
             contentStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -3),
-            
-            roundButtonsStack.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -30),
-            roundButtonsStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 14),
-            roundButtonsStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -14)
+            contentStack.bottomAnchor.constraint(equalTo: view.bottomAnchor,constant: -20),
+            roundButtonsStack.leadingAnchor.constraint(equalTo: contentStack.leadingAnchor, constant: 14),
+            roundButtonsStack.trailingAnchor.constraint(equalTo: contentStack.trailingAnchor, constant: -14)
         ])
     }
     
