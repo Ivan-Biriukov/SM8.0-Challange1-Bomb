@@ -97,7 +97,6 @@ class MainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         changeContinewButton()
-        self.navigationController?.navigationBar.isHidden = true
     }
     
     // MARK: - Buttons Methods
