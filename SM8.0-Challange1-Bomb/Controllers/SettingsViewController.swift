@@ -149,6 +149,7 @@ class SettingsViewController: UIViewController {
         updateSoundsButtonsLabel()
         updateGameWithTaskSwitchValue()
         updateMusicSwitchValue()
+        adaptiveConstraints()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -347,6 +348,22 @@ class SettingsViewController: UIViewController {
             fourthLine.trailingAnchor.constraint(equalTo: contentStack.trailingAnchor),
             fifthLine.trailingAnchor.constraint(equalTo: contentStack.trailingAnchor),
         ])
+    }
+    
+    private func adaptiveConstraints() {
+        if K.DeviceSizes.currentHeight <= 575 {
+            contentStack.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -30).isActive = true
+            backgroundMusicMelodyLabel.font = .delaGothic14()
+            chooseBGMelodyButton.titleLabel?.font = .delaGothic14()
+            bombTikLabel.font = .delaGothic14()
+            chooseBombTikButton.titleLabel?.font = .delaGothic14()
+            bombExplosionLabel.font = .delaGothic14()
+            chooseBombExplButton.titleLabel?.font = .delaGothic14()
+        } else if K.DeviceSizes.currentWidth <= 667 {
+            chooseBGMelodyButton.titleLabel?.font = .delaGothic14()
+            chooseBombTikButton.titleLabel?.font = .delaGothic14()
+            chooseBombExplButton.titleLabel?.font = .delaGothic14()
+        }
     }
     
     private func addButtonsTargets() {

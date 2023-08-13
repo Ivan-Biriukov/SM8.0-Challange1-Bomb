@@ -23,7 +23,12 @@ class CustomButton: UIButton {
     
     private func setup() {
         translatesAutoresizingMaskIntoConstraints = false
-        self.heightAnchor.constraint(equalToConstant: (K.DeviceSizes.currentHeight / 10.3417722)).isActive = true
+        if K.DeviceSizes.currentHeight <= 667 {
+            self.heightAnchor.constraint(equalToConstant: (K.DeviceSizes.currentHeight / 12)).isActive = true
+        } else {
+            self.heightAnchor.constraint(equalToConstant: (K.DeviceSizes.currentHeight / 10.3417722)).isActive = true
+        }
+
         self.widthAnchor.constraint(equalToConstant: (K.DeviceSizes.currentWidth / 1.36861314)).isActive = true
         setTitle(text, for: .normal)
         titleLabel?.font = .delaGothic24()

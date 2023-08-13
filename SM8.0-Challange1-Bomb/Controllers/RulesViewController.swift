@@ -34,7 +34,15 @@ class RulesViewController: UIViewController {
     private let settingsCellID = "settingsCellID"
     
     private var contentSize: CGSize  {
-        CGSize(width: view.frame.width, height: view.frame.height + 615 + 246 + 350)
+        var height : CGFloat = 100
+        if K.DeviceSizes.currentHeight <= 575 {
+            height = 2550
+        } else if K.DeviceSizes.currentHeight <= 667 {
+            height = 2200
+        } else {
+            height = 2050
+        }
+       return CGSize(width: view.frame.width, height: height)
     }
     
     //    MARK: - UI Elements
@@ -100,10 +108,22 @@ class RulesViewController: UIViewController {
     }()
     
     private let colletctionView : UICollectionView = {
+        let currentWidth : CGFloat
+        let currentHeight : CGFloat
+        if K.DeviceSizes.currentHeight <= 575 {
+            currentWidth = 140
+            currentHeight = 180
+        } else if K.DeviceSizes.currentHeight <= 667{
+            currentWidth = 170
+            currentHeight = 175
+        } else {
+            currentWidth = 178
+            currentHeight = 175
+        }
         let layout = UICollectionViewFlowLayout()
         let c = UICollectionView(frame: .zero, collectionViewLayout: layout)
         layout.scrollDirection = .vertical
-        layout.itemSize = CGSize(width: 178, height: 175)
+        layout.itemSize = CGSize(width: currentWidth, height: currentHeight)
         c.backgroundColor = .clear
         c.showsHorizontalScrollIndicator = false
         c.translatesAutoresizingMaskIntoConstraints = false
@@ -182,11 +202,30 @@ class RulesViewController: UIViewController {
     }
     
     private func setUpConstrains() {
-        let rulesTableViewheight = tableViewHeightCalculate(rulesTableView) * 2.6
-        let settingsTableViewHeight = tableViewHeightCalculate(settingTableView) * 1.65
+        let rulesTableViewheight : CGFloat
+        let settingsTableViewHeight : CGFloat
+        let collectionViewHeight : CGFloat
+        
+        let topAnchor : CGFloat
+        if K.DeviceSizes.currentHeight <= 580 {
+            topAnchor = 60
+            collectionViewHeight = 380
+            rulesTableViewheight = tableViewHeightCalculate(rulesTableView) * 3.65
+            settingsTableViewHeight = tableViewHeightCalculate(settingTableView) * 2.2
+        } else if K.DeviceSizes.currentHeight <= 667 {
+            topAnchor = 80
+            collectionViewHeight = 360
+            rulesTableViewheight = tableViewHeightCalculate(rulesTableView) * 3
+            settingsTableViewHeight = tableViewHeightCalculate(settingTableView) * 1.65
+        } else {
+            topAnchor = 100
+            collectionViewHeight = 360
+            rulesTableViewheight = tableViewHeightCalculate(rulesTableView) * 2.6
+            settingsTableViewHeight = tableViewHeightCalculate(settingTableView) * 1.65
+        }
         
         NSLayoutConstraint.activate([
-            scrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
+            scrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: topAnchor),
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
@@ -198,7 +237,7 @@ class RulesViewController: UIViewController {
             rulesTableView.heightAnchor.constraint(equalToConstant: rulesTableViewheight),
             rulesTableView.widthAnchor.constraint(equalToConstant: K.DeviceSizes.currentWidth - 40),
             
-            colletctionView.heightAnchor.constraint(equalToConstant: 360),
+            colletctionView.heightAnchor.constraint(equalToConstant: collectionViewHeight),
             colletctionView.widthAnchor.constraint(equalToConstant: K.DeviceSizes.currentWidth - 20),
             
             settingTableView.heightAnchor.constraint(equalToConstant: settingsTableViewHeight),
