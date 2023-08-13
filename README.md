@@ -1,7 +1,6 @@
 # BOMB-app   <a href="url"><img src="ReadMeAssets/0x0ss-85 (9) (1).png"  align="left"></a>
 
-
-> Bomba is a fun game that will brighten up any party! Answer the questions together with your friends until the bomb explodes. The loser performs the tasks
+> [![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=9C73F7&multiline=true&width=900&height=90&lines=Bomba+is+a+fun+game+that+will+brighten+up+any+party!+;Answer+the+questions+together+with+your+friends+until+the+bomb+explodes.+;The+loser+performs+the+tasks)](https://git.io/typing-svg)
 ____
 This project was implemented as part of the [Swift-Marathon 8.0](https://boosty.to/swiftmarathon)   <a href="url"><img src="ReadMeAssets/swift Marathon.jpeg" height="auto" width="50" align="center"></a>
 
