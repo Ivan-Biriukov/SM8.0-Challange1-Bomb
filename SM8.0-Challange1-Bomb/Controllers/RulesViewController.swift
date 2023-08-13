@@ -24,7 +24,7 @@ class RulesViewController: UIViewController {
     
     private let settingsTableDataArray: [RulesPlusTaskTableViewDataModel] = [
         .init(buttonTitle: "Короткое", describtion: "Бомба взорвется в течении 10 секунд."),
-        .init(buttonTitle: "Средниее", describtion: "Бомба взорвется в течении 20 секунд."),
+        .init(buttonTitle: "Среднее", describtion: "Бомба взорвется в течении 20 секунд."),
         .init(buttonTitle: "Длинное", describtion: "Бомба взорвется в течении 45 секунд."),
         .init(buttonTitle: "Случайное", describtion: "Бомба взорвется в течении 10-45 секунд.")
     ]
