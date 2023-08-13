@@ -34,7 +34,7 @@ class RulesViewController: UIViewController {
     private let settingsCellID = "settingsCellID"
     
     private var contentSize: CGSize  {
-        CGSize(width: view.frame.width, height: view.frame.height + 615 + 232 + 350)
+        CGSize(width: view.frame.width, height: view.frame.height + 615 + 246 + 350)
     }
     
     //    MARK: - UI Elements
@@ -182,7 +182,7 @@ class RulesViewController: UIViewController {
     }
     
     private func setUpConstrains() {
-        let rulesTableViewheight = tableViewHeightCalculate(rulesTableView) * 2.5
+        let rulesTableViewheight = tableViewHeightCalculate(rulesTableView) * 2.6
         let settingsTableViewHeight = tableViewHeightCalculate(settingTableView) * 1.65
         
         NSLayoutConstraint.activate([
